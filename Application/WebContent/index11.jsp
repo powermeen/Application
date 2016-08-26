@@ -8,7 +8,7 @@
 
 
 <title>Home Page</title>
-<jsp:include page="CssJSMain.jsp"></jsp:include>
+<%-- <jsp:include page="CssJSMain.jsp"></jsp:include> --%>
 
 <style type="text/css">
 .container {
@@ -19,25 +19,30 @@
 
 <script type="text/javascript">
 		
-		$(document).ready(function(){
-		    $("#demoLoginButton").click(function(){
-		      window.location.assign("./jsp/Login.jsp")
+// 		$(document).ready(function(){
+// 		    $("#demoLoginButton").click(function(){
+// 		      window.location.assign("./jsp/Login.jsp")
 		
-		    });
+// 		    });
 		    
-		    $("#demoShowDisplayButton").click(function(){
-			      window.location.assign("./jsp/DisplayData.jsp")
+// 		    $("#demoShowDisplayButton").click(function(){
+// 			      window.location.assign("./jsp/DisplayData.jsp")
 			
-			    });
-		});
+// 			    });
+// 		});
 	</script>
 </head>
 <body>
 
 	<div class="container jumbotron ">
 
+		<form action="">
+		
 		<button class="btn btn-primary" id="demoLoginButton">Demo Login</button>
 		<button class="btn btn-primary" id="demoShowDisplayButton">Demo Show Display Table</button>
+		
+		
+		</form>
 	</div>
 </body>
 </html>
