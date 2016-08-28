@@ -38,8 +38,8 @@
 
 		<form action="selectDemo" method="get">
 		
-		<button class="btn btn-primary" id="demoLoginButton" name="demoPage" value="login"  >Demo Login</button>
-<!-- 		<button class="btn btn-primary" id="demoShowDisplayButton" name="demoPage" value="Display" >Demo Show Display Table</button> -->
+		<button class="btn btn-primary" id="demoLoginButton" name="demoPage" value="Login"  >Demo Login</button>
+		<button class="btn btn-primary" id="demoShowDisplayButton" name="demoPage" value="displayData01" >Demo Show Display Table</button>
 		
 		
 		</form>

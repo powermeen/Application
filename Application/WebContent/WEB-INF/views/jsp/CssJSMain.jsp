@@ -21,11 +21,17 @@
 
 <!-- Css -->
 <spring:url value="/resources/core/css/bootstrap.css" var="bootstrapCss" />
+<spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapMinCss" />
+<spring:url value="/resources/core/css/bootstrap-theme.css" var="bootstrapThemeCss" />
+<spring:url value="/resources/core/css/bootstrap-theme.min.css" var="bootstrapThemeMinCss" />
 <spring:url value="/resources/core/css/reset.css" var="resetCss" />
 <spring:url value="/resources/core/css/style.css" var="styleCss" />
 
 <link rel="stylesheet" href="${bootstrapCss}"  />
-<link rel="stylesheet" href="${resetCss}"  />
+<link rel="stylesheet" href="${bootstrapMinCss}"  />
+<link rel="stylesheet" href="${bootstrapThemeCss}"  />
+<link rel="stylesheet" href="${bootstrapThemeMinCss}"  />
+<%-- <link rel="stylesheet" href="${resetCss}"  /> --%>
 <link rel="stylesheet" href="${styleCss}"  />
 
 <!-- JS -->

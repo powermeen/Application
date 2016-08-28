@@ -16,8 +16,7 @@ public class AllpicationController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String welcomeDemo(ModelMap model) {
 
-		
-		return PageRegister.INDEX;
+		return PageRegister.INDEX.getPath();
 
 	}
 
@@ -31,28 +30,34 @@ public class AllpicationController {
 		return model;
 
 	}
-	
-	@RequestMapping(value = "/selectDemo" ,  method = RequestMethod.GET)
+
+	@RequestMapping(value = "/selectDemo", method = RequestMethod.GET)
 	public String selectDemo(@RequestParam("demoPage") String demoPage) {
 		String page = null;
-		
-		switch (demoPage) {
-		case PageRegister.LOGIN:
-			
-			page = PageRegister.LOGIN;
-			
-			break;
-			
-		default:
-			page = PageRegister.INDEX;
-			break;
-		}
-	
 
+		
+		if(PageRegister.LOGIN.getKey().equalsIgnoreCase(demoPage)){
+			
+			page = PageRegister.LOGIN.getPath();
+			
+		}else if (PageRegister.DISPLAY_DATA_01.getKey().equalsIgnoreCase(demoPage)) {
+			
+			page = PageRegister.DISPLAY_DATA_01.getPath();
+			
+		}else {
+			page = PageRegister.INDEX.getPath();
+		}
 		return page;
 
 	}
 	
-	
-
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String authenticationLogin(@RequestParam("username") String username,@RequestParam("password") String password) {
+		String page = null;
+		
+		String string = username;
+		String string2 = password;
+		
+		return page;
+	}
 }
