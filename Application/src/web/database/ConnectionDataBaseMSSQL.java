@@ -8,7 +8,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class ConnectionDataBaseMSSQL {
 	
-	private ApplicationContext context ; 
+
+	private static ApplicationContext  context = new ClassPathXmlApplicationContext("Spring-Module.xml");
 	
 	private DataSource dataSource;
 	
@@ -16,11 +17,7 @@ public class ConnectionDataBaseMSSQL {
 	
 	
 	
-	protected ApplicationContext getApplicationContext (){
-		
-		if(context == null ){
-			 context = new ClassPathXmlApplicationContext("Spring-Module.xml");
-		}
+	public static ApplicationContext getApplicationContext (){
 		
 		return context;
 		

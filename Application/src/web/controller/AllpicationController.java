@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import web.comstant.PageRegister;
+import web.dao.server.fetchdata.FetchDataJDBCTemplate;
 
 @Controller
 public class AllpicationController {
@@ -16,6 +17,9 @@ public class AllpicationController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String welcomeDemo(ModelMap model) {
 
+		
+		
+		
 		return PageRegister.INDEX.getPath();
 
 	}
@@ -51,13 +55,13 @@ public class AllpicationController {
 
 	}
 	
-//	@RequestMapping(value = "/login", method = RequestMethod.POST)
-//	public String authenticationLogin(@RequestParam("username") String username,@RequestParam("password") String password) {
-//		String page = null;
-//		
-//		String string = username;
-//		String string2 = password;
-//		
-//		return page;
-//	}
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String authenticationLogin(@RequestParam("username") String username,@RequestParam("password") String password) {
+		String page = null;
+		
+		String string = username;
+		String string2 = password;
+		
+		return page;
+	}
 }

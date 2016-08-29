@@ -7,7 +7,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
-	<bean id="fetchData" class="com.mkyong.customer.dao.impl.JdbcCustomerDAO">
+	<bean id="fetchData" class="web.dao.server.fetchdata.FetchDataJDBCTemplate">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
