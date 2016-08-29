@@ -18,30 +18,19 @@
 
 
 <script type="text/javascript">
-		
-// 		$(document).ready(function(){
-// 		    $("#demoLoginButton").click(function(){
-// 		      window.location.assign("./jsp/Login.jsp")
-		
-// 		    });
-		    
-// 		    $("#demoShowDisplayButton").click(function(){
-// 			      window.location.assign("./jsp/DisplayData.jsp")
-			
-// 			    });
-// 		});
-	</script>
+	
+</script>
 </head>
 <body>
 
 	<div class="container jumbotron ">
 
 		<form action="selectDemo" method="get">
-		
-		<button class="btn btn-primary" id="demoLoginButton" name="demoPage" value="Login"  >Demo Login</button>
-		<button class="btn btn-primary" id="demoShowDisplayButton" name="demoPage" value="displayData01" >Demo Show Display Table</button>
-		
-		
+
+			<button class="btn btn-primary" id="demoLoginButton" name="demoPage" value="Login">Demo Login</button>
+			<button class="btn btn-primary" id="demoShowDisplayButton" name="demoPage" value="displayData01">Demo Show Display Table</button>
+
+
 		</form>
 	</div>
 </body>

@@ -51,13 +51,13 @@ public class AllpicationController {
 
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String authenticationLogin(@RequestParam("username") String username,@RequestParam("password") String password) {
-		String page = null;
-		
-		String string = username;
-		String string2 = password;
-		
-		return page;
-	}
+//	@RequestMapping(value = "/login", method = RequestMethod.POST)
+//	public String authenticationLogin(@RequestParam("username") String username,@RequestParam("password") String password) {
+//		String page = null;
+//		
+//		String string = username;
+//		String string2 = password;
+//		
+//		return page;
+//	}
 }
