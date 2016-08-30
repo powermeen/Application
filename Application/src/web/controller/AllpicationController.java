@@ -64,4 +64,25 @@ public class AllpicationController {
 		
 		return page;
 	}
+	@RequestMapping(value = "/generateDemoColumn", method = RequestMethod.GET)
+	public String generateDemoColumn(@RequestParam("numberColumn") String numberColumn) {
+		String page = null;
+		
+		
+		
+		
+		page = PageRegister.DISPLAY_DATA_01.getPath();
+		return page;
+	}
+	
+	@RequestMapping(value = "/fetchDataUpdate", method = RequestMethod.POST)
+	public String fetchDataUpdate(@RequestParam("numberColumn") String numberColumn) {
+		String page = null;
+		
+		
+		
+		
+		page = PageRegister.DISPLAY_DATA_01.getPath();
+		return page;
+	}
 }

@@ -41,11 +41,16 @@
 	});
 
 	function load() {
+
 		
+	}
+	
+	function resetColumn(){
 		$('#table').html("");
 		$('#table').append("<tbody id='displayBodyTable'> </tbody>");
 
-		$.post("/Application/FetchDataUpdate",
+		var number = $('#numberColumn').val;
+		$.post("/Application/fetchDataUpdate", { numberColumn: number},
 
 		function(data) {
 			// 		 			console.log(data);
@@ -112,20 +117,37 @@
 				</div>
 
 			</div>
-
-
-		</div>
-
-		<table id="table"class="table table-hover">
-<!-- 			<thead> -->
-<!-- 				<tr> -->
-<!-- 					<th>Order</th> -->
-<!-- 					<th>Name</th> -->
-<!-- 					<th>Type</th> -->
-<!-- 					<th>Price</th> -->
-<!-- 				</tr> -->
-<!-- 			</thead> -->
 			
+				<div class="col-md-12">
+
+					<div class="col-md-6">
+						<select class="form-control" name="numberColumn" id="numberColumn">
+							<option selected="selected">3</option>
+							<option>4</option>
+							<option>5</option>
+							<option>6</option>
+							<option>7</option>
+						</select>
+
+					</div>
+					<div class="col-md-2">
+
+						<button type="submit" class="btn btn-primary" onclick="resetColumn();">Go</button>
+
+					</div>
+				</div>
+			
+
+			<table id="table" class="table table-hover">
+<!-- 							<thead> -->
+<!-- 								<tr> -->
+<!-- 									<th>Order</th> -->
+<!-- 									<th>Name</th> -->
+<!-- 									<th>Type</th> -->
+<!-- 									<th>Price</th> -->
+<!-- 								</tr> -->
+<!-- 							</thead> -->
+
 <%-- 				<c:forEach var="amountBeans" items="${amountBeans}"> --%>
 
 <!-- 					<tr> -->
@@ -136,10 +158,8 @@
 <!-- 					<tr> -->
 <%-- 				</c:forEach> --%>
 
-			</tbody>
-		</table>
-	</div>
-
-
+<!-- 				</tbody> -->
+			</table>
+		</div>
 </body>
 </html>
