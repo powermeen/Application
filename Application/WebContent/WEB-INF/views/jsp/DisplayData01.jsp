@@ -24,6 +24,9 @@
 .glyphicon {
 	padding-right: 5px;
 }
+.padding-top-2percent{
+	padding-top: 2%;
+}
 </style>
 
 <script type="text/javascript">
@@ -42,15 +45,16 @@
 
 	function load() {
 
-		
 	}
-	
-	function resetColumn(){
+
+	function resetColumn() {
 		$('#table').html("");
 		$('#table').append("<tbody id='displayBodyTable'> </tbody>");
 
 		var number = $('#numberColumn').val;
-		$.post("/Application/fetchDataUpdate", { numberColumn: number},
+		$.post("/Application/fetchDataUpdate", {
+			numberColumn : number
+		},
 
 		function(data) {
 			// 		 			console.log(data);
@@ -85,6 +89,277 @@
 	<jsp:include page="Menubar.jsp" />
 
 	<button onclick="load()">Testing button</button>
+<div class="container scorebar">
+		<h2>Detail Data</h2>
+		<p>This is Sell Amount on side</p>
+
+		<div class="container">
+			<div class="col-md-12">
+				<div class="col-md-4">
+					<h4>
+						<span class="glyphicon  glyphicon-user " aria-hidden="true">
+						</span> UserName : Meen
+					</h4>
+				</div>
+
+			</div>
+
+			<div class="col-md-12">
+				<div class="col-md-4">
+					<h4>
+						<span class="glyphicon  glyphicon-home " aria-hidden="true">
+						</span> Side Office: 00
+					</h4>
+				</div>
+
+				<div class="col-md-4">
+					<h4>
+						<span class="glyphicon  glyphicon-home " aria-hidden="true">
+						</span>Office Name : Testing Station
+					</h4>
+				</div>
+				<div class="col-md-4">
+				<button class="btn btn-default"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Refresh</button>
+				</div>
+
+			</div>
+
+
+
+
+			<table id="table" class="table table-hover">
+				<thead>
+					<tr>
+						<th>Item_0000</th>
+						<th>Item_0000</th>
+						<th>Item_0000</th>
+					</tr>
+				</thead>
+
+
+
+				<tr>
+					<td><div class="padding-top-2percent">Testing Data 000000</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000000</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				<tr>
+					<td><div class="padding-top-2percent">Testing Data 000000</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000000</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				<tr>
+					<td><div class="padding-top-2percent">Testing Data 000000</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000000</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				<tr>
+					<td><div class="padding-top-2percent">Testing Data 000000</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000000</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				<tr>
+					<td><div class="padding-top-2percent">Testing Data 000000</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000000</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				<tr>
+					<td><div class="padding-top-2percent">Testing Data 000000</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000000</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				
+				</tbody>
+			</table>
+
+		</div>
+
+	</div>
+	<div class="container scorebar">
+		<h2>Detail Data</h2>
+		<p>This is Sell Amount on side</p>
+
+		<div class="container">
+			<div class="col-md-12">
+				<div class="col-md-4">
+					<h4>
+						<span class="glyphicon  glyphicon-user " aria-hidden="true">
+						</span> UserName : Meen
+					</h4>
+				</div>
+
+			</div>
+
+			<div class="col-md-12">
+				<div class="col-md-4">
+					<h4>
+						<span class="glyphicon  glyphicon-home " aria-hidden="true">
+						</span> Side Office: 00
+					</h4>
+				</div>
+
+				<div class="col-md-4">
+					<h4>
+						<span class="glyphicon  glyphicon-home " aria-hidden="true">
+						</span>Office Name : Testing Station
+					</h4>
+				</div>
+
+			</div>
+
+
+
+
+			<table id="table" class="table table-hover">
+				<thead>
+					<tr>
+						<th>Item_0001</th>
+						<th>Item_0001</th>
+						<th>Item_0001</th>
+						<th>Item_0001</th>
+					</tr>
+				</thead>
+
+
+
+				<tr>
+					<td><div class="padding-top-2percent">Testing Data 000001</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000001</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000001</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				<tr>
+					<td><div class="padding-top-2percent">Testing Data 000001</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000001</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000001</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				<tr>
+					<td><div class="padding-top-2percent">Testing Data 000001</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000001</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000001</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				<tr>
+					<td><div class="padding-top-2percent">Testing Data 000001</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000001</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000001</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				<tr>
+					<td><div class="padding-top-2percent">Testing Data 000001</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000001</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000001</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				<tr>
+					<td><div class="padding-top-2percent">Testing Data 000001</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000001</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000001</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				</tbody>
+			</table>
+
+		</div>
+
+	</div>
+	<div class="container scorebar">
+		<h2>Detail Data</h2>
+		<p>This is Sell Amount on side</p>
+
+		<div class="container">
+			<div class="col-md-12">
+				<div class="col-md-4">
+					<h4>
+						<span class="glyphicon  glyphicon-user " aria-hidden="true">
+						</span> UserName : Meen
+					</h4>
+				</div>
+
+			</div>
+
+			<div class="col-md-12">
+				<div class="col-md-4">
+					<h4>
+						<span class="glyphicon  glyphicon-home " aria-hidden="true">
+						</span> Side Office: 00
+					</h4>
+				</div>
+
+				<div class="col-md-4">
+					<h4>
+						<span class="glyphicon  glyphicon-home " aria-hidden="true">
+						</span>Office Name : Testing Station
+					</h4>
+				</div>
+
+			</div>
+
+
+
+
+			<table id="table" class="table table-hover">
+				<thead>
+					<tr>
+						<th>Item_0002</th>
+						<th>Item_0002</th>
+						<th>Item_0002</th>
+						<th>Item_0002</th>
+						<th>Item_0002</th>
+					</tr>
+				</thead>
+
+
+
+				<tr>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				
+<tr>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				<tr>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				<tr>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				<tr>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				<tr>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000002</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				</tbody>
+			</table>
+
+		</div>
+	</div>
 
 	<div class="container scorebar">
 		<h2>Detail Data</h2>
@@ -117,49 +392,84 @@
 				</div>
 
 			</div>
-			
-				<div class="col-md-12">
 
-					<div class="col-md-6">
-						<select class="form-control" name="numberColumn" id="numberColumn">
-							<option selected="selected">3</option>
-							<option>4</option>
-							<option>5</option>
-							<option>6</option>
-							<option>7</option>
-						</select>
 
-					</div>
-					<div class="col-md-2">
 
-						<button type="submit" class="btn btn-primary" onclick="resetColumn();">Go</button>
-
-					</div>
-				</div>
-			
 
 			<table id="table" class="table table-hover">
-<!-- 							<thead> -->
-<!-- 								<tr> -->
-<!-- 									<th>Order</th> -->
-<!-- 									<th>Name</th> -->
-<!-- 									<th>Type</th> -->
-<!-- 									<th>Price</th> -->
-<!-- 								</tr> -->
-<!-- 							</thead> -->
+				<thead>
+					<tr>
+						<th>Item_0003</th>
+						<th>Item_0003</th>
+						<th>Item_0003</th>
+						<th>Item_0003</th>
+						<th>Item_0003</th>
+						<th>Item_0003</th>
+					</tr>
+				</thead>
 
-<%-- 				<c:forEach var="amountBeans" items="${amountBeans}"> --%>
 
-<!-- 					<tr> -->
-<%-- 						<td>${amountBeans.order}</td> --%>
-<%-- 						<td>${amountBeans.name}</td> --%>
-<%-- 						<td>${amountBeans.type}</td> --%>
-<%-- 						<td>${amountBeans.price}</td> --%>
-<!-- 					<tr> -->
-<%-- 				</c:forEach> --%>
 
-<!-- 				</tbody> -->
+				<tr>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				
+				
+<tr>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				<tr>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				<tr>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				<tr>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				<tr>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div class="padding-top-2percent">Testing Data 000003</div></td>
+					<td><div><button class="btn btn-primary">View</button></div></td>
+				<tr>
+				
+				
+				</tbody>
 			</table>
+
 		</div>
+
+	</div>
+
+
+
 </body>
 </html>
