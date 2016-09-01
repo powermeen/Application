@@ -44,9 +44,17 @@ public class AllpicationController {
 			
 			page = PageRegister.LOGIN.getPath();
 			
-		}else if (PageRegister.DISPLAY_DATA_01.getKey().equalsIgnoreCase(demoPage)) {
+		}else if (PageRegister.DEMO_COLUMN.getKey().equalsIgnoreCase(demoPage)) {
 			
-			page = PageRegister.DISPLAY_DATA_01.getPath();
+			page = PageRegister.DEMO_COLUMN.getPath();
+			
+		}else if (PageRegister.TOTAL_SALES_REPORT.getKey().equalsIgnoreCase(demoPage)) {
+			
+			page = PageRegister.TOTAL_SALES_REPORT.getPath();
+			
+		}else if (PageRegister.TOTAL_SALES_REPORT_BY_OFFICE.getKey().equalsIgnoreCase(demoPage)) {
+			
+			page = PageRegister.TOTAL_SALES_REPORT_BY_OFFICE.getPath();
 			
 		}else {
 			page = PageRegister.INDEX.getPath();
@@ -64,25 +72,5 @@ public class AllpicationController {
 		
 		return page;
 	}
-	@RequestMapping(value = "/generateDemoColumn", method = RequestMethod.GET)
-	public String generateDemoColumn(@RequestParam("numberColumn") String numberColumn) {
-		String page = null;
-		
-		
-		
-		
-		page = PageRegister.DISPLAY_DATA_01.getPath();
-		return page;
-	}
-	
-	@RequestMapping(value = "/fetchDataUpdate", method = RequestMethod.POST)
-	public String fetchDataUpdate(@RequestParam("numberColumn") String numberColumn) {
-		String page = null;
-		
-		
-		
-		
-		page = PageRegister.DISPLAY_DATA_01.getPath();
-		return page;
-	}
+
 }

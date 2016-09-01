@@ -4,7 +4,9 @@ public enum PageRegister {
 
 	INDEX("index","index"),
 	LOGIN("login", "Login"),
-	DISPLAY_DATA_01("displayData01", "DisplayData01");
+	DEMO_COLUMN("displayData01", "DemoColumn"),
+	TOTAL_SALES_REPORT("totalSalesReport","TotalSalesReport"),
+	TOTAL_SALES_REPORT_BY_OFFICE("totalSalesReportByOffice","TotalSalesReportByOffice");
 
 	private String key;
 	

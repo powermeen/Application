@@ -83,7 +83,7 @@
 		});
 	}
 </script>
-<title>Display Data</title>
+<title>Demo Column</title>
 </head>
 <body>
 	<jsp:include page="Menubar.jsp" />
@@ -93,7 +93,7 @@
 		<h2>Detail Data</h2>
 		<p>This is Sell Amount on side</p>
 
-		<div class="container">
+		<div class="container col-md-12">
 			<div class="col-md-12">
 				<div class="col-md-4">
 					<h4>
@@ -179,7 +179,7 @@
 		<h2>Detail Data</h2>
 		<p>This is Sell Amount on side</p>
 
-		<div class="container">
+		<div class="container col-md-12">
 			<div class="col-md-12">
 				<div class="col-md-4">
 					<h4>
@@ -268,7 +268,7 @@
 		<h2>Detail Data</h2>
 		<p>This is Sell Amount on side</p>
 
-		<div class="container">
+		<div class="container col-md-12">
 			<div class="col-md-12">
 				<div class="col-md-4">
 					<h4>
@@ -365,7 +365,7 @@
 		<h2>Detail Data</h2>
 		<p>This is Sell Amount on side</p>
 
-		<div class="container">
+		<div class="container col-md-12">
 			<div class="col-md-12">
 				<div class="col-md-4">
 					<h4>
