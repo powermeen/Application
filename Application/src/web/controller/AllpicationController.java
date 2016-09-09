@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import web.comstant.PageRegister;
 import web.dao.server.fetchdata.FetchDataJDBCTemplate;
+import web.dao.service.FetchDataService;
 
 @Controller
 public class AllpicationController {
@@ -17,7 +18,8 @@ public class AllpicationController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String welcomeDemo(ModelMap model) {
 
-		
+		FetchDataService dataService = new FetchDataService();
+		System.out.println(dataService);
 		
 		
 		return PageRegister.INDEX.getPath();
@@ -57,6 +59,8 @@ public class AllpicationController {
 			page = PageRegister.TOTAL_SALES_REPORT_BY_OFFICE.getPath();
 			
 		}else {
+			
+			
 			page = PageRegister.INDEX.getPath();
 		}
 		return page;

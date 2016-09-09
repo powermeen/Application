@@ -1,0 +1,33 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="dataSourceMSSQL"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+		<property name="url"
+			value="jdbc:sqlserver://THEMOON-PC:1433;databaseName=new_db" />
+		<property name="username" value="sa" />
+		<property name="password" value="saa" />
+	</bean>
+
+	<bean id="dataSourceHQSQL"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+		<property name="url" value="jdbc:hsqldb:hsql://localhost/" />
+		<property name="username" value="SA" />
+		<property name="password" value="" />
+	</bean>
+
+
+
+
+
+	<bean id="connectionPool" class="web.database.Connection">
+		<property name="dataSourceMSSQL" ref="dataSourceMSSQL" />
+		<property name="dataSourceHQSQL" ref="dataSourceHQSQL" />
+
+	</bean>
+
+</beans>
