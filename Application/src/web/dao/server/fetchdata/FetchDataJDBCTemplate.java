@@ -1,14 +1,19 @@
 package web.dao.server.fetchdata;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import web.database.Connection;
+import web.dao.mapper.UserBeanRowMapper;
+import web.shared.UserBean;
+import web.sql.FetchData;
 
-public class FetchDataJDBCTemplate extends Connection implements FetchDataDao {
+@SuppressWarnings("unchecked")
+public class FetchDataJDBCTemplate  implements FetchDao{
 
-	
 	private DataSource dataSource;
 	
 	private JdbcTemplate jdbcTemplate;
@@ -16,17 +21,30 @@ public class FetchDataJDBCTemplate extends Connection implements FetchDataDao {
 	
 	@Override
 	public void setDataSource(DataSource dataSource) throws IllegalArgumentException {
-//		this.dataSource = dataSource;
-//		jdbcTemplate = new JdbcTemplate(dataSource);
-//		System.out.println("ds5");
+		this.dataSource = dataSource;
+		jdbcTemplate = new JdbcTemplate(dataSource);
 		
 	}
+
+
 	
-	
-	public void checkConnect(){
-		jdbcTemplate = super.getJDBCConnectHQSQL();
+	public void selectSomething() {
+		String query = FetchData.TEST_FETCH_DATA;
+		List<UserBean> userBeans = new ArrayList<UserBean>();
+		userBeans = jdbcTemplate.query(query, new UserBeanRowMapper());
+		int size = userBeans.size();
+		System.out.println(size);
 		
-		System.out.println("test"+jdbcTemplate);
+		
 	}
+
+
+
+	
+	
+	
+	
+	
+	
 
 }

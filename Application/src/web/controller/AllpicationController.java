@@ -20,7 +20,8 @@ public class AllpicationController {
 
 		FetchDataService dataService = new FetchDataService();
 		System.out.println(dataService);
-		
+		dataService.selectTesting();
+//		
 		
 		return PageRegister.INDEX.getPath();
 

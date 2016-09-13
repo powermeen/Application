@@ -7,4 +7,8 @@ public class SpringNameBean {
 	
 	public static final String FETCH_DATA = "fetchData";
 	
+	public static final String CONNECTION_HSQL = "connectionHSQL";
+	
+	
+	
 }

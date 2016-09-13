@@ -27,9 +27,10 @@ public class DeleteFile {
 	}
 
 	static private List<String> getprepareData() {
-		String temp = "C:\\Users\\papisit\\AppData\\Local\\Temp";
+		
 		String vfs = "D:\\server\\jboss\\jboss-as-7.1.1.Final\\standalone\\tmp\\vfs";
 		String logPhoenix = "D:\\var\\log\\phoenix";
+		String temp = "C:\\Users\\papisit\\AppData\\Local\\Temp";
 
 		List<String> listPathName = new ArrayList<String>();
 		listPathName.add(temp);

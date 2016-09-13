@@ -3,17 +3,13 @@ package web.dao.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Service;
 
 import web.comstant.SpringNameBean;
-import web.dao.server.fetchdata.FetchDataDao;
 import web.dao.server.fetchdata.FetchDataJDBCTemplate;
-import web.database.Connection;
-import web.database.ConnectionDataBaseMSSQL;
-import web.database.Context;
 
-@Service
-public class FetchDataService extends Context{
+
+
+public class FetchDataService  {
 
 	
 	@Autowired
@@ -21,14 +17,22 @@ public class FetchDataService extends Context{
 	
 	public FetchDataService() {
 		
-		ApplicationContext context = new ClassPathXmlApplicationContext(SpringNameBean.SPRING_MODULE_XML);
+		ApplicationContext context  = new ClassPathXmlApplicationContext(SpringNameBean.SPRING_MODULE_XML);
+		
 		FetchDataJDBCTemplate fetchDataJDBCTemplate = (FetchDataJDBCTemplate)context.getBean(SpringNameBean.FETCH_DATA);
+		fetchDataJDBCTemplate.selectSomething();
+	}
+	
+	
+	public void selectTesting(){
 		
-		fetchDataJDBCTemplate.checkConnect();
-
-//		ApplicationContext  context = new ClassPathXmlApplicationContext(SpringNameBean.SPRING_MODULE_XML);
-//		FetchDataJDBCTemplate fetchDataJDBCTemplate = (FetchDataJDBCTemplate)context.getBean(SpringNameBean.FETCH_DATA);
+		if(fetchDataJDBCTemplate == null){
+			System.out.println("fetchDataJDBCTemplate null " );
+		}else {
+			System.out.println("fetchDataJDBCTemplate not null " );
+		}
 		
 		
+		//fetchDataJDBCTemplate.selectSomething ();
 	}
 }

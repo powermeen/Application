@@ -7,10 +7,14 @@ import web.comstant.SpringNameBean;
 
 public class Context {
 
-	
-	private static ApplicationContext context = new ClassPathXmlApplicationContext(SpringNameBean.SPRING_MODULE_XML);
+	ApplicationContext context = null;
 
-	protected static ApplicationContext getContext() {
+	protected ApplicationContext getContext() {
+
+		if (context == null) {
+			
+		}
 		return context;
 	}
+
 }

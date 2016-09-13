@@ -46,3 +46,7 @@ insert into gen_role (c_role_name ,c_user_role ,i_user_level) values ('maker','m
 insert into gen_role (c_role_name ,c_user_role ,i_user_level) values ('admin','admin',1);
 insert into gen_role (c_role_name ,c_user_role ,i_user_level) values ('owner','owner',2);
 insert into gen_role (c_role_name ,c_user_role ,i_user_level) values ('office','office',3);
+
+
+
+select i_user_id as userid , c_user_name as username , c_password as password , c_user_role as userrole from gen_user ;
