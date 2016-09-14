@@ -1,5 +1,8 @@
 package web.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -70,16 +73,19 @@ public class AllpicationController {
 
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String authenticationLogin(Model model,@ModelAttribute("loginBean")LoginBean loginBean) {
-		String page = null;
+	@RequestMapping(value="/login",method=RequestMethod.POST)
+	public ModelAndView executeLogin(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("loginBean")LoginBean loginBean){
+		ModelAndView model= null;
+		model = new ModelAndView("login");
 		
 		
+		return   model;
+
 		
-		 model.addAttribute("loginBean", new LoginBean()); 
+
 		    
 		
-		return page = PageRegister.LOGIN.getPath();
+	
 	}
 
 }

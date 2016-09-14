@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@include file="include.jsp"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -55,11 +55,23 @@
 		</div>
 		<div class="form">
 			<h2>Login to your account</h2>
-			<form:form id="loginForm" method="post" action="login" modelAttribute="loginBean">
-				<form:input id="username" name="username" path="username"/><
-				<form:password id="password" name="password" path="password" />
-				<button id="loginButton" type="submit">Login</button>
-			</form:form>
+			<%-- 			<form:form  method="post" action="login"  modelAttribute="login"> --%>
+			<%-- 				<form:input id="username"  path="username"/> --%>
+			<%-- 				<form:password id="password"  path="password" /> --%>
+			<!-- 				<button id="loginButton" type="submit">Login</button> -->
+			<%-- 			</form:form> --%>
+			
+			
+			
+			
+				<form:form id="loginForm" method="post" action="login" modelAttribute="loginBean">
+
+			<form:label path="username">Enter your user-name</form:label>
+			<form:input id="username" name="username" path="" /><br>
+			<form:label path="username">Please enter your password</form:label>
+			<form:password id="password" name="password" path="" /><br>
+			<input type="submit" value="Submit" />
+		</form:form>
 		</div>
 		<div class="cta">
 			<a href="">Forgot your password?</a>
