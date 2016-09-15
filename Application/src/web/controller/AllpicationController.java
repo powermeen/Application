@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import web.comstant.PageRegister;
 import web.dao.service.FetchDataService;
+import web.dao.service.LoginService;
 import web.shared.LoginBean;
 
 @Controller
@@ -72,13 +73,19 @@ public class AllpicationController {
 	}
 
 	@RequestMapping(value = "/loginForm", method = RequestMethod.POST)
-	public String executeLogin(@ModelAttribute("loginBean") LoginBean loginBean) {
-
-		String path = PageRegister.LOGIN.getPath();
-
-	
+	public String executeLogin(@RequestParam("username") String username,@RequestParam("password") String password) {
+		LoginBean loginBean = new LoginBean();
+		loginBean.setUserName(username);
+		loginBean.setPassword(password);
+		LoginService loginService = new LoginService();
+		String path = null;
+		boolean isAuthentication = loginService.authentication(loginBean);
 		
-
+		if(isAuthentication){
+			path = PageRegister.TOTAL_SALES_REPORT.getPath();
+		}else {
+			path = PageRegister.LOGIN.getPath();
+		}
 		return path;
 
 	}

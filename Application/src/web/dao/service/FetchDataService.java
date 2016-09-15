@@ -7,32 +7,27 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import web.comstant.SpringNameBean;
 import web.dao.server.fetchdata.FetchDataJDBCTemplate;
 
+public class FetchDataService {
 
-
-public class FetchDataService  {
-
-	
 	@Autowired
 	FetchDataJDBCTemplate fetchDataJDBCTemplate;
-	
+
 	public FetchDataService() {
-		
-		ApplicationContext context  = new ClassPathXmlApplicationContext(SpringNameBean.SPRING_MODULE_XML);
-		
-		FetchDataJDBCTemplate fetchDataJDBCTemplate = (FetchDataJDBCTemplate)context.getBean(SpringNameBean.FETCH_DATA);
-		fetchDataJDBCTemplate.selectSomething();
+
+		ApplicationContext context = new ClassPathXmlApplicationContext(SpringNameBean.SPRING_MODULE_XML);
+
+		fetchDataJDBCTemplate = (FetchDataJDBCTemplate) context.getBean(SpringNameBean.FETCH_DATA);
+//		fetchDataJDBCTemplate.selectSomething();
 	}
-	
-	
-	public void selectTesting(){
-		
-		if(fetchDataJDBCTemplate == null){
-			System.out.println("fetchDataJDBCTemplate null " );
-		}else {
-			System.out.println("fetchDataJDBCTemplate not null " );
+
+	public void selectTesting() {
+
+		if (fetchDataJDBCTemplate == null) {
+			System.out.println("fetchDataJDBCTemplate null ");
+		} else {
+			System.out.println("fetchDataJDBCTemplate not null ");
 		}
-		
-		
-		//fetchDataJDBCTemplate.selectSomething ();
+
+		// fetchDataJDBCTemplate.selectSomething ();
 	}
 }

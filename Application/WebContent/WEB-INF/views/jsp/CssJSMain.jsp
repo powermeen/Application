@@ -32,7 +32,7 @@
 <link rel="stylesheet" href="${bootstrapThemeCss}"  />
 <link rel="stylesheet" href="${bootstrapThemeMinCss}"  />
 <link rel="stylesheet" href="${styleCss}"  />
-<link rel="stylesheet" href="${resetCss}"  />
+<%-- <link rel="stylesheet" href="${resetCss}"  /> --%>
 
 <!-- JS -->
 <spring:url value="/resources/core/js/bootstrap.js" var="bootstrapJs" />

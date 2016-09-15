@@ -59,18 +59,22 @@
 			<%-- 				<form:password id="password"  path="password" /> --%>
 			<!-- 				<button id="loginButton" type="submit">Login</button> -->
 			<%-- 			</form:form> --%>
-			<form:form method="post" action="loginForm" modelAttribute="loginBean">
+<%-- 			<form:form method="post" action="loginForm" modelAttribute="loginBean"> --%>
 			
 			
-			<form:label path="userName">User name</form:label>
-			<form:input path="userName" />
-			<form:label path="userName">Password</form:label>
-			<form:password path="password"/>
+<%-- 			<form:label path="userName">User name</form:label> --%>
+<%-- 			<form:input path="userName" /> --%>
+<%-- 			<form:label path="userName">Password</form:label> --%>
+<%-- 			<form:password path="password"/> --%>
 			
-			<input id="loginButton" type="submit" value="Submit" />
-			</form:form>
+<!-- 			<input id="loginButton" type="submit" value="Submit" /> -->
+<%-- 			</form:form> --%>
 			
-			
+			<form id="loginForm" method="post" action="loginForm">
+				<input type="text" id="username" name= "username" placeholder="Username" /> 
+				<input type="password" id="password"  name="password"placeholder="Password" />
+				<button id="loginButton" type="submit">Login</button>
+			</form>
 			
 				
 		</div>

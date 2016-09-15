@@ -6,12 +6,16 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 
 
-<!-- 	<bean id="connectionHSQL" class="web.database.ConnectionHSQL"> -->
-<!-- 		<property name="dataSource" ref="dataSourceHSQL" /> -->
-<!-- 	</bean> -->
+	<!-- <bean id="connectionHSQL" class="web.database.ConnectionHSQL"> -->
+	<!-- <property name="dataSource" ref="dataSourceHSQL" /> -->
+	<!-- </bean> -->
+	<bean id="login" class="web.dao.server.login.LoginJDBCTemplate">
+		<property name="dataSource" ref="dataSourceHSQL" />
+	</bean>
+
 
 	<bean id="fetchData" class="web.dao.server.fetchdata.FetchDataJDBCTemplate">
-		<property name="dataSource" ref="dataSourceHSQL" />
+		<property name="dataSource" ref="dataSourceMSSQL" />
 	</bean>
 
 </beans>
