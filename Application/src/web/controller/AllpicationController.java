@@ -26,8 +26,8 @@ public class AllpicationController {
 		FetchDataService dataService = new FetchDataService();
 		System.out.println(dataService);
 		dataService.selectTesting();
-//		
-		
+		//
+
 		return PageRegister.INDEX.getPath();
 
 	}
@@ -47,45 +47,40 @@ public class AllpicationController {
 	public String selectDemo(@RequestParam("demoPage") String demoPage) {
 		String page = null;
 
-		
-		if(PageRegister.LOGIN.getKey().equalsIgnoreCase(demoPage)){
-			
+		if (PageRegister.LOGIN.getKey().equalsIgnoreCase(demoPage)) {
+
 			page = PageRegister.LOGIN.getPath();
-			
-		}else if (PageRegister.DEMO_COLUMN.getKey().equalsIgnoreCase(demoPage)) {
-			
+
+		} else if (PageRegister.DEMO_COLUMN.getKey().equalsIgnoreCase(demoPage)) {
+
 			page = PageRegister.DEMO_COLUMN.getPath();
-			
-		}else if (PageRegister.TOTAL_SALES_REPORT.getKey().equalsIgnoreCase(demoPage)) {
-			
+
+		} else if (PageRegister.TOTAL_SALES_REPORT.getKey().equalsIgnoreCase(demoPage)) {
+
 			page = PageRegister.TOTAL_SALES_REPORT.getPath();
-			
-		}else if (PageRegister.TOTAL_SALES_REPORT_BY_OFFICE.getKey().equalsIgnoreCase(demoPage)) {
-			
+
+		} else if (PageRegister.TOTAL_SALES_REPORT_BY_OFFICE.getKey().equalsIgnoreCase(demoPage)) {
+
 			page = PageRegister.TOTAL_SALES_REPORT_BY_OFFICE.getPath();
-			
-		}else {
-			
-			
+
+		} else {
+
 			page = PageRegister.INDEX.getPath();
 		}
 		return page;
 
 	}
-	
-	@RequestMapping(value="/login",method=RequestMethod.POST)
-	public ModelAndView executeLogin(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("loginBean")LoginBean loginBean){
-		ModelAndView model= null;
-		model = new ModelAndView("login");
-		
-		
-		return   model;
 
+	@RequestMapping(value = "/loginForm", method = RequestMethod.POST)
+	public String executeLogin(@ModelAttribute("loginBean") LoginBean loginBean) {
+
+		String path = PageRegister.LOGIN.getPath();
+
+	
 		
 
-		    
-		
-	
+		return path;
+
 	}
 
 }

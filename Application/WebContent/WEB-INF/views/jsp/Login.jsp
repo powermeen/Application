@@ -1,6 +1,5 @@
 <%@include file="include.jsp"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"  pageEncoding="ISO-8859-1"%>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -60,18 +59,20 @@
 			<%-- 				<form:password id="password"  path="password" /> --%>
 			<!-- 				<button id="loginButton" type="submit">Login</button> -->
 			<%-- 			</form:form> --%>
+			<form:form method="post" action="loginForm" modelAttribute="loginBean">
+			
+			
+			<form:label path="userName">User name</form:label>
+			<form:input path="userName" />
+			<form:label path="userName">Password</form:label>
+			<form:password path="password"/>
+			
+			<input id="loginButton" type="submit" value="Submit" />
+			</form:form>
 			
 			
 			
-			
-				<form:form id="loginForm" method="post" action="login" modelAttribute="loginBean">
-
-			<form:label path="username">Enter your user-name</form:label>
-			<form:input id="username" name="username" path="" /><br>
-			<form:label path="username">Please enter your password</form:label>
-			<form:password id="password" name="password" path="" /><br>
-			<input type="submit" value="Submit" />
-		</form:form>
+				
 		</div>
 		<div class="cta">
 			<a href="">Forgot your password?</a>
