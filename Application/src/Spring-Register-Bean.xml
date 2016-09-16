@@ -15,7 +15,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 
 	<bean id="fetchData" class="web.dao.server.fetchdata.FetchDataJDBCTemplate">
-		<property name="dataSource" ref="dataSourceMSSQL" />
+		<property name="dataSource" ref="dataSourceHSQL" />
 	</bean>
 
 </beans>

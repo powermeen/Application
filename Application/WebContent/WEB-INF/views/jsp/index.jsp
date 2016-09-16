@@ -31,6 +31,7 @@
 			<button class="btn btn-primary" id="demoShowDisplayButton" name="demoPage" value="DemoColumn">Demo Column Table</button>
 			<button class="btn btn-primary" id="demoShowDisplayButton" name="demoPage" value="TotalSalesReport">Total Sales Report</button>
 			<button class="btn btn-primary" id="demoShowDisplayButton" name="demoPage" value="TotalSalesReportByOffice">Total Sales Report By Office</button>
+			<button class="btn btn-primary" id="demoShowDisplayButton" name="demoPage" value="TestMappingData">Test Mapping Data</button>
 
 
 		</form>

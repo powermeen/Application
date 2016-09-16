@@ -1,10 +1,6 @@
 package web.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -64,7 +60,11 @@ public class AllpicationController {
 
 			page = PageRegister.TOTAL_SALES_REPORT_BY_OFFICE.getPath();
 
-		} else {
+		} else if (PageRegister.TEST_MAPPING_DATA.getKey().equalsIgnoreCase(demoPage)) {
+			
+			page = PageRegister.TEST_MAPPING_DATA.getPath();
+			
+		}else {
 
 			page = PageRegister.INDEX.getPath();
 		}
@@ -72,8 +72,8 @@ public class AllpicationController {
 
 	}
 
-	@RequestMapping(value = "/loginForm", method = RequestMethod.POST)
-	public String executeLogin(@RequestParam("username") String username,@RequestParam("password") String password) {
+	@RequestMapping(value = "/loginFormComment", method = RequestMethod.POST)
+	public String executeLoginComment(@RequestParam("username") String username,@RequestParam("password") String password) {
 		LoginBean loginBean = new LoginBean();
 		loginBean.setUserName(username);
 		loginBean.setPassword(password);
@@ -88,6 +88,27 @@ public class AllpicationController {
 		}
 		return path;
 
+	}
+	
+	@RequestMapping(value = "/loginForm", method = RequestMethod.POST)
+	public String executeLogin(@ModelAttribute("loginModel") LoginBean loginBean ){
+		
+//		if(isAuthentication){
+//			path = PageRegister.TOTAL_SALES_REPORT.getPath();
+//		}else {
+//			path = PageRegister.LOGIN.getPath();
+//		}
+		return PageRegister.LOGIN.getPath();
+	}
+	
+	@RequestMapping(value = "/testMapping", method = RequestMethod.POST)
+	public String testMappingData (@ModelAttribute("loginModel") LoginBean loginBean ){
+		
+		
+		
+		
+		return PageRegister.TEST_MAPPING_DATA.getPath();
+		
 	}
 
 }

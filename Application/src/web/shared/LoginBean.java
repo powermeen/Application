@@ -3,9 +3,9 @@ package web.shared;
 public class LoginBean {
 
 	
-	public String USERNAME = "username";
-	public String PASSWORD = "password";
-	
+//	public String USERNAME = "username";
+//	public String PASSWORD = "password";
+//	
 	private String userName;
 	
 	private String password;
@@ -25,6 +25,8 @@ public class LoginBean {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	
 
 	
 
