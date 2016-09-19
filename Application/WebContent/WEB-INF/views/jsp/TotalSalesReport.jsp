@@ -29,7 +29,7 @@
 	padding-top: 2%;
 }
 
-.display-flex{
+.display-flex {
 	display: flex;
 }
 </style>
@@ -123,26 +123,26 @@
 					</h4>
 				</div>
 
-			
+
 
 			</div>
 			<div class="col-md-12 display-flex">
-			
-			
-			<div class="col-md-3">
+
+
+				<div class="col-md-3">
 					<h4>
 						<span class="glyphicon glyphicon-calendar" aria-hidden="true">
 						</span>01 September 2016
 					</h4>
 				</div>
-				
+
 				<div class="col-md-3">
 					<h4>
 						<span class="glyphicon glyphicon-time " aria-hidden="true">
 						</span>Time End : 12 : 00
 					</h4>
 				</div>
-				
+
 				<div class="col-md-3">
 					<button class="btn btn-default">
 						<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
@@ -180,8 +180,7 @@
 					<td><div>
 							<button class="btn btn-primary">View</button>
 						</div></td>
-					<tr>
-				
+				<tr>
 				<tr>
 					<td><div class="padding-top-2percent">Testing Data
 							000002</div></td>
@@ -194,9 +193,7 @@
 					<td><div>
 							<button class="btn btn-primary">View</button>
 						</div></td>
-				
 				<tr>
-				
 				<tr>
 					<td><div class="padding-top-2percent">Testing Data
 							000002</div></td>
@@ -209,9 +206,7 @@
 					<td><div>
 							<button class="btn btn-primary">View</button>
 						</div></td>
-				
 				<tr>
-				
 				<tr>
 					<td><div class="padding-top-2percent">Testing Data
 							000002</div></td>
@@ -224,9 +219,7 @@
 					<td><div>
 							<button class="btn btn-primary">View</button>
 						</div></td>
-				
 				<tr>
-				
 				<tr>
 					<td><div class="padding-top-2percent">Testing Data
 							000002</div></td>
@@ -239,9 +232,7 @@
 					<td><div>
 							<button class="btn btn-primary">View</button>
 						</div></td>
-				
 				<tr>
-				
 				<tr>
 					<td><div class="padding-top-2percent">Testing Data
 							000002</div></td>
@@ -254,14 +245,12 @@
 					<td><div>
 							<button class="btn btn-primary">View</button>
 						</div></td>
-				
 				<tr>
-				
 				</tbody>
 			</table>
 
-		</div></d
-				iv>
+		</div>
+	</div>
 
 
 

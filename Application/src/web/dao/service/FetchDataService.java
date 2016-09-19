@@ -17,7 +17,7 @@ public class FetchDataService {
 		ApplicationContext context = new ClassPathXmlApplicationContext(SpringNameBean.SPRING_MODULE_XML);
 
 		fetchDataJDBCTemplate = (FetchDataJDBCTemplate) context.getBean(SpringNameBean.FETCH_DATA);
-//		fetchDataJDBCTemplate.selectSomething();
+		fetchDataJDBCTemplate.selectSomething();
 	}
 
 	public void selectTesting() {

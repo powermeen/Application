@@ -32,9 +32,9 @@
 			
 			
 <%-- 			<form:label path="userName">User name</form:label> --%>
-			<form:input path="userName" />
+<%-- 			<form:input path="userName" /> --%>
 <%-- 			<form:label path="userName">Password</form:label> --%>
-			<form:password path="password"/>
+<%-- 			<form:password path="password"/> --%>
 			
 			<input id="loginButton" type="submit" value="Submit" />
 			</form:form>

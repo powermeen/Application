@@ -7,7 +7,9 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import web.dao.mapper.PeriodRowMapper;
 import web.dao.mapper.UserBeanRowMapper;
+import web.shared.PeriodBean;
 import web.shared.UserBean;
 import web.sql.FetchData;
 
@@ -30,9 +32,11 @@ public class FetchDataJDBCTemplate  implements FetchDao{
 	
 	public void selectSomething() {
 		String query = FetchData.TEST_FETCH_DATA;
-		List<UserBean> userBeans = new ArrayList<UserBean>();
-		userBeans = jdbcTemplate.query(query, new UserBeanRowMapper());
-		int size = userBeans.size();
+		List<PeriodBean> periodBeans = new ArrayList<PeriodBean>();
+		Object[] objects = new Object[1];
+		objects[0]= "1";
+		periodBeans = jdbcTemplate.query(query, objects, new PeriodRowMapper());
+		int size = periodBeans.size();
 		System.out.println(size);
 		
 		

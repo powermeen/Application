@@ -43,9 +43,7 @@
 
 	});
 
-	function load() {
 
-	}
 
 	function resetColumn() {
 		$('#table').html("");
@@ -88,7 +86,7 @@
 <body>
 	<jsp:include page="Menubar.jsp" />
 
-	<button onclick="load()">Testing button</button>
+	
 <div class="container scorebar">
 		<h2>Detail Data</h2>
 		<p>This is Sell Amount on side</p>

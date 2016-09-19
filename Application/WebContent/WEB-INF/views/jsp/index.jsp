@@ -19,19 +19,25 @@
 
 <script type="text/javascript">
 	
+
+	function newDoc() {
+		window.location.assign("http://localhost:8080/Application/loginForm")
+	}
 </script>
 </head>
 <body>
 
 	<div class="container jumbotron ">
 
+	<button class="btn btn-primary" id="demoLoginButton"  onclick="newDoc()">Demo Login</button>
 		<form action="selectDemo" method="get">
 
-			<button class="btn btn-primary" id="demoLoginButton" name="demoPage" value="Login">Demo Login</button>
+		
 			<button class="btn btn-primary" id="demoShowDisplayButton" name="demoPage" value="DemoColumn">Demo Column Table</button>
 			<button class="btn btn-primary" id="demoShowDisplayButton" name="demoPage" value="TotalSalesReport">Total Sales Report</button>
 			<button class="btn btn-primary" id="demoShowDisplayButton" name="demoPage" value="TotalSalesReportByOffice">Total Sales Report By Office</button>
 			<button class="btn btn-primary" id="demoShowDisplayButton" name="demoPage" value="TestMappingData">Test Mapping Data</button>
+
 
 
 		</form>

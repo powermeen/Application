@@ -1,5 +1,7 @@
 package web.controller;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -41,34 +43,42 @@ public class AllpicationController {
 	}
 
 	@RequestMapping(value = "/selectDemo", method = RequestMethod.GET)
-	public String selectDemo(@RequestParam("demoPage") String demoPage) {
-		String page = null;
+	public String selectDemo(@RequestParam("demoPage") String demoPage,HttpServletResponse httpServletResponse) {
+		
+		String viewName = null;
+		ModelAndView modelAndView = new ModelAndView();
+		
 
 		if (PageRegister.LOGIN.getKey().equalsIgnoreCase(demoPage)) {
 
-			page = PageRegister.LOGIN.getPath();
+			viewName = PageRegister.LOGIN.getPath();
+			
+			
 
 		} else if (PageRegister.DEMO_COLUMN.getKey().equalsIgnoreCase(demoPage)) {
 
-			page = PageRegister.DEMO_COLUMN.getPath();
+			viewName = PageRegister.DEMO_COLUMN.getPath();
 
 		} else if (PageRegister.TOTAL_SALES_REPORT.getKey().equalsIgnoreCase(demoPage)) {
 
-			page = PageRegister.TOTAL_SALES_REPORT.getPath();
+			viewName = PageRegister.TOTAL_SALES_REPORT.getPath();
 
 		} else if (PageRegister.TOTAL_SALES_REPORT_BY_OFFICE.getKey().equalsIgnoreCase(demoPage)) {
 
-			page = PageRegister.TOTAL_SALES_REPORT_BY_OFFICE.getPath();
+			viewName = PageRegister.TOTAL_SALES_REPORT_BY_OFFICE.getPath();
 
 		} else if (PageRegister.TEST_MAPPING_DATA.getKey().equalsIgnoreCase(demoPage)) {
 			
-			page = PageRegister.TEST_MAPPING_DATA.getPath();
+			viewName = PageRegister.TEST_MAPPING_DATA.getPath();
 			
 		}else {
 
-			page = PageRegister.INDEX.getPath();
+			viewName = PageRegister.INDEX.getPath();
 		}
-		return page;
+		httpServletResponse.setHeader("Location", viewName);
+		modelAndView.setViewName(viewName);
+//		return "redirect:"+ viewName;
+		return  viewName;
 
 	}
 
@@ -90,15 +100,20 @@ public class AllpicationController {
 
 	}
 	
-	@RequestMapping(value = "/loginForm", method = RequestMethod.POST)
-	public String executeLogin(@ModelAttribute("loginModel") LoginBean loginBean ){
+	@RequestMapping(value = "/loginForm")
+	public ModelAndView executeLogin(@ModelAttribute("loginModel") LoginBean loginBean ){
 		
-//		if(isAuthentication){
-//			path = PageRegister.TOTAL_SALES_REPORT.getPath();
-//		}else {
-//			path = PageRegister.LOGIN.getPath();
-//		}
-		return PageRegister.LOGIN.getPath();
+		LoginService loginService = new LoginService();
+		boolean isAuthentication = loginService.authentication(loginBean);
+		String path = null;
+		ModelAndView modelAndView = new ModelAndView();
+		if(isAuthentication){
+			path = PageRegister.TOTAL_SALES_REPORT.getPath();
+		}else {
+			path = PageRegister.LOGIN.getPath();
+		}
+		modelAndView.setViewName(path);
+		return modelAndView;
 	}
 	
 	@RequestMapping(value = "/testMapping", method = RequestMethod.POST)

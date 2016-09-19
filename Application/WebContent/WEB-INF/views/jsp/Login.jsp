@@ -1,5 +1,6 @@
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"  pageEncoding="ISO-8859-1"%>  
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <%@include file="include.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -32,25 +33,25 @@
 		</div>
 		<div class="form">
 			<h2>Login to your account</h2>
-				<form:form method="post" action="loginForm" modelAttribute="loginModel">
-				
-<%-- 					<form:input path="userName"/> --%>
-	<form:input id="userName" name="userName" path="userName" />
+			<form:form method="post" action="loginForm"
+				modelAttribute="loginModel">
 
-					
-<%-- 					<form:password path="password"/> --%>
-					
-					<input id="loginButton" type="submit" value="Submit" />
-				
-				</form:form>
-			
-<!-- 			<form id="loginForm" method="post" action="loginForm"> -->
-<!-- 				<input type="text" id="username" name= "username" placeholder="Username" />  -->
-<!-- 				<input type="password" id="password"  name="password"placeholder="Password" /> -->
-<!-- 				<button id="loginButton" type="submit">Login</button> -->
-<!-- 			</form> -->
-			
-				
+				<form:input path="userName" />
+
+
+				<form:password path="password" />
+
+				<input id="loginButton" type="submit" value="Submit" />
+
+			</form:form>
+
+			<!-- 			<form id="loginForm" method="post" action="loginForm"> -->
+			<!-- 				<input type="text" id="username" name= "username" placeholder="Username" />  -->
+			<!-- 				<input type="password" id="password"  name="password"placeholder="Password" /> -->
+			<!-- 				<button id="loginButton" type="submit">Login</button> -->
+			<!-- 			</form> -->
+
+
 		</div>
 		<div class="cta">
 			<a href="">Forgot your password?</a>
