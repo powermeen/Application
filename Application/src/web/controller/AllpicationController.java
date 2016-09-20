@@ -22,10 +22,10 @@ public class AllpicationController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String welcomeDemo(ModelMap model) {
 
-		FetchDataService dataService = new FetchDataService();
-		System.out.println(dataService);
-		dataService.selectTesting();
-		//
+//		FetchDataService dataService = new FetchDataService();
+//		System.out.println(dataService);
+//		dataService.selectTesting();
+		
 
 		return PageRegister.INDEX.getPath();
 
