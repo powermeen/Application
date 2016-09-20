@@ -20,4 +20,8 @@ public class BuildUrl {
 	public String getIndexUrl() {
 		return baseURL +"/";
 	}
+
+	public String getLoginUrl() {
+		return baseURL + "/loginForm";
+	}
 }

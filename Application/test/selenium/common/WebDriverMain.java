@@ -6,4 +6,6 @@ public interface WebDriverMain {
 
 	
 	public WebDriver getWedDriver();
+	
+	public void close();
 }

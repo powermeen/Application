@@ -7,10 +7,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-
-
-
-
 <title>Login Page</title>
 <jsp:include page="CssJSMain.jsp"></jsp:include>
 
@@ -24,7 +20,7 @@
 <body>
 
 	<div class="pen-title">
-		<h1>Login Form</h1>
+		<h1 id = "loginForm">Login Form</h1>
 	</div>
 	<!-- Form Module-->
 	<div class="module form-module">
@@ -38,19 +34,11 @@
 
 				<form:input path="userName" />
 
-
 				<form:password path="password" />
 
 				<input id="loginButton" type="submit" value="Submit" />
 
 			</form:form>
-
-			<!-- 			<form id="loginForm" method="post" action="loginForm"> -->
-			<!-- 				<input type="text" id="username" name= "username" placeholder="Username" />  -->
-			<!-- 				<input type="password" id="password"  name="password"placeholder="Password" /> -->
-			<!-- 				<button id="loginButton" type="submit">Login</button> -->
-			<!-- 			</form> -->
-
 
 		</div>
 		<div class="cta">

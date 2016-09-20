@@ -20,8 +20,8 @@
 <script type="text/javascript">
 	
 
-	function newDoc() {
-		window.location.assign("http://localhost:8080/Application/loginForm")
+	function redriectPage(page) {
+		window.location.assign("http://localhost:8080/Application/"+page)
 	}
 </script>
 </head>
@@ -29,18 +29,13 @@
 
 	<div class="container jumbotron ">
 
-	<button class="btn btn-primary" id="demoLoginButton"  onclick="newDoc()">Demo Login</button>
-		<form action="selectDemo" method="get">
+		<button class="btn btn-primary" id="demoLoginButton"  onclick="redriectPage('loginForm')">Demo Login</button>
+		<button class="btn btn-primary" id="demoDemoColumn"  onclick="redriectPage('DemoColumn')">Demo Column Table</button>
+		<button class="btn btn-primary" id="demoTotalSalesReport"    onclick="redriectPage('TotalSalesReport')" >Total Sales Report</button>
+		<button class="btn btn-primary" id="demoTotalSalesReportByOffice"   onclick="redriectPage('TotalSalesReportByOffice')" >Total Sales Report By Office</button>
+		<button class="btn btn-primary" id="demoTestMappingData"  onclick="redriectPage('TestMappingData')">Test Mapping Data</button>
+	
 
-		
-			<button class="btn btn-primary" id="demoShowDisplayButton" name="demoPage" value="DemoColumn">Demo Column Table</button>
-			<button class="btn btn-primary" id="demoShowDisplayButton" name="demoPage" value="TotalSalesReport">Total Sales Report</button>
-			<button class="btn btn-primary" id="demoShowDisplayButton" name="demoPage" value="TotalSalesReportByOffice">Total Sales Report By Office</button>
-			<button class="btn btn-primary" id="demoShowDisplayButton" name="demoPage" value="TestMappingData">Test Mapping Data</button>
-
-
-
-		</form>
 	</div>
 </body>
 </html>
