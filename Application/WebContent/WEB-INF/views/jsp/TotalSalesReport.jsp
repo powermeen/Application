@@ -37,14 +37,14 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 
-		// 		$.post("/Application/FetchDataUpdate",
+		 		$.post("/Application/TotalSalesReport",
 
-		// 		function(data) {
-		// 			console.log(data);
-		// 			//     		  $.each(data , function (  key , value){
-		// 			//     			  console.log(value);
-		// 			//     		  });
-		// 		});
+		 		function(data) {
+		 			console.log(data);
+		 			     		  $.each(data , function (  key , value){
+		 			     			  console.log(value);
+		 			     		  });
+		 		});
 
 	});
 
@@ -166,86 +166,19 @@
 					</tr>
 				</thead>
 
-
-
+			<c:forEach var="reportBeans" items="${reportBeans}">
 				<tr>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
+					<td><div class="padding-top-2percent">${reportBeans.site}</div></td>
+					<td><div class="padding-top-2percent">${reportBeans.quality}</div></td>
+					<td><div class="padding-top-2percent">${reportBeans.liter}</div></td>
+					<td><div class="padding-top-2percent">${reportBeans.money}</div></td>
+					
+					
 					<td><div>
 							<button class="btn btn-primary">View</button>
 						</div></td>
 				<tr>
-				<tr>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
-					<td><div>
-							<button class="btn btn-primary">View</button>
-						</div></td>
-				<tr>
-				<tr>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
-					<td><div>
-							<button class="btn btn-primary">View</button>
-						</div></td>
-				<tr>
-				<tr>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
-					<td><div>
-							<button class="btn btn-primary">View</button>
-						</div></td>
-				<tr>
-				<tr>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
-					<td><div>
-							<button class="btn btn-primary">View</button>
-						</div></td>
-				<tr>
-				<tr>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
-					<td><div class="padding-top-2percent">Testing Data
-							000002</div></td>
-					<td><div>
-							<button class="btn btn-primary">View</button>
-						</div></td>
-				<tr>
+			</c:forEach>
 				</tbody>
 			</table>
 

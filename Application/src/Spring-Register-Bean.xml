@@ -17,5 +17,12 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="fetchData" class="web.dao.server.fetchdata.FetchDataJDBCTemplate">
 		<property name="dataSource" ref="dataSourceMSSQL" />
 	</bean>
+	
+	<bean id="totalSalesReport" class="web.dao.server.TotalSalesReport.TotalSalesReportJDBCTemplate">
+		<property name="dataSource" ref="dataSourceMSSQL" />
+	</bean>
+	
+	
+	
 
 </beans>

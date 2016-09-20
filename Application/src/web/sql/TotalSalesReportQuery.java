@@ -4,7 +4,7 @@ public class TotalSalesReportQuery {
 
 	
 	public String getTotalSalesReportAllSideQuery(){
-		String query = "select Delivery_Volume as liter , Delivery_value as money  from Hose_Delivery ";
+		String query = "  SELECT Site  , COUNT(ID) as quality , SUM(Delivery_Volume) AS liter , SUM(Delivery_value) AS money   from Hose_Delivery  where branch = ? GROUP BY Site order by Site ASC ";
 		
 		return query;
 		

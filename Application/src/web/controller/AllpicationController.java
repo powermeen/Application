@@ -1,5 +1,7 @@
 package web.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,7 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import web.comstant.PageRegister;
 import web.dao.service.LoginService;
+import web.dao.service.TotalSalesReportService;
 import web.shared.LoginBean;
+import web.shared.TotalSalesReportBean;
 
 @Controller
 public class AllpicationController {
@@ -42,12 +46,15 @@ public class AllpicationController {
 	}
 	
 	@RequestMapping(value = "/TotalSalesReport", method = RequestMethod.GET)
-	public String totalSalesReport(){
-//		FetchDataService dataService = new FetchDataService();
-//		System.out.println(dataService);
-//		dataService.selectTesting();
+	public ModelAndView totalSalesReport(){
+		ModelAndView modelAndView = new ModelAndView();
+		TotalSalesReportService reportService =new TotalSalesReportService();
+		List<TotalSalesReportBean> reportBeans = reportService.fetchDataTotalSalesReportByBranch();
 		String 	viewName = PageRegister.TOTAL_SALES_REPORT.getPath();
-		return  viewName;
+		
+		modelAndView.setViewName(viewName);
+		modelAndView.addObject("reportBeans", reportBeans);
+		return  modelAndView;
 	}
 	
 	@RequestMapping(value = "/TotalSalesReportByOffice", method = RequestMethod.GET)
