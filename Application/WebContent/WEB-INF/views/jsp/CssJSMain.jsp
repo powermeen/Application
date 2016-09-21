@@ -27,21 +27,24 @@
 <spring:url value="/resources/core/css/reset.css" var="resetCss" />
 <spring:url value="/resources/core/css/style.css" var="styleCss" />
 
-<%-- <link rel="stylesheet" href="${bootstrapCss}"  /> --%>
-<%-- <link rel="stylesheet" href="${bootstrapMinCss}"  /> --%>
-<%-- <link rel="stylesheet" href="${bootstrapThemeCss}"  /> --%>
-<%-- <link rel="stylesheet" href="${bootstrapThemeMinCss}"  /> --%>
-<%-- <link rel="stylesheet" href="${styleCss}"  /> --%>
+<link rel="stylesheet" href="${bootstrapCss}"  />
+<link rel="stylesheet" href="${bootstrapMinCss}"  />
+<link rel="stylesheet" href="${bootstrapThemeCss}"  />
+<link rel="stylesheet" href="${bootstrapThemeMinCss}"  />
+<link rel="stylesheet" href="${styleCss}"  />
 <%-- <link rel="stylesheet" href="${resetCss}"  /> --%>
 
 <!-- JS -->
 <spring:url value="/resources/core/js/bootstrap.js" var="bootstrapJs" />
 <spring:url value="/resources/core/js/bootstrap.min.js" var="bootstrapMinJs" />
 <spring:url value="/resources/core/js/jquery.min.js" var="jqueryMinJs" />
+<spring:url value="/resources/core/js/jquery-3.1.0.js" var="jqueryjs" />
 
-<script src="${bootstrapJs}"></script>
-<script src="${bootstrapMinJs}"></script>
+
+<%-- <script src="${bootstrapJs}"></script> --%>
+<%-- <script src="${bootstrapMinJs}"></script> --%>
 <script src="${jqueryMinJs}"></script>
+<%-- <script src="${jqueryjs}"></script> --%>
 
 </head>
 <body>

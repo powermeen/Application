@@ -37,19 +37,33 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 
-		 		$.post("/Application/TotalSalesReport",
-
-		 		function(data) {
-		 			console.log(data);
-		 			     		  $.each(data , function (  key , value){
-		 			     			  console.log(value);
-		 			     		  });
-		 		});
+		 	
 
 	});
 
 	function load() {
 
+	}
+	
+	function reset(){
+		$.post("/Application/TotalSalesReport", function(data) {
+			console.log(data);
+			$.each(data, function(key, value) {
+				$('#table').html("");
+				$('#table').append("<tbody id='displayBodyTable'> </tbody>");
+				
+				var firstHeader = ("<th>Order<th>");
+				var secondHeader = ("<th>Name<th>");
+				var thirdHeader = ("<th>Type<th>");
+				var fourthHeader = ("<th>Price<th>");
+
+				var allTd = firstHeader + secondHeader + thirdHeader + fourthHeader
+				var header = ('<thead><tr>' + allTd + '</tr></thead>');
+
+				$('#table').append(header);
+			});
+			
+		});
 	}
 
 	function resetColumn() {
@@ -57,7 +71,7 @@
 		$('#table').append("<tbody id='displayBodyTable'> </tbody>");
 
 		var number = $('#numberColumn').val;
-		$.post("/Application/fetchDataUpdate", {
+		$.post("/Application/TotalSalesReport", {
 			numberColumn : number
 		},
 
@@ -144,7 +158,7 @@
 				</div>
 
 				<div class="col-md-3">
-					<button class="btn btn-default">
+					<button class="btn btn-default" onclick="reset()">
 						<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
 						Refresh
 					</button>
@@ -156,29 +170,25 @@
 
 
 			<table id="table" class="table table-hover">
-				<thead>
-					<tr>
-						<th>Side</th>
-						<th>Quality</th>
-						<th>Quantity</th>
-						<th>Summary</th>
-						<th>View</th>
-					</tr>
-				</thead>
+<!-- 				<thead> -->
+<!-- 					<tr> -->
+<!-- 						<th>Side</th> -->
+<!-- 						<th>Quality</th> -->
+<!-- 						<th>Quantity</th> -->
+<!-- 						<th>Summary</th> -->
+<!-- 						<th>View</th> -->
+<!-- 					</tr> -->
+<!-- 				</thead> -->
 
-			<c:forEach var="reportBeans" items="${reportBeans}">
-				<tr>
-					<td><div class="padding-top-2percent">${reportBeans.site}</div></td>
-					<td><div class="padding-top-2percent">${reportBeans.quality}</div></td>
-					<td><div class="padding-top-2percent">${reportBeans.liter}</div></td>
-					<td><div class="padding-top-2percent">${reportBeans.money}</div></td>
-					
-					
-					<td><div>
-							<button class="btn btn-primary">View</button>
-						</div></td>
-				<tr>
-			</c:forEach>
+<%-- 			<c:forEach var="reportBeans" items="${reportBeans}"> --%>
+<!-- 				<tr> -->
+<%-- 					<td><div class="padding-top-2percent">${reportBeans.site}</div></td> --%>
+<%-- 					<td><div class="padding-top-2percent">${reportBeans.quality}</div></td> --%>
+<%-- 					<td><div class="padding-top-2percent">${reportBeans.liter}</div></td> --%>
+<%-- 					<td><div class="padding-top-2percent">${reportBeans.money}</div></td> --%>
+<!-- 					<td><div><button class="btn btn-primary">View</button></div></td> -->
+<!-- 				<tr> -->
+<%-- 			</c:forEach> --%>
 				</tbody>
 			</table>
 

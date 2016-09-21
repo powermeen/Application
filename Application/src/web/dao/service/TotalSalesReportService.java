@@ -16,18 +16,16 @@ public class TotalSalesReportService {
 	@Autowired
 	TotalSalesReportJDBCTemplate totalSalesReportJDBCTemplate ;
 	
-	
-	
 	public TotalSalesReportService() {
 		ApplicationContext context = new ClassPathXmlApplicationContext(SpringNameBean.SPRING_MODULE_XML);
 
 		totalSalesReportJDBCTemplate = (TotalSalesReportJDBCTemplate) context.getBean(SpringNameBean.TOTAL_SALES_REPORT);
 	}
 	
-	public List<TotalSalesReportBean>  fetchDataTotalSalesReportByBranch(){
+	public List<TotalSalesReportBean>  fetchDataTotalSalesReportByBranch(String branch){
 		
 		
-		List<TotalSalesReportBean> totalSalesReportBeans = totalSalesReportJDBCTemplate.fetchDataTotalSalesRepByBranch("�÷Ծ");
+		List<TotalSalesReportBean> totalSalesReportBeans = totalSalesReportJDBCTemplate.fetchDataTotalSalesRepByBranch(branch);
 		
 		return totalSalesReportBeans;
 	}

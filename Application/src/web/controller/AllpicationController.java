@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
+
 import web.comstant.PageRegister;
 import web.dao.service.LoginService;
 import web.dao.service.TotalSalesReportService;
@@ -19,7 +21,7 @@ import web.shared.TotalSalesReportBean;
 @Controller
 public class AllpicationController {
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET )
 	public String welcomeDemo(ModelMap model) {
 		
 		String 	viewName =PageRegister.INDEX.getPath();
@@ -45,15 +47,17 @@ public class AllpicationController {
 		return  viewName;
 	}
 	
-	@RequestMapping(value = "/TotalSalesReport", method = RequestMethod.GET)
+	@RequestMapping(value = "/TotalSalesReport" ,produces = "application/json" )
 	public ModelAndView totalSalesReport(){
 		ModelAndView modelAndView = new ModelAndView();
 		TotalSalesReportService reportService =new TotalSalesReportService();
-		List<TotalSalesReportBean> reportBeans = reportService.fetchDataTotalSalesReportByBranch();
+		List<TotalSalesReportBean> reportBeans = reportService.fetchDataTotalSalesReportByBranch("�÷Ծ");
 		String 	viewName = PageRegister.TOTAL_SALES_REPORT.getPath();
 		
 		modelAndView.setViewName(viewName);
 		modelAndView.addObject("reportBeans", reportBeans);
+		 String json = new Gson().toJson(reportBeans);	
+		 modelAndView.addObject("jsonBean", json);
 		return  modelAndView;
 	}
 	
