@@ -1,5 +1,7 @@
 package selenium.function;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -9,6 +11,8 @@ import org.openqa.selenium.WebElement;
 import selenium.common.BuildUrl;
 import selenium.common.WebDriverChrome;
 import selenium.common.constant.SeleniumConstant;
+import selenium.datacontrol.shared.PrepareTestDataBean;
+import selenium.service.PrepareDataTestCaseService;
 
 public class LoginSelenium extends WebDriverChrome {
 
@@ -51,17 +55,25 @@ public class LoginSelenium extends WebDriverChrome {
 	@Test
 	public void loginFunctionByCasePass() {
 
-		driver = super.getWedDriver();
-
-		String loginUrl = buildUrl.getLoginUrl();
-
-		driver.get(loginUrl);
-
-		WebElement webElement = driver.findElement(By.id("userName"));
-
-		webElement.sendKeys("meen");
-
-		super.close();
+//		driver = super.getWedDriver();
+//
+//		String loginUrl = buildUrl.getLoginUrl();
+//
+//		driver.get(loginUrl);
+//
+//		WebElement webElement = driver.findElement(By.id("userName"));
+//
+//		webElement.sendKeys("meen");
+//
+//		super.close();
+		
+		PrepareDataTestCaseService caseService = new PrepareDataTestCaseService();
+		List<PrepareTestDataBean>  case_0000001 = caseService.getPrepareDataTestCaseByTestCase("case_0000001");
+		
+		super.process(case_0000001);
+		
+		
+		
 
 	}
 }

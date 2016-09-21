@@ -5,4 +5,4 @@
  * @author papisit
  *
  */
-package selenium.common;
+package selenium.datacontrol;

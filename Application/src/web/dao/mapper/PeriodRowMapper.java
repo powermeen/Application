@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import web.shared.PeriodBean;
 
-public class PeriodRowMapper implements RowMapper {
+public class PeriodRowMapper implements RowMapper<PeriodBean> {
 
 	@Override
 	public PeriodBean mapRow(ResultSet resultSet, int arg1) throws SQLException {

@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import web.shared.TotalSalesReportBean;
 
-public class TotalSalesReportMapper implements RowMapper {
+public class TotalSalesReportMapper implements RowMapper<TotalSalesReportBean> {
 
 	@Override
 	public TotalSalesReportBean mapRow(ResultSet resultSet, int arg1) throws SQLException {

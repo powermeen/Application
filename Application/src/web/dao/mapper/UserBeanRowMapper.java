@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import web.shared.UserBean;
 
-public class UserBeanRowMapper implements RowMapper {
+public class UserBeanRowMapper implements RowMapper<UserBean> {
 
 	@Override
 	public UserBean mapRow(ResultSet resultSet, int arg1) throws SQLException {

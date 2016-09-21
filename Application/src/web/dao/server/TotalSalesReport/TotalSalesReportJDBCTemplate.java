@@ -27,7 +27,7 @@ public class TotalSalesReportJDBCTemplate implements TotalSalesReportDao {
 
 	}
 
-	@SuppressWarnings("unchecked")
+	
 	@Override
 	public List<TotalSalesReportBean> fetchDataTotalSalesRepByBranch(String branch) {
 		

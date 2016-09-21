@@ -30,7 +30,7 @@ public class LoginJDBCTemplate implements LoginDao{
 	}
 
 
-	@SuppressWarnings("unchecked")
+	@Override
 	public boolean authentication(LoginBean loginBean) {
 		Object[] objects = new Object[2];
 		objects[0] = loginBean.getUserName();

@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import web.shared.LoginBean;
 
-public class LoginBeanRowMapper implements RowMapper{
+public class LoginBeanRowMapper implements RowMapper<LoginBean>{
 
 	@Override
 	public LoginBean mapRow(ResultSet resultSet, int arg1) throws SQLException {

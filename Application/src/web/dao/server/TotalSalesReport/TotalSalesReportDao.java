@@ -11,5 +11,5 @@ public interface TotalSalesReportDao {
 	
 	public void setDataSource(DataSource dataSource) throws IllegalArgumentException;
 	
-	public List<TotalSalesReportBean> fetchDataTotalSalesRepByBranch(String branch);
+	public List<TotalSalesReportBean> fetchDataTotalSalesRepByBranch(String branch) throws IllegalArgumentException;
 }
