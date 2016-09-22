@@ -18,9 +18,11 @@ import com.google.gson.Gson;
 
 import web.comstant.PageRegister;
 import web.dao.service.LoginService;
+import web.dao.service.TotalSalesReportByOfficeService;
 import web.dao.service.TotalSalesReportService;
 import web.shared.LoginBean;
 import web.shared.TotalSalesReportBean;
+import web.shared.TotalSalesReportByOfficeBean;
 
 @Controller
 public class AllpicationController {
@@ -44,6 +46,23 @@ public class AllpicationController {
 
 	}
 	
+	@RequestMapping(value = "/loginForm")
+	public ModelAndView executeLogin(@ModelAttribute("loginModel") LoginBean loginBean ){
+		
+		LoginService loginService = new LoginService();
+		boolean isAuthentication = loginService.authentication(loginBean);
+		String path = null;
+		ModelAndView modelAndView = new ModelAndView();
+		if(isAuthentication){
+			path = PageRegister.TOTAL_SALES_REPORT.getPath();
+		}else {
+			path = PageRegister.LOGIN.getPath();
+		}
+		modelAndView.setViewName(path);
+		return modelAndView;
+	}
+	
+	
 	@RequestMapping(value = "/DemoColumn", method = RequestMethod.GET)
 	public String demoColumn(){
 		
@@ -51,7 +70,7 @@ public class AllpicationController {
 		return  viewName;
 	}
 	
-	@RequestMapping(value = "/TotalSalesReport" ,produces = "application/json" )
+	@RequestMapping(value = "/TotalSalesReport"  )
 	public ModelAndView totalSalesReport(){
 		ModelAndView modelAndView = new ModelAndView();
 		TotalSalesReportService reportService =new TotalSalesReportService();
@@ -59,17 +78,44 @@ public class AllpicationController {
 		String 	viewName = PageRegister.TOTAL_SALES_REPORT.getPath();
 		
 		modelAndView.setViewName(viewName);
-		modelAndView.addObject("reportBeans", reportBeans);
-		 String json = new Gson().toJson(reportBeans);	
-		 modelAndView.addObject("jsonBean", json);
+		modelAndView.addObject("reportBeans", reportBeans);	
+		 
 		return  modelAndView;
 	}
 	
-	@RequestMapping(value = "/TotalSalesReportByOffice")
-	public String totalSalesReportByOffice(@RequestParam("side") String side){
+	@ResponseBody
+	@RequestMapping(value = "/TotalSalesReportReset" ,produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public String  totalSalesReportReset(){
 		
+		TotalSalesReportBean  bean = new TotalSalesReportBean();
+		bean.setSite("1");
+		bean.setLiter("500");
+		bean.setMoney("10000.000");
+		bean.setQuality("50");
+		List<TotalSalesReportBean>beans = new ArrayList<TotalSalesReportBean>();
+		beans.add(bean);
+		TotalSalesReportService reportService =new TotalSalesReportService();
+		List<TotalSalesReportBean> reportBeans = reportService.fetchDataTotalSalesReportByBranch("�÷Ծ");
+		
+
+		String data = new Gson().toJson(reportBeans);
+		return  data;
+	}
+	
+	@RequestMapping(value = "/TotalSalesReportByOffice")
+	public ModelAndView totalSalesReportByOffice(@RequestParam("side") String site){
+		
+		ModelAndView modelAndView = new ModelAndView();
 		String 	viewName = PageRegister.TOTAL_SALES_REPORT_BY_OFFICE.getPath();
-		return  viewName;
+		
+		TotalSalesReportByOfficeService reportByOfficeService = new TotalSalesReportByOfficeService();
+		
+		List<TotalSalesReportByOfficeBean> reportBeans = reportByOfficeService.fetchTotalSalesReportByOfficeData("�÷Ծ", site);
+		
+		modelAndView.setViewName(viewName);
+		modelAndView.addObject("reportBeans", reportBeans);	
+		
+		return  modelAndView;
 	}
 	
 	@RequestMapping(value = "/TestMappingData" )
@@ -97,25 +143,8 @@ public class AllpicationController {
 	}
 	
 	
-	
 
-	
-	@RequestMapping(value = "/loginForm")
-	public ModelAndView executeLogin(@ModelAttribute("loginModel") LoginBean loginBean ){
-		
-		LoginService loginService = new LoginService();
-		boolean isAuthentication = loginService.authentication(loginBean);
-		String path = null;
-		ModelAndView modelAndView = new ModelAndView();
-		if(isAuthentication){
-			path = PageRegister.TOTAL_SALES_REPORT.getPath();
-		}else {
-			path = PageRegister.LOGIN.getPath();
-		}
-		modelAndView.setViewName(path);
-		return modelAndView;
-	}
-	
+
 	
 
 }

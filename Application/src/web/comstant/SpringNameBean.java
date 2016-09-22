@@ -12,6 +12,9 @@ public class SpringNameBean {
 	public static final String CONNECTION_HSQL = "connectionHSQL";
 	
 	public static final String TOTAL_SALES_REPORT = "totalSalesReport";
+
+	public static final String TOTAL_SALES_REPORT_BY_OFFICE = "totalSalesReportByOffice";
+	
 	
 	
 	

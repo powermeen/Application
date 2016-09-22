@@ -17,6 +17,10 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="dataSource" ref="dataSourceMSSQL" />
 	</bean>
 	
+	<bean id="totalSalesReportByOffice" class="web.dao.server.TotalSalesReportByOffice.TotalSalesReportByOfficeJDBCTemplate">
+		<property name="dataSource" ref="dataSourceMSSQL" />
+	</bean>
+	
 	
 	
 

@@ -26,57 +26,16 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 
-		// 		$.post("/Application/FetchDataUpdate",
 
-		// 		function(data) {
-		// 			console.log(data);
-		// 			//     		  $.each(data , function (  key , value){
-		// 			//     			  console.log(value);
-		// 			//     		  });
-		// 		});
 
 	});
 
-	function load() {
-		
-		$('#table').html("");
-		$('#table').append("<tbody id='displayBodyTable'> </tbody>");
 
-		$.post("/Application/FetchDataUpdate",
-
-		function(data) {
-			// 		 			console.log(data);
-			var firstHeader = ("<th>Order<th>");
-			var secondHeader = ("<th>Name<th>");
-			var thirdHeader = ("<th>Type<th>");
-			var fourthHeader = ("<th>Price<th>");
-
-			var allTd = firstHeader + secondHeader + thirdHeader + fourthHeader
-			var header = ('<thead><tr>' + allTd + '</tr></thead>');
-
-			$('#table').append(header);
-			$.each(data, function(key, value) {
-				var firstColumn = ("<td>" + value['order'] + "<td>");
-				var secondColumn = ("<td>" + value['name'] + "<td>");
-				var thirdColumn = ("<td>" + value['type'] + "<td>");
-				var fourthColumn = ("<td>" + value['price'] + "<td>");
-
-				var allTd = firstColumn + secondColumn + thirdColumn
-						+ fourthColumn
-				var row = ('<tr>' + allTd + '</tr>');
-
-				$('#displayBodyTable').append(row);
-			});
-
-		});
-	}
 </script>
 <title>Display Data</title>
 </head>
 <body>
 	<jsp:include page="Menubar.jsp" />
-
-	<button onclick="load()">Testing button</button>
 
 	<div class="container scorebar">
 		<h2>Detail Data By Side</h2>
@@ -114,24 +73,24 @@
 		</div>
 
 		<table id="table"class="table table-hover">
-<!-- 			<thead> -->
-<!-- 				<tr> -->
-<!-- 					<th>Order</th> -->
-<!-- 					<th>Name</th> -->
-<!-- 					<th>Type</th> -->
-<!-- 					<th>Price</th> -->
-<!-- 				</tr> -->
-<!-- 			</thead> -->
+			<thead>
+				<tr>
+					<th>Dispenser No</th>
+					<th>Product</th>
+					<th>Liter</th>
+					<th>Price</th>
+				</tr>
+			</thead>
 			
-<%-- 				<c:forEach var="amountBeans" items="${amountBeans}"> --%>
+				<c:forEach var="reportBeans" items="${reportBeans}">
 
-<!-- 					<tr> -->
-<%-- 						<td>${amountBeans.order}</td> --%>
-<%-- 						<td>${amountBeans.name}</td> --%>
-<%-- 						<td>${amountBeans.type}</td> --%>
-<%-- 						<td>${amountBeans.price}</td> --%>
-<!-- 					<tr> -->
-<%-- 				</c:forEach> --%>
+					<tr>
+						<td>${reportBeans.dispenserNo}</td>
+						<td>${reportBeans.product}</td>
+						<td>${reportBeans.liter}</td>
+						<td>${reportBeans.money}</td>
+					<tr>
+				</c:forEach>
 
 			</tbody>
 		</table>

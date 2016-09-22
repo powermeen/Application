@@ -4,11 +4,11 @@
 <head>
 
 <title>Total Sales Report</title>
-<%-- <jsp:include page="CssJSMain.jsp"></jsp:include> --%>
+<jsp:include page="CssJSMain.jsp"></jsp:include>
 
 <!-- hide mode -->
-<spring:url value="/resources/core/js/jquery.1.10.2.min.js" var="jqueryjs" />
-<script src="${jqueryjs}"></script>
+<%-- <spring:url value="/resources/core/js/jquery.1.10.2.min.js" var="jqueryjs" /> --%>
+<%-- <script src="${jqueryjs}"></script> --%>
 
 <style type="text/css">
 .container {
@@ -40,19 +40,20 @@ function reset(){
 	$.ajax({
 		type :"POST",
 		contentType : "application/json",
-		url :"/Application/TestMappingDataReset",
+		url :"/Application/TotalSalesReportReset",
  		dataType : 'json',
 		success : function(data) {
 			
 			$('#table').html("");
 			$('#table').append("<tbody id='displayBodyTable'> </tbody>");
 			
-			var firstHeader = ("<th>Order<th>");
-			var secondHeader = ("<th>Name<th>");
-			var thirdHeader = ("<th>Type<th>");
-			var fourthHeader = ("<th>Price<th>");
+			var firstHeader = ("<th>Site<th>");
+			var secondHeader = ("<th>Quality<th>");
+			var thirdHeader = ("<th>Liter<th>");
+			var fourthHeader = ("<th>Money<th>");
+			var fifthHeader = ("<th>View<th>");
 
-			var allTd = firstHeader + secondHeader + thirdHeader + fourthHeader
+			var allTd = firstHeader + secondHeader + thirdHeader + fourthHeader +fifthHeader
 			var header = ('<thead><tr>' + allTd + '</tr></thead>');
 
 			$('#table').append(header);
@@ -63,7 +64,7 @@ function reset(){
 					var secondColumn = ("<td> <div class= 'padding-top-2percent' > " + data['quality'] + "</div><td>");
 					var thirdColumn = ("<td> <div class= 'padding-top-2percent' > " + data['liter'] + "</div><td>");
 					var fourthColumn = ("<td> <div class= 'padding-top-2percent' > " + data['money'] + "</div><td>");
-					var fifthColumn = ("<td><div><button class= 'btn btn-primary' onclick ='redriectSide("+ data['site'] +")'>View</button></div></td>");
+					var fifthColumn = ("<td><div><button class= 'btn btn-primary' onclick ='redriectSite("+ data['site'] +")'>View</button></div></td>");
 					
 					var allTd = firstColumn + secondColumn + thirdColumn + fourthColumn +fifthColumn
 					var row = ('<tr>' + allTd + '</tr>');
@@ -77,8 +78,8 @@ function reset(){
 	});
 }
 
-function redriectSide(side){
-	window.location.assign("http://localhost:8080/Application/TotalSalesReportByOffice/?side="+side)
+function redriectSite(site){
+	window.location.assign("http://localhost:8080/Application/TotalSalesReportByOffice/?site="+site)
 }
 
 </script>
