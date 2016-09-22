@@ -7,9 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 
-
-
-
 <title>Test </title>
 <%-- <jsp:include page="CssJSMain.jsp"></jsp:include> --%>
 

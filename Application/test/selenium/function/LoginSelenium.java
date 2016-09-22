@@ -55,22 +55,22 @@ public class LoginSelenium extends WebDriverChrome {
 	@Test
 	public void loginFunctionByCasePass() {
 
-//		driver = super.getWedDriver();
-//
-//		String loginUrl = buildUrl.getLoginUrl();
-//
-//		driver.get(loginUrl);
-//
-//		WebElement webElement = driver.findElement(By.id("userName"));
-//
-//		webElement.sendKeys("meen");
-//
-//		super.close();
+		driver = super.getWedDriver();
+
+		String loginUrl = buildUrl.getLoginUrl();
+
+		driver.get(loginUrl);
 		
 		PrepareDataTestCaseService caseService = new PrepareDataTestCaseService();
+		
 		List<PrepareTestDataBean>  case_0000001 = caseService.getPrepareDataTestCaseByTestCase("case_0000001");
 		
 		super.process(case_0000001);
+
+
+//		super.close();
+		
+		
 		
 		
 		

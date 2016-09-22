@@ -45,10 +45,22 @@ public abstract class WebDriverChrome implements WebDriverMain {
 			
 			String widgetsId = prepareTestDataBean.getWidgetId();
 			String widgetData = prepareTestDataBean.getWidgetData();
+			String actionType = prepareTestDataBean.getActionType();
+			
 			
 			WebElement webElement = driver.findElement(By.id(widgetsId));
 			
-			webElement.sendKeys(widgetData);
+			if(SeleniumConstant.ACTION_TYPE_INPUT.equalsIgnoreCase(actionType)){
+				
+				webElement.sendKeys(widgetData);
+				
+			}else if(SeleniumConstant.ACTION_TYPE_CLICK.equalsIgnoreCase(actionType)) {
+				
+				webElement.click();
+				
+			}
+			
+			
 		}
 		
 	}

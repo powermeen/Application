@@ -17,11 +17,13 @@ public class PrepareDataTestCaseRowmapper implements RowMapper<PrepareTestDataBe
 		String widgetId = resultSet.getString("widgetId");
 		String widgetData = resultSet.getString("widgetData");
 		String widgetType = resultSet.getString("widgetType");
+		String actionType = resultSet.getString("actionType");
 		String testCaseName = resultSet.getString("testCaseName");
 		
 		prepareTestDataBean.setWidgetId(widgetId);
 		prepareTestDataBean.setWidgetData(widgetData);
 		prepareTestDataBean.setWidgetType(widgetType);
+		prepareTestDataBean.setActionType(actionType);
 		prepareTestDataBean.setTestCaseName(testCaseName);
 		
 		return prepareTestDataBean;

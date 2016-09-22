@@ -5,8 +5,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <title>Login Page</title>
-<jsp:include page="CssJSMain.jsp"></jsp:include>
-
+<%-- <jsp:include page="CssJSMain.jsp"></jsp:include> --%>
+<!-- hide mode -->
+<spring:url value="/resources/core/js/jquery.1.10.2.min.js" var="jqueryjs" />
+<script src="${jqueryjs}"></script>
 
 <script type="text/javascript">
 	
@@ -16,9 +18,9 @@
 </head>
 <body>
 
-	<div class="pen-title">
-		<h1 id = "loginForm">Login Form</h1>
-	</div>
+<!-- 	<div class="pen-title"> -->
+<!-- 		<h1 id = "loginForm">Login Form</h1> -->
+<!-- 	</div> -->
 	<!-- Form Module-->
 	<div class="module form-module">
 		<div class="toggle">

@@ -12,4 +12,8 @@ public interface SeleniumConstant {
 	public final String OPTION_LOCAL = "1";
 	
 	public final String OPTION_PRODUCTION = "2";
+	
+	public final String ACTION_TYPE_INPUT = "input";
+	
+	public final String ACTION_TYPE_CLICK = "click";
 }
