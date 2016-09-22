@@ -1,15 +1,14 @@
-<%@page import="java.util.List"%>
-<%@ page contentType="text/html;charset=UTF-8"%>
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="java.util.ArrayList"%>
+<%@include file="include.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 
 <title>Total Sales Report</title>
-<jsp:include page="CssJSMain.jsp"></jsp:include>
+<%-- <jsp:include page="CssJSMain.jsp"></jsp:include> --%>
 
+<!-- hide mode -->
+<spring:url value="/resources/core/js/jquery.1.10.2.min.js" var="jqueryjs" />
+<script src="${jqueryjs}"></script>
 
 <style type="text/css">
 .container {
@@ -35,48 +34,19 @@
 </style>
 
 <script type="text/javascript">
-	$(document).ready(function() {
 
-		 	
-
-	});
-
-	function load() {
-
-	}
+function reset(){
 	
-	function reset(){
-		$.post("/Application/TotalSalesReport", function(data) {
-			console.log(data);
-			$.each(data, function(key, value) {
-				$('#table').html("");
-				$('#table').append("<tbody id='displayBodyTable'> </tbody>");
-				
-				var firstHeader = ("<th>Order<th>");
-				var secondHeader = ("<th>Name<th>");
-				var thirdHeader = ("<th>Type<th>");
-				var fourthHeader = ("<th>Price<th>");
-
-				var allTd = firstHeader + secondHeader + thirdHeader + fourthHeader
-				var header = ('<thead><tr>' + allTd + '</tr></thead>');
-
-				$('#table').append(header);
-			});
+	$.ajax({
+		type :"POST",
+		contentType : "application/json",
+		url :"/Application/TestMappingDataReset",
+ 		dataType : 'json',
+		success : function(data) {
 			
-		});
-	}
-
-	function resetColumn() {
-		$('#table').html("");
-		$('#table').append("<tbody id='displayBodyTable'> </tbody>");
-
-		var number = $('#numberColumn').val;
-		$.post("/Application/TotalSalesReport", {
-			numberColumn : number
-		},
-
-		function(data) {
-			// 		 			console.log(data);
+			$('#table').html("");
+			$('#table').append("<tbody id='displayBodyTable'> </tbody>");
+			
 			var firstHeader = ("<th>Order<th>");
 			var secondHeader = ("<th>Name<th>");
 			var thirdHeader = ("<th>Type<th>");
@@ -86,21 +56,31 @@
 			var header = ('<thead><tr>' + allTd + '</tr></thead>');
 
 			$('#table').append(header);
-			$.each(data, function(key, value) {
-				var firstColumn = ("<td>" + value['order'] + "<td>");
-				var secondColumn = ("<td>" + value['name'] + "<td>");
-				var thirdColumn = ("<td>" + value['type'] + "<td>");
-				var fourthColumn = ("<td>" + value['price'] + "<td>");
+			
+			    $.each(data, function (key, data) {
+			    	var currentLocation = window.location;
+			        var firstColumn = ("<td> <div class= 'padding-top-2percent' > " + data['site'] + "</div><td>");
+					var secondColumn = ("<td> <div class= 'padding-top-2percent' > " + data['quality'] + "</div><td>");
+					var thirdColumn = ("<td> <div class= 'padding-top-2percent' > " + data['liter'] + "</div><td>");
+					var fourthColumn = ("<td> <div class= 'padding-top-2percent' > " + data['money'] + "</div><td>");
+					var fifthColumn = ("<td><div><button class= 'btn btn-primary' onclick ='redriectSide("+ data['site'] +")'>View</button></div></td>");
+					
+					var allTd = firstColumn + secondColumn + thirdColumn + fourthColumn +fifthColumn
+					var row = ('<tr>' + allTd + '</tr>');
 
-				var allTd = firstColumn + secondColumn + thirdColumn
-						+ fourthColumn
-				var row = ('<tr>' + allTd + '</tr>');
+					$('#displayBodyTable').append(row);
+			        
+			    })
+			    
+		}
+		
+	});
+}
 
-				$('#displayBodyTable').append(row);
-			});
+function redriectSide(side){
+	window.location.assign("http://localhost:8080/Application/TotalSalesReportByOffice/?side="+side)
+}
 
-		});
-	}
 </script>
 <title>Demo Column</title>
 </head>
@@ -137,8 +117,6 @@
 					</h4>
 				</div>
 
-
-
 			</div>
 			<div class="col-md-12 display-flex">
 
@@ -166,29 +144,26 @@
 
 			</div>
 
-
-
-
 			<table id="table" class="table table-hover">
-<!-- 				<thead> -->
-<!-- 					<tr> -->
-<!-- 						<th>Side</th> -->
-<!-- 						<th>Quality</th> -->
-<!-- 						<th>Quantity</th> -->
-<!-- 						<th>Summary</th> -->
-<!-- 						<th>View</th> -->
-<!-- 					</tr> -->
-<!-- 				</thead> -->
+				<thead>
+					<tr>
+						<th>Side</th>
+						<th>Quality</th>
+						<th>Quantity</th>
+						<th>Summary</th>
+						<th>View</th>
+					</tr>
+				</thead>
 
-<%-- 			<c:forEach var="reportBeans" items="${reportBeans}"> --%>
-<!-- 				<tr> -->
-<%-- 					<td><div class="padding-top-2percent">${reportBeans.site}</div></td> --%>
-<%-- 					<td><div class="padding-top-2percent">${reportBeans.quality}</div></td> --%>
-<%-- 					<td><div class="padding-top-2percent">${reportBeans.liter}</div></td> --%>
-<%-- 					<td><div class="padding-top-2percent">${reportBeans.money}</div></td> --%>
-<!-- 					<td><div><button class="btn btn-primary">View</button></div></td> -->
-<!-- 				<tr> -->
-<%-- 			</c:forEach> --%>
+			<c:forEach var="reportBeans" items="${reportBeans}">
+				<tr>
+					<td><div class="padding-top-2percent">${reportBeans.site}</div></td>
+					<td><div class="padding-top-2percent">${reportBeans.quality}</div></td>
+					<td><div class="padding-top-2percent">${reportBeans.liter}</div></td>
+					<td><div class="padding-top-2percent">${reportBeans.money}</div></td>
+					<td><div><button class="btn btn-primary" onclick="redriectSide(${reportBeans.site})">View</button></div></td>
+				<tr>
+			</c:forEach>
 				</tbody>
 			</table>
 

@@ -38,13 +38,16 @@
 <spring:url value="/resources/core/js/bootstrap.js" var="bootstrapJs" />
 <spring:url value="/resources/core/js/bootstrap.min.js" var="bootstrapMinJs" />
 <spring:url value="/resources/core/js/jquery.min.js" var="jqueryMinJs" />
-<spring:url value="/resources/core/js/jquery-3.1.0.js" var="jqueryjs" />
+<%-- <spring:url value="/resources/core/js/jquery-3.1.0.js" var="jqueryjs" /> --%>
+<spring:url value="/resources/core/js/jquery.1.10.2.min.js" var="jqueryjs" />
+<spring:url value="/resources/core/js/common.js" var="commonjs" />
 
 
 <%-- <script src="${bootstrapJs}"></script> --%>
 <%-- <script src="${bootstrapMinJs}"></script> --%>
 <script src="${jqueryMinJs}"></script>
-<%-- <script src="${jqueryjs}"></script> --%>
+<script src="${jqueryjs}"></script>
+<script src="${commonjs}"></script>
 
 </head>
 <body>

@@ -1,13 +1,17 @@
 package web.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
@@ -61,19 +65,38 @@ public class AllpicationController {
 		return  modelAndView;
 	}
 	
-	@RequestMapping(value = "/TotalSalesReportByOffice", method = RequestMethod.GET)
-	public String totalSalesReportByOffice(){
+	@RequestMapping(value = "/TotalSalesReportByOffice")
+	public String totalSalesReportByOffice(@RequestParam("side") String side){
 		
 		String 	viewName = PageRegister.TOTAL_SALES_REPORT_BY_OFFICE.getPath();
 		return  viewName;
 	}
 	
-	@RequestMapping(value = "/TestMappingData", method = RequestMethod.GET)
+	@RequestMapping(value = "/TestMappingData" )
 	public String testMappingData(){
 		
 		String 	viewName = PageRegister.TEST_MAPPING_DATA.getPath();
+		
 		return  viewName;
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/TestMappingDataReset" ,produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public String  testMappingDataReset(){
+		
+		TotalSalesReportBean  bean = new TotalSalesReportBean();
+		bean.setSite("1");
+		bean.setLiter("500");
+		bean.setMoney("10000.000");
+		bean.setQuality("50");
+		List<TotalSalesReportBean>beans = new ArrayList<TotalSalesReportBean>();
+		beans.add(bean);
+
+		String data = new Gson().toJson(beans);
+		return  data;
+	}
+	
+	
 	
 
 	

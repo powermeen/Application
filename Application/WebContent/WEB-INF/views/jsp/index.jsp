@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@include file="include.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,7 +31,7 @@
 		<button class="btn btn-primary" id="demoLoginButton"  onclick="redriectPage('loginForm')">Demo Login</button>
 		<button class="btn btn-primary" id="demoDemoColumn"  onclick="redriectPage('DemoColumn')">Demo Column Table</button>
 		<button class="btn btn-primary" id="demoTotalSalesReport"    onclick="redriectPage('TotalSalesReport')" >Total Sales Report</button>
-		<button class="btn btn-primary" id="demoTotalSalesReportByOffice"   onclick="redriectPage('TotalSalesReportByOffice')" >Total Sales Report By Office</button>
+		<button class="btn btn-primary" id="demoTotalSalesReportByOffice"   onclick="redriectPage('TotalSalesReportByOffice/?side=1)" >Total Sales Report By Office</button>
 		<button class="btn btn-primary" id="demoTestMappingData"  onclick="redriectPage('TestMappingData')">Test Mapping Data</button>
 	
 
