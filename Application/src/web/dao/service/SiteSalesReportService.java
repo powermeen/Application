@@ -8,8 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import web.comstant.SpringNameBean;
 import web.dao.server.site.sales.report.SiteSalesReportJDBCTemplate;
-import web.dao.server.total.sales.report.TotalSalesReportJDBCTemplate;
-import web.shared.SitelSalesReportBean;
+import web.shared.SiteSalesReportBean;
 
 public class SiteSalesReportService {
 
@@ -25,12 +24,12 @@ public class SiteSalesReportService {
 
 	}
 	
-	public List<SitelSalesReportBean> fetchTotalSalesReportByOfficeData(String branch,String site){
+	public List<SiteSalesReportBean> getDataBySite(String branch,String site){
 		
-		List<SitelSalesReportBean> reportByOfficeBeans =jdbcTemplate.getDataBySite(branch, site);
+		List<SiteSalesReportBean> siteSalesReportBeans =jdbcTemplate.getDataBySite(branch, site);
 		
 		
-		return reportByOfficeBeans;
+		return siteSalesReportBeans;
 		
 	}
 	

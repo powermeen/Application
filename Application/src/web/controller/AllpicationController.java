@@ -1,5 +1,6 @@
 package web.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,8 +22,8 @@ import web.dao.service.LoginService;
 import web.dao.service.SiteSalesReportService;
 import web.dao.service.TotalSalesReportService;
 import web.shared.LoginBean;
+import web.shared.SiteSalesReportBean;
 import web.shared.TotalSalesReportBean;
-import web.shared.SitelSalesReportBean;
 
 @Controller
 public class AllpicationController {
@@ -54,7 +55,7 @@ public class AllpicationController {
 		String path = null;
 		ModelAndView modelAndView = new ModelAndView();
 		if(isAuthentication){
-			path = PageRegister.TOTAL_SALES_REPORT.getPath();
+			path = "redirect:"+ PageRegister.TOTAL_SALES_REPORT.getPath();
 		}else {
 			path = PageRegister.LOGIN.getPath();
 		}
@@ -95,15 +96,34 @@ public class AllpicationController {
 		return  data;
 	}
 	
-	@RequestMapping(value = "/SiteSalesReport")
-	public ModelAndView executeSiteSalesReport(@RequestParam("site") String site){
-		
+	@RequestMapping(value = "/SiteSalesReport" ,produces = "text/plain;charset=TIS-620")
+	public ModelAndView executeSiteSalesReport(@RequestParam("site") String site ) throws UnsupportedEncodingException{
+//		String newBranch = new String(branch.getBytes("ISO-8859-1"), "UTF-8");
 		ModelAndView modelAndView = new ModelAndView();
 		String 	viewName = PageRegister.SITE_SALES_REPORT.getPath();
 		
 		SiteSalesReportService reportByOfficeService = new SiteSalesReportService();
 		
-		List<SitelSalesReportBean> reportBeans = reportByOfficeService.fetchTotalSalesReportByOfficeData("�÷Ծ", site);
+		List<SiteSalesReportBean> reportBeans = reportByOfficeService.getDataBySite("�÷Ծ", site );
+		
+		modelAndView.setViewName(viewName);
+		modelAndView.addObject("reportBeans", reportBeans);	
+		
+		return  modelAndView;
+	}
+	
+	@RequestMapping(value = "/SiteSalesReportxxxxx" ,produces = "text/plain;charset=TIS-620")
+	public ModelAndView executeSiteSalesReportxxxx(
+			@RequestParam("site") String site ,
+			@RequestParam("branch") String branch ,
+			@RequestParam("pastTime") String pastTime ) throws UnsupportedEncodingException{
+		String newBranch = new String(branch.getBytes("ISO-8859-1"), "UTF-8");
+		ModelAndView modelAndView = new ModelAndView();
+		String 	viewName = PageRegister.SITE_SALES_REPORT.getPath();
+		
+		SiteSalesReportService reportByOfficeService = new SiteSalesReportService();
+		
+		List<SiteSalesReportBean> reportBeans = reportByOfficeService.getDataBySite(newBranch, site );
 		
 		modelAndView.setViewName(viewName);
 		modelAndView.addObject("reportBeans", reportBeans);	

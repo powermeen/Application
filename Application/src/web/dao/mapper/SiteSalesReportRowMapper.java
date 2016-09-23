@@ -5,14 +5,14 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import web.shared.SitelSalesReportBean;
+import web.shared.SiteSalesReportBean;
 
-public class SiteSalesReportRowMapper implements RowMapper<SitelSalesReportBean>{
+public class SiteSalesReportRowMapper implements RowMapper<SiteSalesReportBean>{
 
 	@Override
-	public SitelSalesReportBean mapRow(ResultSet resultSet, int arg1) throws SQLException {
+	public SiteSalesReportBean mapRow(ResultSet resultSet, int arg1) throws SQLException {
 		
-		SitelSalesReportBean sitelSalesReportBean = new SitelSalesReportBean();
+		SiteSalesReportBean sitelSalesReportBean = new SiteSalesReportBean();
 		
 		String dispenserNo = resultSet.getString("dispenserNo");
 		String product = resultSet.getString("product");

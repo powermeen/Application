@@ -1,11 +1,13 @@
 package web.shared;
 
-public class SitelSalesReportBean {
+public class SiteSalesReportBean {
 
 	private String dispenserNo;
 	private String product;
 	private String liter;
 	private String money;
+	
+	
 	
 	
 	public String getDispenserNo() {

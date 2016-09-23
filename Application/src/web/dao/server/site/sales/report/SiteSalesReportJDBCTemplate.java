@@ -8,9 +8,7 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import web.dao.mapper.SiteSalesReportRowMapper;
-import web.dao.mapper.TotalSalesReportMapper;
-import web.shared.TotalSalesReportBean;
-import web.shared.SitelSalesReportBean;
+import web.shared.SiteSalesReportBean;
 import web.sql.SiteSalesReportQuery;
 
 public class SiteSalesReportJDBCTemplate implements SiteSalesReportDao {
@@ -30,16 +28,16 @@ public class SiteSalesReportJDBCTemplate implements SiteSalesReportDao {
 	}
 	
 	@Override
-	public List<SitelSalesReportBean> getDataBySite(String branch,String site){
+	public List<SiteSalesReportBean> getDataBySite(String branch,String site){
 		String query = siteSalesReportQuery.getSiteSalesReportBySite();
 		
 		Object[] objects = new Object[2];
 		objects[0] = branch;
 		objects[1] = site;
-		List<SitelSalesReportBean> sitelSalesReportBeans = new ArrayList<SitelSalesReportBean>();
-		sitelSalesReportBeans = jdbcTemplate.query(query, objects, new SiteSalesReportRowMapper());
+		List<SiteSalesReportBean> siteSalesReportBeans = new ArrayList<SiteSalesReportBean>();
+		siteSalesReportBeans = jdbcTemplate.query(query, objects, new SiteSalesReportRowMapper());
 		
-		return sitelSalesReportBeans;
+		return siteSalesReportBeans;
 		
 	}
 

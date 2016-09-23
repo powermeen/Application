@@ -20,6 +20,9 @@
 .glyphicon {
 	padding-right: 5px;
 }
+.display-flex {
+	display: flex;
+}
 </style>
 
 <script type="text/javascript">
