@@ -79,7 +79,7 @@ function reset(){
 }
 
 function redriectSite(site){
-	window.location.assign("http://localhost:8080/Application/TotalSalesReportByOffice/?site="+site)
+	window.location.assign("http://localhost:8080/Application/SiteSalesReport/?site="+site)
 }
 
 </script>

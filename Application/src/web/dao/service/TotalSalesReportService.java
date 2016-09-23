@@ -7,7 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import web.comstant.SpringNameBean;
-import web.dao.server.TotalSalesReport.TotalSalesReportJDBCTemplate;
+import web.dao.server.total.sales.report.TotalSalesReportJDBCTemplate;
 import web.shared.TotalSalesReportBean;
 
 public class TotalSalesReportService {
@@ -22,10 +22,9 @@ public class TotalSalesReportService {
 		totalSalesReportJDBCTemplate = (TotalSalesReportJDBCTemplate) context.getBean(SpringNameBean.TOTAL_SALES_REPORT);
 	}
 	
-	public List<TotalSalesReportBean>  fetchDataTotalSalesReportByBranch(String branch){
+	public List<TotalSalesReportBean>  getDataByBranch(String branch){
 		
-		
-		List<TotalSalesReportBean> totalSalesReportBeans = totalSalesReportJDBCTemplate.fetchDataTotalSalesRepByBranch(branch);
+		List<TotalSalesReportBean> totalSalesReportBeans = totalSalesReportJDBCTemplate.getDataByBranch(branch);
 		
 		return totalSalesReportBeans;
 	}

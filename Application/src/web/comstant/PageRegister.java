@@ -6,7 +6,7 @@ public enum PageRegister {
 	LOGIN("login", "Login"),
 	DEMO_COLUMN("DemoColumn", "DemoColumn"),
 	TOTAL_SALES_REPORT("totalSalesReport","TotalSalesReport"),
-	TOTAL_SALES_REPORT_BY_OFFICE("totalSalesReportByOffice","TotalSalesReportByOffice"),
+	SITE_SALES_REPORT("SiteSalesReport","SiteSalesReport"),
 	TEST_MAPPING_DATA("TestMappingData","TestMappingData");
 
 	private String key;

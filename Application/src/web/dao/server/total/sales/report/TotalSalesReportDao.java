@@ -1,4 +1,4 @@
-package web.dao.server.TotalSalesReport;
+package web.dao.server.total.sales.report;
 
 import java.util.List;
 
@@ -11,5 +11,5 @@ public interface TotalSalesReportDao {
 	
 	public void setDataSource(DataSource dataSource) throws IllegalArgumentException;
 	
-	public List<TotalSalesReportBean> fetchDataTotalSalesRepByBranch(String branch) throws IllegalArgumentException;
+	public List<TotalSalesReportBean> getDataByBranch(String branch) throws IllegalArgumentException;
 }

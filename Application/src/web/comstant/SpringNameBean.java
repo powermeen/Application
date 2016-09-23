@@ -13,7 +13,7 @@ public class SpringNameBean {
 	
 	public static final String TOTAL_SALES_REPORT = "totalSalesReport";
 
-	public static final String TOTAL_SALES_REPORT_BY_OFFICE = "totalSalesReportByOffice";
+	public static final String SITE_SALES_REPORT_BY_OFFICE = "siteSalesReport";
 	
 	
 	

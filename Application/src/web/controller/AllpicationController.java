@@ -18,11 +18,11 @@ import com.google.gson.Gson;
 
 import web.comstant.PageRegister;
 import web.dao.service.LoginService;
-import web.dao.service.TotalSalesReportByOfficeService;
+import web.dao.service.SiteSalesReportService;
 import web.dao.service.TotalSalesReportService;
 import web.shared.LoginBean;
 import web.shared.TotalSalesReportBean;
-import web.shared.TotalSalesReportByOfficeBean;
+import web.shared.SitelSalesReportBean;
 
 @Controller
 public class AllpicationController {
@@ -63,18 +63,11 @@ public class AllpicationController {
 	}
 	
 	
-	@RequestMapping(value = "/DemoColumn", method = RequestMethod.GET)
-	public String demoColumn(){
-		
-		String 	viewName = PageRegister.DEMO_COLUMN.getPath();
-		return  viewName;
-	}
-	
 	@RequestMapping(value = "/TotalSalesReport"  )
-	public ModelAndView totalSalesReport(){
+	public ModelAndView executeTotalSalesReport(){
 		ModelAndView modelAndView = new ModelAndView();
 		TotalSalesReportService reportService =new TotalSalesReportService();
-		List<TotalSalesReportBean> reportBeans = reportService.fetchDataTotalSalesReportByBranch("�÷Ծ");
+		List<TotalSalesReportBean> reportBeans = reportService.getDataByBranch("�÷Ծ");
 		String 	viewName = PageRegister.TOTAL_SALES_REPORT.getPath();
 		
 		modelAndView.setViewName(viewName);
@@ -85,7 +78,7 @@ public class AllpicationController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/TotalSalesReportReset" ,produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public String  totalSalesReportReset(){
+	public String  executeTotalSalesReportReset(){
 		
 		TotalSalesReportBean  bean = new TotalSalesReportBean();
 		bean.setSite("1");
@@ -95,22 +88,22 @@ public class AllpicationController {
 		List<TotalSalesReportBean>beans = new ArrayList<TotalSalesReportBean>();
 		beans.add(bean);
 		TotalSalesReportService reportService =new TotalSalesReportService();
-		List<TotalSalesReportBean> reportBeans = reportService.fetchDataTotalSalesReportByBranch("�÷Ծ");
+		List<TotalSalesReportBean> reportBeans = reportService.getDataByBranch("�÷Ծ");
 		
 
 		String data = new Gson().toJson(reportBeans);
 		return  data;
 	}
 	
-	@RequestMapping(value = "/TotalSalesReportByOffice")
-	public ModelAndView totalSalesReportByOffice(@RequestParam("side") String site){
+	@RequestMapping(value = "/SiteSalesReport")
+	public ModelAndView executeSiteSalesReport(@RequestParam("site") String site){
 		
 		ModelAndView modelAndView = new ModelAndView();
-		String 	viewName = PageRegister.TOTAL_SALES_REPORT_BY_OFFICE.getPath();
+		String 	viewName = PageRegister.SITE_SALES_REPORT.getPath();
 		
-		TotalSalesReportByOfficeService reportByOfficeService = new TotalSalesReportByOfficeService();
+		SiteSalesReportService reportByOfficeService = new SiteSalesReportService();
 		
-		List<TotalSalesReportByOfficeBean> reportBeans = reportByOfficeService.fetchTotalSalesReportByOfficeData("�÷Ծ", site);
+		List<SitelSalesReportBean> reportBeans = reportByOfficeService.fetchTotalSalesReportByOfficeData("�÷Ծ", site);
 		
 		modelAndView.setViewName(viewName);
 		modelAndView.addObject("reportBeans", reportBeans);	
@@ -118,6 +111,12 @@ public class AllpicationController {
 		return  modelAndView;
 	}
 	
+	@RequestMapping(value = "/DemoColumn", method = RequestMethod.GET)
+	public String demoColumn(){
+		
+		String 	viewName = PageRegister.DEMO_COLUMN.getPath();
+		return  viewName;
+	}
 	@RequestMapping(value = "/TestMappingData" )
 	public String testMappingData(){
 		

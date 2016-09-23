@@ -84,7 +84,7 @@ function reset(){
 }
 
 function redriectSide(side){
-	window.location.assign("http://localhost:8080/Application/TotalSalesReportByOffice/?side="+side)
+	window.location.assign("http://localhost:8080/Application/SiteSalesReport/?site="+site)
 }
 
 

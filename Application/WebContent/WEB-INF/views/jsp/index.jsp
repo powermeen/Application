@@ -31,7 +31,7 @@
 		<button class="btn btn-primary" id="demoLoginButton"  onclick="redriectPage('loginForm')">Demo Login</button>
 		<button class="btn btn-primary" id="demoDemoColumn"  onclick="redriectPage('DemoColumn')">Demo Column Table</button>
 		<button class="btn btn-primary" id="demoTotalSalesReport"    onclick="redriectPage('TotalSalesReport')" >Total Sales Report</button>
-		<button class="btn btn-primary" id="demoTotalSalesReportByOffice"   onclick="redriectPage('TotalSalesReportByOffice/?side=1')" >Total Sales Report By Office</button>
+		<button class="btn btn-primary" id="demoSiteSalesReport"   onclick="redriectPage('SiteSalesReport/?site=1')" >Total Sales Report By Office</button>
 		<button class="btn btn-primary" id="demoTestMappingData"  onclick="redriectPage('TestMappingData')">Test Mapping Data</button>
 	
 

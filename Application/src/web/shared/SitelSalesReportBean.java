@@ -1,6 +1,6 @@
 package web.shared;
 
-public class TotalSalesReportByOfficeBean {
+public class SitelSalesReportBean {
 
 	private String dispenserNo;
 	private String product;

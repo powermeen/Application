@@ -14,13 +14,11 @@ public class LoginBeanRowMapper implements RowMapper<LoginBean>{
 
 		LoginBean loginBean = new LoginBean();
 		
-		String userName = resultSet.getString(loginBean.USERNAME);
-		String password = resultSet.getString(loginBean.PASSWORD);
+		String userName = resultSet.getString("userName");
+		String password = resultSet.getString("password");
 		
 		loginBean.setUserName(userName);
 		loginBean.setPassword(password);
-		
-		
 		
 		return loginBean;
 	}

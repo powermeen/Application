@@ -1,4 +1,4 @@
-package web.dao.server.TotalSalesReport;
+package web.dao.server.total.sales.report;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ public class TotalSalesReportJDBCTemplate implements TotalSalesReportDao {
 
 	
 	@Override
-	public List<TotalSalesReportBean> fetchDataTotalSalesRepByBranch(String branch) {
+	public List<TotalSalesReportBean> getDataByBranch(String branch) {
 		
 		String query = totalSalesReportQuery.getTotalSalesReportAllSideQuery();
 		
@@ -39,7 +39,6 @@ public class TotalSalesReportJDBCTemplate implements TotalSalesReportDao {
 		List<TotalSalesReportBean> totalSalesReportBeans = new ArrayList<TotalSalesReportBean>();
 		
 		totalSalesReportBeans = jdbcTemplate.query(query, objects, new TotalSalesReportMapper());
-		System.out.println("Found item is >> "+totalSalesReportBeans.size());
 		
 		return totalSalesReportBeans;
 	}

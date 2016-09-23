@@ -3,8 +3,7 @@ package web.shared;
 public class LoginBean {
 
 	
-	public String USERNAME = "username";
-	public String PASSWORD = "password";
+	
 	
 	private String userName;
 	

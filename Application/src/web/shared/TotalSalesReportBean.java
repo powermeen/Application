@@ -3,11 +3,8 @@ package web.shared;
 public class TotalSalesReportBean {
 	
 	private String site;
-	
 	private String quality;
-	
 	private String liter;
-	
 	private String money;
 
 	public String getSite() {
