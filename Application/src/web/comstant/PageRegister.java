@@ -7,7 +7,10 @@ public enum PageRegister {
 	DEMO_COLUMN("DemoColumn", "DemoColumn"),
 	TOTAL_SALES_REPORT("totalSalesReport","TotalSalesReport"),
 	SITE_SALES_REPORT("SiteSalesReport","SiteSalesReport"),
-	TEST_MAPPING_DATA("TestMappingData","TestMappingData");
+	TEST_MAPPING_DATA("TestMappingData","TestMappingData"),
+	MENU("Menu","Menu"),
+	GOODS_DETAILS("GoodDetails","buy/GoodDetails");
+	
 
 	private String key;
 	

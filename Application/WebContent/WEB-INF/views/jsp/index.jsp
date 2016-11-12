@@ -33,6 +33,7 @@
 		<button class="btn btn-primary" id="demoTotalSalesReport"    onclick="redriectPage('TotalSalesReport')" >Total Sales Report</button>
 		<button class="btn btn-primary" id="demoSiteSalesReport"   onclick="redriectPage('SiteSalesReport/?site=10')" >Total Sales Report By Office</button>
 		<button class="btn btn-primary" id="demoTestMappingData"  onclick="redriectPage('TestMappingData')">Test Mapping Data</button>
+		<button class="btn btn-primary" id="menu"  onclick="redriectPage('Menu')">Menu bar</button>
 	
 
 	</div>

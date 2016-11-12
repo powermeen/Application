@@ -18,38 +18,35 @@
 <%-- <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script> --%>
 <%-- <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.js"></script> --%>
 
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+
+<!-- jQuery library -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+
+<!-- Latest compiled JavaScript -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+
 
 <!-- Css -->
-<spring:url value="/resources/core/css/bootstrap.css" var="bootstrapCss" />
 <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapMinCss" />
-<spring:url value="/resources/core/css/bootstrap-theme.css" var="bootstrapThemeCss" />
 <spring:url value="/resources/core/css/bootstrap-theme.min.css" var="bootstrapThemeMinCss" />
-<spring:url value="/resources/core/css/reset.css" var="resetCss" />
-<spring:url value="/resources/core/css/style.css" var="styleCss" />
+<spring:url value="/resources/core/css/CustomStyle.css" var="customStyleCss" />
 
-<link rel="stylesheet" href="${bootstrapCss}"  />
-<link rel="stylesheet" href="${bootstrapMinCss}"  />
-<link rel="stylesheet" href="${bootstrapThemeCss}"  />
-<link rel="stylesheet" href="${bootstrapThemeMinCss}"  />
-<link rel="stylesheet" href="${styleCss}"  />
-<%-- <link rel="stylesheet" href="${resetCss}"  /> --%>
+<link  rel="stylesheet" href="${bootstrapMinCss}"  />
+<link  rel="stylesheet" href="${bootstrapThemeMinCss}"  />
+<link  rel="stylesheet" href="${customStyleCss}"  />
+
 
 <!-- JS -->
-<spring:url value="/resources/core/js/bootstrap.js" var="bootstrapJs" />
-<spring:url value="/resources/core/js/bootstrap.min.js" var="bootstrapMinJs" />
 <spring:url value="/resources/core/js/jquery.min.js" var="jqueryMinJs" />
-<%-- <spring:url value="/resources/core/js/jquery-3.1.0.js" var="jqueryjs" /> --%>
-<spring:url value="/resources/core/js/jquery.1.10.2.min.js" var="jqueryjs" />
+<spring:url value="/resources/core/js/bootstrap.min.js" var="bootstrapMinJs" />
+<spring:url value="/resources/core/js/custom.js" var="customJs" />
 
 
-
-
-
-<script src="${jqueryMinJs}"></script>
-<script src="${bootstrapJs}"></script>
-<script src="${bootstrapMinJs}"></script>
-<script src="${jqueryjs}"></script>
-
+<script   type="text/javascript" src="${jqueryMinJs}"></script>
+<script   type="text/javascript" src="${bootstrapMinJs}"></script>
+<script   type="text/javascript" src="${customJs}"></script>
 
 </head>
 <body>

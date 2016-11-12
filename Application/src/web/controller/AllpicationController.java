@@ -55,7 +55,7 @@ public class AllpicationController {
 		String path = null;
 		ModelAndView modelAndView = new ModelAndView();
 		if(isAuthentication){
-			path = "redirect:"+ PageRegister.TOTAL_SALES_REPORT.getPath();
+			path = "redirect:"+ PageRegister.MENU.getPath();
 		}else {
 			path = PageRegister.LOGIN.getPath();
 		}
@@ -160,6 +160,24 @@ public class AllpicationController {
 		String data = new Gson().toJson(beans);
 		return  data;
 	}
+	
+
+	@RequestMapping(value = "/Menu", method = RequestMethod.GET)
+	public String menu(){
+		
+		String 	viewName = PageRegister.MENU.getPath();
+		return  viewName;
+	}
+	
+//	buy
+	@RequestMapping(value = "/GoodDetails", method = RequestMethod.GET)
+	public String goodsDetails(){
+		
+		String 	viewName = PageRegister.GOODS_DETAILS.getPath();
+		return  viewName;
+	}
+	
+	
 	
 	
 
