@@ -18,7 +18,7 @@ public class LoginSelenium extends WebDriverChrome {
 
 	private WebDriver driver = null;
 
-	private BuildUrl buildUrl = new BuildUrl(SeleniumConstant.OPTION_LOCAL);
+	private BuildUrl buildUrl = new BuildUrl(SeleniumConstant.OPTION_STAGING);
 
 	@Test
 
@@ -26,54 +26,65 @@ public class LoginSelenium extends WebDriverChrome {
 
 		driver = super.getWedDriver();
 
-		String indexUrl = buildUrl.getIndexUrl();
+		String indexUrl = buildUrl.getBaseUrl();
 
 		driver.get(indexUrl);
-
-		super.close();
-
-	}
-
-	@Test
-	public void loadLoginPage() {
-
-		driver = super.getWedDriver();
-
-		String loginUrl = buildUrl.getLoginUrl();
-
-		driver.get(loginUrl);
-
-		WebElement webElement = driver.findElement(By.id("loginForm"));
-
-		String loginFormLabel = webElement.getText();
-
-		Assert.assertEquals("Login Form", loginFormLabel);
-
-		super.close();
-	}
-
-	@Test
-	public void loginFunctionByCasePass() {
-
-		driver = super.getWedDriver();
-
-		String loginUrl = buildUrl.getLoginUrl();
-
-		driver.get(loginUrl);
 		
 		PrepareDataTestCaseService caseService = new PrepareDataTestCaseService();
-		
-		List<PrepareTestDataBean>  case_0000001 = caseService.getPrepareDataTestCaseByTestCase("case_0000001");
-		
-		super.process(case_0000001);
 
-
-//		super.close();
+		List<PrepareTestDataBean>  login = caseService.getPrepareDataTestCaseByTestCase("login");
 		
 		
 		
 		
 		
+		super.process(login);
+		
+		
+	//	super.close();
 
 	}
+
+//	@Test
+//	public void loadLoginPage() {
+//
+//		driver = super.getWedDriver();
+//
+//		String loginUrl = buildUrl.getLoginUrl();
+//
+//		driver.get(loginUrl);
+//
+//		WebElement webElement = driver.findElement(By.id("loginForm"));
+//
+//		String loginFormLabel = webElement.getText();
+//
+//		Assert.assertEquals("Login Form", loginFormLabel);
+//
+//		super.close();
+//	}
+//
+//	@Test
+//	public void loginFunctionByCasePass() {
+//
+//		driver = super.getWedDriver();
+//
+//		String loginUrl = buildUrl.getLoginUrl();
+//
+//		driver.get(loginUrl);
+//		
+//		PrepareDataTestCaseService caseService = new PrepareDataTestCaseService();
+//		
+//		List<PrepareTestDataBean>  case_0000001 = caseService.getPrepareDataTestCaseByTestCase("case_0000001");
+//		
+//		super.process(case_0000001);
+//
+//
+////		super.close();
+//		
+//		
+//		
+//		
+//		
+//
+//	}
 }

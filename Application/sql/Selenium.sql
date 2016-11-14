@@ -15,3 +15,20 @@ insert into gen_prepare_test_data (c_widget_id ,c_widget_data ,c_widget_type ,c_
 
 
 insert into gen_description_test_case (c_test_case_name ,c_description) values ('case_0000001','Login Test Case');
+
+
+----
+
+insert into gen_prepare_test_data (c_widget_id ,c_widget_data ,c_widget_type ,c_test_case_name ,c_sequence, c_action_type) values ('Login_username','papisit','textbox','login','1','input');
+insert into gen_prepare_test_data (c_widget_id ,c_widget_data ,c_widget_type ,c_test_case_name ,c_sequence, c_action_type) values ('Login_password','Isnsit_12','textbox','login','2','input');
+insert into gen_prepare_test_data (c_widget_id ,c_widget_data ,c_widget_type ,c_test_case_name ,c_sequence, c_action_type) values ('Login_submit','','button','login','3','click');
+insert into gen_prepare_test_data (c_widget_id ,c_widget_data ,c_widget_type ,c_test_case_name ,c_sequence, c_action_type) values ('Select_Office_selectOfficeListBox','Shipco Transport USA (NYC)','listbox','login','4','select');
+insert into gen_prepare_test_data (c_widget_id ,c_widget_data ,c_widget_type ,c_test_case_name ,c_sequence, c_action_type) values ('Menu_menuPanel','','button','login','5','click');
+
+
+
+insert into gen_description_test_case (c_test_case_name ,c_description) values ('login','Login Test Case');
+
+
+
+
