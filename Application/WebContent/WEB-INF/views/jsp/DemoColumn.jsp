@@ -5,7 +5,7 @@
 <head>
 
 <title>Display Data Side</title>
-<jsp:include page="CssJSMain.jsp"></jsp:include>
+
 
 
 <style type="text/css">

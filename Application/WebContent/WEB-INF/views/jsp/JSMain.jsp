@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>JS Main</title>
+
+
+<!-- JS -->
+<spring:url value="/resources/core/vendor/jquery/jquery.min.js" var="jqueryJS" />
+<spring:url value="/resources/core/vendor/bootstrap/js/bootstrap.min.js" var="bootstrapJS" />
+<spring:url value="/resources/core/vendor/metisMenu/metisMenu.min.js" var="metisMenuJS" />
+<spring:url value="/resources/core/vendor/raphael/raphael.min.js" var="raphaelJS" />
+<spring:url value="/resources/core/vendor/morrisjs/morris.min.js" var="morrisJS" />
+<spring:url value="/resources/core/dist/js/sb-admin-2.js" var="sb_adminJS" />
+
+
+<script   type="text/javascript" src="${jqueryJS}"></script>
+<script   type="text/javascript" src="${bootstrapJS}"></script>
+<script   type="text/javascript" src="${metisMenuJS}"></script>
+<script   type="text/javascript" src="${raphaelJS}"></script>
+<script   type="text/javascript" src="${morrisJS}"></script>
+<script   type="text/javascript" src="${sb_adminJS}"></script>
+
+</head>
+<body>
+
+</body>
+</html>

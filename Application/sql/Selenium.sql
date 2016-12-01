@@ -24,6 +24,10 @@ insert into gen_prepare_test_data (c_widget_id ,c_widget_data ,c_widget_type ,c_
 insert into gen_prepare_test_data (c_widget_id ,c_widget_data ,c_widget_type ,c_test_case_name ,c_sequence, c_action_type) values ('Login_submit','','button','login','3','click');
 insert into gen_prepare_test_data (c_widget_id ,c_widget_data ,c_widget_type ,c_test_case_name ,c_sequence, c_action_type) values ('Select_Office_selectOfficeListBox','Shipco Transport USA (NYC)','listbox','login','4','select');
 insert into gen_prepare_test_data (c_widget_id ,c_widget_data ,c_widget_type ,c_test_case_name ,c_sequence, c_action_type) values ('Menu_menuPanel','','button','login','5','click');
+insert into gen_prepare_test_data (c_widget_id ,c_widget_data ,c_widget_type ,c_test_case_name ,c_sequence, c_action_type) values ('Menu_menu_0','','button','login','6','click');
+insert into gen_prepare_test_data (c_widget_id ,c_widget_data ,c_widget_type ,c_test_case_name ,c_sequence, c_action_type) values ('Menu_menu_List_2','','button','login','7','click');
+
+
 
 
 

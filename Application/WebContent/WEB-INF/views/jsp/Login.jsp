@@ -6,7 +6,7 @@
 <head>
 <meta equiv="Content-Type" content="text/html; charset=TIS-620">
 <title>Login Page</title>
-<jsp:include page="CssJSMain.jsp"></jsp:include>
+<%-- <jsp:include page="CssJSMain.jsp"></jsp:include> --%>
 <!-- hide mode -->
 <%-- <spring:url value="/resources/core/js/jquery.1.10.2.min.js" var="jqueryjs" /> --%>
 <%-- <script src="${jqueryjs}"></script> --%>
