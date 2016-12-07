@@ -16,11 +16,11 @@
 <spring:url value="/resources/core/vendor/morrisjs/morris.css" var="morrisCSS" />
 <spring:url value="/resources/core/vendor/font-awesome/css/font-awesome.min.css" var="awesomeCSS" />
 
-<link  rel="stylesheet" href="${bootstrapCSS}"  />
-<link  rel="stylesheet" href="${metisMenuCSS}"  />
-<link  rel="stylesheet" href="${adminCSS}"  />
-<link  rel="stylesheet" href="${morrisCSS}"  />
-<link  rel="stylesheet" href="${awesomeCSS}"  />
+<link  type="text/css" rel="stylesheet" href="${bootstrapCSS}"  />
+<link  type="text/css" rel="stylesheet" href="${metisMenuCSS}"  />
+<link  type="text/css" rel="stylesheet" href="${adminCSS}"  />
+<link  type="text/css" rel="stylesheet" href="${morrisCSS}"  />
+<link  type="text/css" rel="stylesheet" href="${awesomeCSS}"  />
 
 
 </head>

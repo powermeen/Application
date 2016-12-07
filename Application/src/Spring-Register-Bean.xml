@@ -21,6 +21,10 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="dataSource" ref="dataSourceMSSQL" />
 	</bean>
 	
+	<bean id="loginSetup" class="web.dao.server.login.setup.LoginSetupJDBCTemplate">
+		<property name="dataSource" ref="dataSourceHSQL" />
+	</bean>
+	
 	
 	
 

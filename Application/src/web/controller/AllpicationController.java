@@ -2,7 +2,10 @@ package web.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -160,6 +163,31 @@ public class AllpicationController {
 		String data = new Gson().toJson(beans);
 		return  data;
 	}
+	
+	@RequestMapping(value = "/LoginSetup")
+	public ModelAndView loginSetup(@ModelAttribute("loginModel") LoginBean loginBean){
+		ModelAndView modelAndView = new ModelAndView();
+		String 	viewName = PageRegister.LOGIN_SETUP.getPath();
+		
+		
+		Map<String,String> officeList = new LinkedHashMap<String,String>();
+		officeList.put("US", "United Stated");
+		officeList.put("CHINA", "China");
+		officeList.put("SG", "Singapore");
+		officeList.put("MY", "Malaysia");
+		
+		LoginBean  loginBeanView = new LoginBean();
+		loginBeanView.setUserName("lol Meen ");
+		modelAndView.setViewName(viewName);
+		modelAndView.addObject("officeList", officeList);	
+		modelAndView.addObject("loginBeanView", loginBeanView);	
+		
+		
+		
+		return  modelAndView;
+	}
+	
+	
 	
 	
 

@@ -15,6 +15,8 @@ public class SpringNameBean {
 
 	public static final String SITE_SALES_REPORT_BY_OFFICE = "siteSalesReport";
 	
+	public static final String LOGIN_SETUP = "loginSetup";
+	
 	
 	
 	

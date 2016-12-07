@@ -13,8 +13,10 @@
 <spring:url value="/resources/core/vendor/bootstrap/js/bootstrap.min.js" var="bootstrapJS" />
 <spring:url value="/resources/core/vendor/metisMenu/metisMenu.min.js" var="metisMenuJS" />
 <spring:url value="/resources/core/vendor/raphael/raphael.min.js" var="raphaelJS" />
-<spring:url value="/resources/core/vendor/morrisjs/morris.min.js" var="morrisJS" />
+<spring:url value="/resources/core/vendor/morrisjs/morris.min.js" var="morrisJS" />../
+<spring:url value="/resources/core/data/morris-data.js" var="morris_dataJS" />
 <spring:url value="/resources/core/dist/js/sb-admin-2.js" var="sb_adminJS" />
+<spring:url value="/resources/core/js/custom.js" var="customJS" />
 
 
 <script   type="text/javascript" src="${jqueryJS}"></script>
@@ -22,7 +24,9 @@
 <script   type="text/javascript" src="${metisMenuJS}"></script>
 <script   type="text/javascript" src="${raphaelJS}"></script>
 <script   type="text/javascript" src="${morrisJS}"></script>
+<script   type="text/javascript" src="${morris_dataJS}"></script>
 <script   type="text/javascript" src="${sb_adminJS}"></script>
+<script   type="text/javascript" src="${customJS}"></script>
 
 </head>
 <body>
