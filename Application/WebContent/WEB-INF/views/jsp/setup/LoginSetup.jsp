@@ -34,9 +34,13 @@
                                 <div class="col-lg-6">
                                 <form:form method="post" action="LoginSetup" modelAttribute="loginModel"  role="form">
                                    
+                                   		 <div class="form-group">
+                                            <label>Reference_Name</label>
+                                            <form:input path="reference" class="form-control" placeholder="Enter text"  />
+                                        </div>
                                         <div class="form-group">
                                             <label>User_Name</label>
-                                            <form:input path="userName" class="form-control" placeholder="Enter text" value="${loginBeanView.userName}" />
+                                            <form:input path="userName" class="form-control" placeholder="Enter text" value="${loginBean.userName}" />
                                             <p class="help-block">Example block-level help text here.</p>
                                         </div>
                                          <div class="form-group">
@@ -45,7 +49,12 @@
                                         </div>
                                        <div class="form-group">
                                             <label>Office</label>
-                                            <form:select path="office"   items="${officeList}"  class="form-control">
+                                            <form:select path="office"   items="${officeBeans}"   class="form-control">
+                                            </form:select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Environment</label>
+                                            <form:select path="environment"   items="${environmentList}" class="form-control">
                                             </form:select>
                                         </div>
                                         <div class="form-group">

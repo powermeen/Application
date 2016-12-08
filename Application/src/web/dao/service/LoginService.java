@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import web.comstant.SpringNameBean;
 import web.dao.server.login.LoginJDBCTemplate;
-import web.shared.LoginBean;
+import web.shared.LoginSetupBean;
 
 public class LoginService {
 
@@ -19,8 +19,8 @@ public class LoginService {
 		 loginJDBCTemplate = (LoginJDBCTemplate) context.getBean(SpringNameBean.LOGIN);
 	}
 
-	public boolean authentication(LoginBean loginBean) {
-		boolean isCkeck = loginJDBCTemplate.authentication(loginBean);
+	public boolean authentication(LoginSetupBean loginSetupBean) {
+		boolean isCkeck = loginJDBCTemplate.authentication(loginSetupBean);
 		return isCkeck;
 	}
 

@@ -7,8 +7,8 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import web.dao.mapper.LoginBeanRowMapper;
-import web.shared.LoginBean;
+import web.dao.mapper.LoginSetupRowMapper;
+import web.shared.LoginSetupBean;
 import web.sql.LoginQuery;
 
 public class LoginJDBCTemplate implements LoginDao{
@@ -31,14 +31,14 @@ public class LoginJDBCTemplate implements LoginDao{
 
 
 	@Override
-	public boolean authentication(LoginBean loginBean) {
+	public boolean authentication(LoginSetupBean loginBean) {
 		Object[] objects = new Object[2];
 		objects[0] = loginBean.getUserName();
 		objects[1] = loginBean.getPassword();
 		String query = loginQuery.getAuthenticationQuery();
 		
-		List<LoginBean> loginBeans = new ArrayList<LoginBean>();
-		loginBeans = jdbcTemplate.query(query, objects, new LoginBeanRowMapper());
+		List<LoginSetupBean> loginBeans = new ArrayList<LoginSetupBean>();
+		loginBeans = jdbcTemplate.query(query, objects, new LoginSetupRowMapper());
 		System.out.println("Found item is >> "+loginBeans.size());
 		
 		if(!loginBeans.isEmpty()){

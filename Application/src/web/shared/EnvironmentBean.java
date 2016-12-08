@@ -1,6 +1,8 @@
 package web.shared;
 
-public class OfficeBean {
+import org.springframework.jdbc.core.RowMapper;
+
+public class EnvironmentBean {
 
 	private String code;
 	
@@ -31,7 +33,6 @@ public class OfficeBean {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-
 
 	
 }

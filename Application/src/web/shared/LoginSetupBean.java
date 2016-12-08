@@ -1,9 +1,9 @@
 package web.shared;
 
-public class LoginBean {
+public class LoginSetupBean {
 
 	
-	
+	private String reference;
 	
 	private String userName;
 	
@@ -11,7 +11,15 @@ public class LoginBean {
 	
 	private String 	office;
 	
-	private String url;
+	private String environment;
+
+	public String getReference() {
+		return reference;
+	}
+
+	public void setReference(String reference) {
+		this.reference = reference;
+	}
 
 	public String getUserName() {
 		return userName;
@@ -37,14 +45,16 @@ public class LoginBean {
 		this.office = office;
 	}
 
-	public String getUrl() {
-		return url;
+	public String getEnvironment() {
+		return environment;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setEnvironment(String environment) {
+		this.environment = environment;
 	}
 
+	
+	
 	
 	
 }

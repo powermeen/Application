@@ -17,14 +17,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.tags.form.OptionsTag;
 
 import com.google.gson.Gson;
 
+import web.action.LoginSetupAction;
 import web.comstant.PageRegister;
 import web.dao.service.LoginService;
+import web.dao.service.LoginSetupService;
 import web.dao.service.SiteSalesReportService;
 import web.dao.service.TotalSalesReportService;
-import web.shared.LoginBean;
+import web.shared.LoginSetupBean;
+import web.shared.OfficeBean;
 import web.shared.SiteSalesReportBean;
 import web.shared.TotalSalesReportBean;
 
@@ -51,10 +55,10 @@ public class AllpicationController {
 	}
 	
 	@RequestMapping(value = "/loginForm")
-	public ModelAndView executeLogin(@ModelAttribute("loginModel") LoginBean loginBean ){
+	public ModelAndView executeLogin(@ModelAttribute("loginModel") LoginSetupBean loginSetupBean ){
 		
 		LoginService loginService = new LoginService();
-		boolean isAuthentication = loginService.authentication(loginBean);
+		boolean isAuthentication = loginService.authentication(loginSetupBean);
 		String path = null;
 		ModelAndView modelAndView = new ModelAndView();
 		if(isAuthentication){
@@ -165,22 +169,25 @@ public class AllpicationController {
 	}
 	
 	@RequestMapping(value = "/LoginSetup")
-	public ModelAndView loginSetup(@ModelAttribute("loginModel") LoginBean loginBean){
+	public ModelAndView loginSetup(@ModelAttribute("loginModel") LoginSetupBean loginSetupBean ){
 		ModelAndView modelAndView = new ModelAndView();
-		String 	viewName = PageRegister.LOGIN_SETUP.getPath();
+		
+		if(loginSetupBean !=null){
+			LoginSetupAction loginSetupAction =new LoginSetupAction(loginSetupBean);
+			loginSetupAction.saveLoginSetupForm();
+			modelAndView = loginSetupAction.getSetupModelAndView();
+		}
 		
 		
-		Map<String,String> officeList = new LinkedHashMap<String,String>();
-		officeList.put("US", "United Stated");
-		officeList.put("CHINA", "China");
-		officeList.put("SG", "Singapore");
-		officeList.put("MY", "Malaysia");
+	
 		
-		LoginBean  loginBeanView = new LoginBean();
-		loginBeanView.setUserName("lol Meen ");
-		modelAndView.setViewName(viewName);
-		modelAndView.addObject("officeList", officeList);	
-		modelAndView.addObject("loginBeanView", loginBeanView);	
+		
+//		{
+//			loginSetupBean = loginSetupService.saveLoginSetupForm(loginSetupBean);
+//			modelAndView.addObject("loginSetupBean",loginSetupBean );	
+//		}
+		
+		
 		
 		
 		

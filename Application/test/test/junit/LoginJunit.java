@@ -2,7 +2,7 @@ package test.junit;
 
 import junit.framework.TestCase;
 import web.dao.service.LoginService;
-import web.shared.LoginBean;
+import web.shared.LoginSetupBean;
 
 public class LoginJunit extends TestCase {
 
@@ -15,7 +15,7 @@ public class LoginJunit extends TestCase {
 	}
 
 	public void testAuthenticationPass() {
-		LoginBean loginBean = new LoginBean();
+		LoginSetupBean loginBean = new LoginSetupBean();
 		loginBean.setUserName("meen");
 		loginBean.setPassword("meen");
 		boolean isCheck = loginService.authentication(loginBean);
@@ -24,7 +24,7 @@ public class LoginJunit extends TestCase {
 
 	public void testAuthenticationFailinput() {
 
-		LoginBean loginBean = new LoginBean();
+		LoginSetupBean loginBean = new LoginSetupBean();
 		loginBean.setUserName("XXXX");
 		loginBean.setPassword("XXXX");
 		boolean isCheck = loginService.authentication(loginBean);
@@ -33,7 +33,7 @@ public class LoginJunit extends TestCase {
 
 	public void testAuthenticationEmptyUsernameAndPassword() {
 
-		LoginBean loginBean = new LoginBean();
+		LoginSetupBean loginBean = new LoginSetupBean();
 		loginBean.setUserName("");
 		loginBean.setPassword("");
 		boolean isCheck = loginService.authentication(loginBean);
@@ -41,7 +41,7 @@ public class LoginJunit extends TestCase {
 	}
 
 	public void testAuthenticationNullUsernameEmptyPassword() {
-		LoginBean loginBean = new LoginBean();
+		LoginSetupBean loginBean = new LoginSetupBean();
 		loginBean.setUserName(null);
 		loginBean.setPassword("");
 		boolean isCheck = loginService.authentication(loginBean);
@@ -49,7 +49,7 @@ public class LoginJunit extends TestCase {
 	}
 	
 	public void testAuthenticationNullPasswordAndEmptyUsername() {
-		LoginBean loginBean = new LoginBean();
+		LoginSetupBean loginBean = new LoginSetupBean();
 		loginBean.setUserName("");
 		loginBean.setPassword(null);
 		boolean isCheck = loginService.authentication(loginBean);
