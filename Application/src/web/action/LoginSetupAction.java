@@ -1,5 +1,7 @@
 package web.action;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.servlet.ModelAndView;
@@ -32,7 +34,7 @@ public class LoginSetupAction implements SetupModelAndView {
 
 	@Override
 	public void setupPage() {
-		String viewName = PageRegister.LOGIN_SETUP.getPath();
+		String viewName = PageRegister.LOGIN_VIEW_SETUP.getPath();
 		modelAndView.setViewName(viewName);
 
 	}
@@ -42,6 +44,7 @@ public class LoginSetupAction implements SetupModelAndView {
 
 		setOfficeList();
 		setEnvironmentList();
+		setReportBean();
 
 	}
 	
@@ -61,6 +64,18 @@ public class LoginSetupAction implements SetupModelAndView {
 
 		Map<String, String> environmentList = loginSetupService.getEnvironment();
 		modelAndView.addObject("environmentList", environmentList);
+	}
+	
+	private void setReportBean(){
+		List<LoginSetupBean> reportBeans = new ArrayList<>();
+		
+		for (int index = 0; index < 20; index++) {
+			LoginSetupBean bean = new LoginSetupBean();
+			bean.setReference("meenReference_"+index);
+			bean.setUserName("Meen_"+index);
+			reportBeans.add(bean);
+		}
+		modelAndView.addObject("reportBeans", reportBeans);
 	}
 
 	

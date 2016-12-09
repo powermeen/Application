@@ -12,12 +12,18 @@
 <!-- Css -->
 <spring:url value="/resources/core/vendor/bootstrap/css/bootstrap.min.css" var="bootstrapCSS" />
 <spring:url value="/resources/core/vendor/metisMenu/metisMenu.min.css" var="metisMenuCSS" />
+<spring:url value="/resources/core/vendor/datatables-plugins/dataTables.bootstrap.css" var="dataTablesBootstrapCSS" />
+<spring:url value="/resources/core/vendor/datatables-responsive/dataTables.responsive.css" var="dataTablesResponsiveCSS" />
+
 <spring:url value="/resources/core/dist/css/sb-admin-2.css" var="adminCSS" />
 <spring:url value="/resources/core/vendor/morrisjs/morris.css" var="morrisCSS" />
 <spring:url value="/resources/core/vendor/font-awesome/css/font-awesome.min.css" var="awesomeCSS" />
 
 <link  type="text/css" rel="stylesheet" href="${bootstrapCSS}"  />
 <link  type="text/css" rel="stylesheet" href="${metisMenuCSS}"  />
+
+<link  type="text/css" rel="stylesheet" href="${dataTablesBootstrapCSS}"  />
+<link  type="text/css" rel="stylesheet" href="${dataTablesResponsiveCSS}"  />
 <link  type="text/css" rel="stylesheet" href="${adminCSS}"  />
 <link  type="text/css" rel="stylesheet" href="${morrisCSS}"  />
 <link  type="text/css" rel="stylesheet" href="${awesomeCSS}"  />
