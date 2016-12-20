@@ -8,8 +8,9 @@ public enum PageRegister {
 	TOTAL_SALES_REPORT("totalSalesReport","TotalSalesReport"),
 	SITE_SALES_REPORT("SiteSalesReport","SiteSalesReport"),
 	TEST_MAPPING_DATA("TestMappingData","TestMappingData"),
-	LOGIN_EDIT_SETUP("LoginEditSetup","setup/LoginEditSetup"),
-	LOGIN_VIEW_SETUP("LoginViewSetup","setup/LoginViewSetup");
+	LOGIN_EDIT_SETUP("LoginEditSetup","/setup/LoginEditSetup"),
+	LOGIN_VIEW_SETUP("LoginViewSetup","/setup/LoginViewSetup"),
+	CREATE_LOGIN_STEP("CreateLoginStep","/setup/CreateLoginStep");
 
 	private String key;
 	

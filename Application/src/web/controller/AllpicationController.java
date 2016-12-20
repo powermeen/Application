@@ -21,6 +21,7 @@ import org.springframework.web.servlet.tags.form.OptionsTag;
 
 import com.google.gson.Gson;
 
+import web.action.CreateLoginStepAction;
 import web.action.LoginSetupAction;
 import web.comstant.PageRegister;
 import web.dao.service.LoginService;
@@ -174,9 +175,11 @@ public class AllpicationController {
 		
 		if(loginSetupBean !=null){
 			LoginSetupAction loginSetupAction =new LoginSetupAction(loginSetupBean);
-			loginSetupAction.saveLoginSetupForm();
+//			loginSetupAction.saveLoginSetupForm();
 			modelAndView = loginSetupAction.getSetupModelAndView();
 		}
+		
+		
 		
 		
 	
@@ -194,9 +197,17 @@ public class AllpicationController {
 		return  modelAndView;
 	}
 	
+
 	
-	
-	
+	@RequestMapping(value = "/CreateLoginStep")
+	public ModelAndView CreateLoginStep(){
+		ModelAndView modelAndView = new ModelAndView();
+		
+		CreateLoginStepAction loginStepAction = new CreateLoginStepAction();
+		modelAndView = loginStepAction.getSetupModelAndView();
+		return modelAndView;
+		
+	}
 
 
 	

@@ -73,8 +73,10 @@ public class LoginSetupAction implements SetupModelAndView {
 			LoginSetupBean bean = new LoginSetupBean();
 			bean.setReference("meenReference_"+index);
 			bean.setUserName("Meen_"+index);
+			bean.setOffice("meen office "+ index);
 			reportBeans.add(bean);
 		}
+		
 		modelAndView.addObject("reportBeans", reportBeans);
 	}
 

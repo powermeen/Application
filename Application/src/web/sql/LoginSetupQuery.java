@@ -16,4 +16,9 @@ public class LoginSetupQuery {
 		String query = "select  s_reference as reference   from setup_table  where s_reference = ? ";
 		return query;
 	}
+	
+	public String getDataByReference(){
+		String query = "select i_setup_id as setupId , s_module as module , s_widget_id as widgetId ,s_name_widget";
+		return query ;
+	}
 }
