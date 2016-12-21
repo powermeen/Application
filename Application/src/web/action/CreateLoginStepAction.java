@@ -3,11 +3,11 @@ package web.action;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.support.PagedListHolder;
 import org.springframework.web.servlet.ModelAndView;
 
 import web.common.interfaces.SetupModelAndView;
 import web.comstant.PageRegister;
-import web.shared.LoginSetupBean;
 import web.shared.SetupBean;
 
 public class CreateLoginStepAction implements SetupModelAndView{
@@ -36,7 +36,7 @@ public class CreateLoginStepAction implements SetupModelAndView{
 	public void setupData() {
 		List<SetupBean> setupBeans = new ArrayList<>();
 
-		for (int index = 0; index < 20; index++) {
+		for (int index = 0; index < 50; index++) {
 			
 			SetupBean bean = new SetupBean();
 			bean.setSetupId("id_"+index);
@@ -50,8 +50,18 @@ public class CreateLoginStepAction implements SetupModelAndView{
 			
 			setupBeans.add(bean);
 		}
-
+		List<List<SetupBean>> list = new ArrayList<>();
+		for (int index = 0; index < setupBeans.size(); index++) {
+			List<SetupBean> beans = new ArrayList<>();
+			
+			if(beans.size()<10){
+				
+			}
+		}
+		PagedListHolder<SetupBean> pagedListHolder = new PagedListHolder<>(setupBeans);
+		
 		modelAndView.addObject("reportBeans", setupBeans);
+		modelAndView.addObject("pagedListHolder", pagedListHolder);
 
 	}
 }

@@ -32,14 +32,16 @@
 									<form role="form">
 										<h1>Login Step</h1>
 
-										<c:forEach var="reportBeans" items="${reportBeans}">
+										<c:set var="pageListHolder" value="${pagedListHolder}"
+											scope="session" />
+										<c:forEach var="ph" items="${pageListHolder.pageList}">
 											<div class="form-group">
 												<div>
 													<div class="col-md-2">
 														<label>Selected</label>
 													</div>
 													<div class="col-md-4">
-														<label>${reportBeans.nameWidget}</label>
+														<label>${ph.nameWidget}</label>
 													</div>
 													<div class="col-md-4">
 														<label>Action</label>
@@ -54,7 +56,7 @@
 														<input type="checkbox" value="">
 													</div>
 													<div class="col-md-4">
-														<input class="form-control" value="${reportBeans.data}">
+														<input class="form-control" value="">
 													</div>
 													<div class="col-md-4">
 														<select class="form-control">
@@ -70,12 +72,23 @@
 
 											</div>
 										</c:forEach>
-										<ul class="pagination">
-											<li><a href="#">1</a></li>
-											<li class="active"><a href="#">2</a></li>
-											<li><a href="#">3</a></li>
-											<li><a href="#">4</a></li>
-											<li><a href="#">5</a></li>
+
+										<ul class="pagination" id="page" >
+
+											<c:forEach begin="0" end="${pageListHolder.pageCount-1}"
+												varStatus="loop">
+
+												<c:choose>
+													<c:when test="${loop.index == pageListHolder.page}">
+														<li  class="active"><a href="javascript:void(0);" onclick="redriectPage('CreateLoginStep/${loop.index+1}');">${loop.index+1}</a></li>
+													</c:when>
+													<c:otherwise>
+														<li><a   href="#">${loop.index+1}</a></li>
+													</c:otherwise>
+												</c:choose>
+
+											</c:forEach>
+
 										</ul>
 
 									</form>
@@ -86,7 +99,10 @@
 
 									<button type="submit" class="btn btn-default">New</button>
 									<button type="submit" class="btn btn-default">Save</button>
-									<button type="submit" class="btn btn-default">Save</button>
+									<button type="submit" class="btn btn-default">Delete</button>
+
+
+
 
 								</div>
 								<!-- /.col-lg-6 (nested) -->

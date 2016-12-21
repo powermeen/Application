@@ -199,8 +199,8 @@ public class AllpicationController {
 	
 
 	
-	@RequestMapping(value = "/CreateLoginStep")
-	public ModelAndView CreateLoginStep(){
+	@RequestMapping(value = "/CreateLoginStep/{page}")
+	public ModelAndView CreateLoginStep(@PathVariable("page")String page){
 		ModelAndView modelAndView = new ModelAndView();
 		
 		CreateLoginStepAction loginStepAction = new CreateLoginStepAction();
