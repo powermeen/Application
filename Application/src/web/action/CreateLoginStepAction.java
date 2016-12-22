@@ -7,15 +7,21 @@ import org.springframework.beans.support.PagedListHolder;
 import org.springframework.web.servlet.ModelAndView;
 
 import web.common.interfaces.SetupModelAndView;
+import web.common.util.StringUtils;
 import web.comstant.PageRegister;
+import web.shared.CreateLoginStepBean;
 import web.shared.SetupBean;
 
 public class CreateLoginStepAction implements SetupModelAndView{
 
 	private ModelAndView modelAndView = new ModelAndView();
 	
-	public CreateLoginStepAction() {
-		
+	private CreateLoginStepBean createLoginStepBean = new CreateLoginStepBean();
+	
+	private PagedListHolder<SetupBean> pagedListHolder = new PagedListHolder<>();
+	
+	public CreateLoginStepAction(CreateLoginStepBean createLoginStepBean) {
+		this.createLoginStepBean = createLoginStepBean;
 		setupPage();
 		setupData();
 	}
@@ -36,7 +42,7 @@ public class CreateLoginStepAction implements SetupModelAndView{
 	public void setupData() {
 		List<SetupBean> setupBeans = new ArrayList<>();
 
-		for (int index = 0; index < 50; index++) {
+		for (int index = 0; index < 200; index++) {
 			
 			SetupBean bean = new SetupBean();
 			bean.setSetupId("id_"+index);
@@ -58,10 +64,28 @@ public class CreateLoginStepAction implements SetupModelAndView{
 				
 			}
 		}
-		PagedListHolder<SetupBean> pagedListHolder = new PagedListHolder<>(setupBeans);
+		pagedListHolder.setSource(setupBeans);	
+		
+		pagedListHolder.setPageSize(7);
 		
 		modelAndView.addObject("reportBeans", setupBeans);
 		modelAndView.addObject("pagedListHolder", pagedListHolder);
 
 	}
+
+	public void resetPage() {
+		String page = createLoginStepBean.getPage();
+		boolean isCheck = StringUtils.isNotNullAndEmpty(page);
+		
+		if(isCheck){
+			Integer pageInt = Integer.valueOf(page);
+			pagedListHolder.setPage(pageInt-1);
+		}else {
+			pagedListHolder.setPage(0);
+		}
+		
+		
+	}
+	
+	
 }

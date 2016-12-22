@@ -28,6 +28,7 @@ import web.dao.service.LoginService;
 import web.dao.service.LoginSetupService;
 import web.dao.service.SiteSalesReportService;
 import web.dao.service.TotalSalesReportService;
+import web.shared.CreateLoginStepBean;
 import web.shared.LoginSetupBean;
 import web.shared.OfficeBean;
 import web.shared.SiteSalesReportBean;
@@ -199,12 +200,17 @@ public class AllpicationController {
 	
 
 	
-	@RequestMapping(value = "/CreateLoginStep/{page}")
-	public ModelAndView CreateLoginStep(@PathVariable("page")String page){
+	@RequestMapping(value = "/CreateLoginStep")
+	public ModelAndView CreateLoginStep(@ModelAttribute("CreateLoginStepModel") CreateLoginStepBean createLoginStepBean){
 		ModelAndView modelAndView = new ModelAndView();
 		
-		CreateLoginStepAction loginStepAction = new CreateLoginStepAction();
+		CreateLoginStepAction loginStepAction = new CreateLoginStepAction(createLoginStepBean);
+		
+		loginStepAction.resetPage();
+		
+		
 		modelAndView = loginStepAction.getSetupModelAndView();
+		
 		return modelAndView;
 		
 	}
