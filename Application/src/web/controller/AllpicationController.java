@@ -2,10 +2,7 @@ package web.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -17,20 +14,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.tags.form.OptionsTag;
 
 import com.google.gson.Gson;
 
 import web.action.CreateLoginStepAction;
 import web.action.LoginSetupAction;
+import web.comstant.Action;
 import web.comstant.PageRegister;
 import web.dao.service.LoginService;
-import web.dao.service.LoginSetupService;
 import web.dao.service.SiteSalesReportService;
 import web.dao.service.TotalSalesReportService;
-import web.shared.CreateLoginStepBean;
 import web.shared.LoginSetupBean;
-import web.shared.OfficeBean;
+import web.shared.SetupBean;
 import web.shared.SiteSalesReportBean;
 import web.shared.TotalSalesReportBean;
 
@@ -201,12 +196,12 @@ public class AllpicationController {
 
 	
 	@RequestMapping(value = "/CreateLoginStep")
-	public ModelAndView CreateLoginStep(@ModelAttribute("CreateLoginStepModel") CreateLoginStepBean createLoginStepBean){
+	public ModelAndView CreateLoginStep(@ModelAttribute("SetupModel") SetupBean setupBean){
 		ModelAndView modelAndView = new ModelAndView();
 		
-		CreateLoginStepAction loginStepAction = new CreateLoginStepAction(createLoginStepBean);
+		CreateLoginStepAction loginStepAction = new CreateLoginStepAction(setupBean);
 		
-		loginStepAction.resetPage();
+		loginStepAction.action();
 		
 		
 		modelAndView = loginStepAction.getSetupModelAndView();
@@ -214,7 +209,35 @@ public class AllpicationController {
 		return modelAndView;
 		
 	}
+	
+	
+	@RequestMapping(value = "/DataTable")
+	public ModelAndView dataTable(){
+		ModelAndView modelAndView = new ModelAndView();
+		String viewName = PageRegister.DATA_TABLE.getPath();
+		
+		List<SetupBean> setupBeans = new ArrayList<>();
 
+		for (int index = 0; index < 200; index++) {
+			
+			SetupBean bean = new SetupBean();
+			bean.setSetupId("id_"+index);
+			bean.setModule("module_"+index);
+			bean.setWidgetId("widget_id_"+index);
+			bean.setWidgetName("nameWidget_"+index);
+			bean.setData("data_"+index);
+			bean.setActionType(Action.SELECT);
+			bean.setReference("reference_"+index);
+			bean.setStatus("status_"+index);
+			
+			setupBeans.add(bean);
+		}
+		String data = new Gson().toJson(setupBeans);
+		modelAndView.addObject("data", data);
+		modelAndView.addObject("dataBean", setupBeans);
+		modelAndView.setViewName(viewName);
+		return modelAndView;
+	}
 
 	
 

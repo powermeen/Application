@@ -8,15 +8,19 @@ public class SetupBean {
 
 	private String widgetId;
 	
-	private String nameWidget;
+	private String widgetName;
 	
 	private String data;
 	
 	private String actionType;
 	
+	private String sequence;
+	
 	private String reference;
 	
 	private String status;
+	
+	private String direction;
 
 	public String getSetupId() {
 		return setupId;
@@ -42,12 +46,12 @@ public class SetupBean {
 		this.widgetId = widgetId;
 	}
 
-	public String getNameWidget() {
-		return nameWidget;
+	public String getWidgetName() {
+		return widgetName;
 	}
 
-	public void setNameWidget(String nameWidget) {
-		this.nameWidget = nameWidget;
+	public void setWidgetName(String widgetName) {
+		this.widgetName = widgetName;
 	}
 
 	public String getData() {
@@ -66,6 +70,14 @@ public class SetupBean {
 		this.actionType = actionType;
 	}
 
+	public String getSequence() {
+		return sequence;
+	}
+
+	public void setSequence(String sequence) {
+		this.sequence = sequence;
+	}
+
 	public String getReference() {
 		return reference;
 	}
@@ -82,4 +94,14 @@ public class SetupBean {
 		this.status = status;
 	}
 
+	public String getDirection() {
+		return direction;
+	}
+
+	public void setDirection(String direction) {
+		this.direction = direction;
+	}
+
+	
+	
 }

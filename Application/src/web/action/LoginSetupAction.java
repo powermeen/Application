@@ -80,6 +80,12 @@ public class LoginSetupAction implements SetupModelAndView {
 		modelAndView.addObject("reportBeans", reportBeans);
 	}
 
+	@Override
+	public void action() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 
 }

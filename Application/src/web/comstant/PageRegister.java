@@ -10,7 +10,8 @@ public enum PageRegister {
 	TEST_MAPPING_DATA("TestMappingData","TestMappingData"),
 	LOGIN_EDIT_SETUP("LoginEditSetup","/setup/LoginEditSetup"),
 	LOGIN_VIEW_SETUP("LoginViewSetup","/setup/LoginViewSetup"),
-	CREATE_LOGIN_STEP("CreateLoginStep","/setup/CreateLoginStep");
+	CREATE_LOGIN_STEP("CreateLoginStep","/setup/CreateLoginStep"),
+	DATA_TABLE("DataTable","/setup/DataTable");
 
 	private String key;
 	

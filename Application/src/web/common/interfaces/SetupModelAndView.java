@@ -9,4 +9,6 @@ public interface SetupModelAndView {
 	public void setupPage();
 	
 	public void setupData();
+	
+	public void action();
 }
