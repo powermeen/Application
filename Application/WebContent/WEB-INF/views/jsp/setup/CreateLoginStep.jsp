@@ -12,13 +12,13 @@
 }
 </style>
 </head>
-<body>
+<body >
 	<div id="wrapper">
 
 		<!-- Navigation -->
 		<jsp:include page="../Menubar.jsp"></jsp:include>
 
-		<div id="page-wrapper">
+		<div id="page-wrapper" ng-app="createLoginStepApp" ng-controller="createLoginStepCtrl">
 			<div class="row">
 				<div class="col-lg-12">
 					<h1 class="page-header">Create Loging Step</h1>
@@ -32,7 +32,7 @@
 						<div class="panel-heading">Basic Form Elements</div>
 						<div class="panel-body">
 							<div class="row">
-								<form:form method="post" action="CreateLoginStep" modelAttribute="SetupModel" role="form">
+								<form:form id="createLoginStepForm" method="post" action="CreateLoginStep" modelAttribute="SetupModel" role="form">
 
 
 									<!-- /.col-lg-6 (nested) -->
@@ -43,6 +43,11 @@
 										<div class="panel panel-default">
 											<div class="panel-heading">Default Panel</div>
 											<div class="panel-body">
+												<div>
+													<div id="operationMessage" class="alert alert-warning">
+														<strong>Warning!</strong> Indicates a warning that might need attention.
+													</div>
+												</div>
 												<div>
 													<div class="col-md-2">
 														<label>Sequence</label>
@@ -65,10 +70,11 @@
 
 												</div>
 
-												<div>
-													<div class="col-md-2">
-														<form:input path="sequence" class="form-control" placeholder="Enter text" />
+												<div >
+													<div class="col-md-2 " id="sequenceGroup">
+														<form:input path="sequence" class="form-control " placeholder="Enter text" ng-model="name" />
 													</div>
+													<p ng-bind="myName">
 													<div class="col-md-2">
 														<form:input path="widgetId" class="form-control" placeholder="Enter text" />
 													</div>
@@ -93,12 +99,13 @@
 												<div class="col-md-12 container">
 													<div class="   btn-group text-right  ">
 
-														<button id="add" type="button" onclick="" class="btn btn-default ">Add</button>
-														<button type="submit" class="btn btn-default ">Save</button>
-														<button type="submit" class="btn btn-default ">Delete</button>
+														<button  type="button" class="btn btn-default " ng-click="myFunction()">Add</button><p>{{ count }}</p>
+														<button id="save" type="submit" onclick="saveStep();" class="btn btn-default ">Save</button>
+														<button id="delete" type="submit" onclick="deleteStep();" class="btn btn-danger ">Delete</button>
 														<button type="button" class="btn btn-default " onclick="clearData();">Clear</button>
 														<button type="button" class="btn btn-info " data-toggle="modal" data-target="#myModal">Find Reference</button>
-														<form:input path="direction" class="form-control"  />
+														<button id="refresh" type="submit" class="btn btn-default " onclick="refreshDataTable();">Refresh</button>
+														<form:input path="direction" class="form-control" />
 													</div>
 												</div>
 											</div>
@@ -109,6 +116,7 @@
 									</div>
 
 								</form:form>
+
 
 
 							</div>
@@ -212,8 +220,8 @@
 									</thead>
 									<tbody>
 										<c:forEach var="groupBean" items="${groupBeans}" varStatus="loop">
-										
-										<c:set var="name" value="${groupBean.name}" />
+
+											<c:set var="name" value="${groupBean.name}" />
 											<tr>
 												<td>${groupBean.id }</td>
 												<td>${groupBean.name }</td>
@@ -235,24 +243,68 @@
 					</div>
 				</div>
 
+
 			</div>
 		</div>
 	</div>
 	<!-- /#wrapper -->
 	<jsp:include page="../JSMain.jsp"></jsp:include>
 	<script>
-		function setPage(pageNumber) {
-			$('.paging').click(function() {
-				$('#page').val(pageNumber);
-				$('form').submit();
+		$(document).ready(function() {
+			clearForm();
+			initDataTable();
+			initHandler();
+
+		});
+		function initDataTable() {
+			$('#dataTables-example').DataTable({
+				responsive : true
+			});
+		}
+		function initHandler() {
+			addStep();
+			saveStep();
+			deleteStep();
+			refreshDataTable();
+		}
+		
+		function clearForm(){
+			$('#direction').val("");
+		}
+
+		function selectReference(reference) {
+			$('#reference').val(reference);
+			$('#direction').val("search");
+			$('#createLoginStepForm').submit();
+
+		}
+
+		function refreshDataTable() {
+
+			$('#refresh').click(function() {
+				$('#direction').val("search");
+				$('#createLoginStepForm').submit();
+			});
+		}
+		function addStep() {
+
+			$('#add').click(function() {
+				addValidation();
+				$('#direction').val("insert");
+				$('#createLoginStepForm').submit();
 
 			});
 		}
-		function addStep(action) {
-			$('#add').click(function() {
-				$('#action').val(action);
-				$('form').submit();
-
+		function saveStep() {
+			$('#save').click(function() {
+				$('#direction').val("update");
+				$('#createLoginStepForm').submit();
+			});
+		}
+		function deleteStep() {
+			$('#delete').click(function() {
+				$('#direction').val("delete");
+				$('#createLoginStepForm').submit();
 			});
 		}
 		function editData(id, name, data, action, sequence, reference) {
@@ -262,14 +314,10 @@
 			$('#actionType').val(action);
 			$('#sequence').val(sequence);
 			$('#reference').val(reference);
+
 		}
-		function selectReference(reference) {
-			$('#reference').val(reference);
-			$('#direction').val("search");
-			$('form').submit();
-			
-		}
-		function clearData(){
+
+		function clearData() {
 			$('#widgetId').val('');
 			$('#widgetName').val('');
 			$('#data').val('');
@@ -277,10 +325,18 @@
 			$('#sequence').val('');
 			$('#reference').val('');
 		}
-		$(document).ready(function() {
-			$('#dataTables-example').DataTable({
-				responsive : true
-			});
+
+		function addValidation() {
+			$('#operationMessage').css("display", "none");
+		}
+
+		var app = angular.module('createLoginStepApp', []);
+		app.controller('createLoginStepCtrl', function($scope) {
+		    $scope.name = "John Doess";
+		    $scope.count = 0;
+		    $scope.myFunction = function() {
+		        $scope.count++;
+		    }
 		});
 	</script>
 

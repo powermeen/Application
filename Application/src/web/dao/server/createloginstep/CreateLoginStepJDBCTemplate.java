@@ -47,8 +47,50 @@ public class CreateLoginStepJDBCTemplate implements CreateLoginStepDao {
 		String query = createLoginStepQuery.getGroupReference();
 		List<GroupBean> groupBeans = new ArrayList<>();
 		groupBeans = jdbcTemplate.query(query, new GroupRowMapper());
-		
+
 		return groupBeans;
+	}
+
+	@Override
+	public int addLoginStep(SetupBean setupBean) {
+		Object[] objects = new Object[6];
+		objects[0] = setupBean.getWidgetId();
+		objects[1] = setupBean.getWidgetName();
+		objects[2] = setupBean.getData();
+		objects[3] = setupBean.getActionType();
+		objects[4] = setupBean.getSequence();
+		objects[5] = setupBean.getReference();
+		String query = createLoginStepQuery.addLoginStep();
+		int success = jdbcTemplate.update(query, objects);
+
+		return 0;
+	}
+
+	@Override
+	public int updateLoginStep(SetupBean setupBean) {
+
+		Object[] objects = new Object[7];
+		objects[0] = setupBean.getWidgetId();
+		objects[1] = setupBean.getWidgetName();
+		objects[2] = setupBean.getData();
+		objects[3] = setupBean.getActionType();
+		objects[4] = setupBean.getSequence();
+		objects[5] = setupBean.getReference();
+		objects[6] = setupBean.getSetupId();
+				
+		String query = createLoginStepQuery.updateLoginStep();
+		int success = jdbcTemplate.update(query, objects);
+		return 0;
+	}
+
+	@Override
+	public int deleteLoginStep(SetupBean setupBean) throws IllegalArgumentException {
+		Object[] objects = new Object[1];
+		objects[0] = setupBean.getSetupId();
+				
+		String query = createLoginStepQuery.deleteLoginStep();
+		int success = jdbcTemplate.update(query, objects);
+		return 0;
 	}
 
 }

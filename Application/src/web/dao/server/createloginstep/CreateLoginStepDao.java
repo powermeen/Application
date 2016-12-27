@@ -15,4 +15,10 @@ public interface CreateLoginStepDao {
 	public List<SetupBean> getStepByReference(SetupBean setupBean) throws IllegalArgumentException;
 	
 	public List<GroupBean> getGroupReference ()  throws IllegalArgumentException;
+	
+	public int addLoginStep(SetupBean setupBean) throws IllegalArgumentException;
+	
+	public int updateLoginStep(SetupBean setupBean) throws IllegalArgumentException;
+	
+	public int deleteLoginStep(SetupBean setupBean) throws IllegalArgumentException;
 }

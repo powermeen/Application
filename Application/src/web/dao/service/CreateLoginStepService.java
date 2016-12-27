@@ -36,4 +36,25 @@ public class CreateLoginStepService {
 		List<GroupBean> groupBeans = jdbcTemplate.getGroupReference();
 		return groupBeans;
 	}
+
+	public int addLoginStep(SetupBean setupBean) {
+		
+		int success = jdbcTemplate.addLoginStep(setupBean);
+		return 0;
+		
+		
+	}
+
+	public int updateLoginStep(SetupBean setupBean) {
+
+		int success = jdbcTemplate.updateLoginStep(setupBean);
+		return 0;
+		
+	}
+
+	public void deleteLoginStep(SetupBean setupBean) {
+
+		int success = jdbcTemplate.deleteLoginStep(setupBean);
+		
+	}
 }

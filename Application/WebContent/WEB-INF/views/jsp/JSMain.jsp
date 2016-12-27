@@ -23,6 +23,7 @@
 
 
 <spring:url value="/resources/core/dist/js/sb-admin-2.js" var="sb_adminJS" />
+<spring:url value="/resources/core/js/angular.min.js" var="angularJS" />
 <spring:url value="/resources/core/js/custom.js" var="customJS" />
 
 
@@ -38,6 +39,7 @@
 <script   type="text/javascript" src="${dataTablesResponsiveJS}"></script>
 
 <script   type="text/javascript" src="${sb_adminJS}"></script>
+<script   type="text/javascript" src="${angularJS}"></script>
 <script   type="text/javascript" src="${customJS}"></script>
 
 </head>

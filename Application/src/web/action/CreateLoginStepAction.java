@@ -46,35 +46,47 @@ public class CreateLoginStepAction implements SetupModelAndView {
 	@Override
 	public void setupData() {
 
-//		setupTableData();
+		// setupTableData();
 		setupActionListData();
 		setupGroupReference();
 
 	}
+
 	@Override
 	public void action() {
 		String direction = setupBean.getDirection();
 		boolean isCheck = StringUtils.isNotNullAndEmpty(direction);
-		if(isCheck){
-			
+		if (isCheck) {
+
 			switch (direction) {
 			case Action.SEARCH:
 				setupTableData();
-				
+
+				break;
+			case Action.INSERT:
+				addLoginStep();
+				setupTableData();
+				break;
+
+			case Action.UPDATE:
+				updateLoginStep();
+				setupTableData();
 				break;
 				
+			case Action.DELETE:
+				deleteLoginStep();
+				setupTableData();
+				break;
 
 			default:
 				break;
 			}
 		}
-		
-	}
 
+	}
 
 	private void setupTableData() {
 		List<SetupBean> setupBeans = new ArrayList<>();
-		
 
 		setupBeans = createLoginStepService.getStepByReference(setupBean);
 		modelAndView.addObject("setupBeans", setupBeans);
@@ -90,15 +102,28 @@ public class CreateLoginStepAction implements SetupModelAndView {
 		modelAndView.addObject("actionTypes", actionTypes);
 
 	}
-	
+
 	private void setupGroupReference() {
 		List<GroupBean> groupBeans = new ArrayList<>();
 		groupBeans = createLoginStepService.getGroupReference();
-		
+
 		modelAndView.addObject("groupBeans", groupBeans);
-		
+
 	}
 
+	private void addLoginStep() {
+		createLoginStepService.addLoginStep(setupBean);
+
+	}
 	
+	private void updateLoginStep() {
+		createLoginStepService.updateLoginStep(setupBean);
+		
+	}
+	
+	private void deleteLoginStep(){
+		createLoginStepService.deleteLoginStep(setupBean);
+	}
+
 
 }
