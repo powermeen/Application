@@ -10,6 +10,9 @@
 .container {
 	padding-top: 10px;
 }
+.disabled{
+	display: none;
+}
 </style>
 </head>
 <body >
@@ -18,7 +21,7 @@
 		<!-- Navigation -->
 		<jsp:include page="../Menubar.jsp"></jsp:include>
 
-		<div id="page-wrapper" ng-app="createLoginStepApp" ng-controller="createLoginStepCtrl">
+		<div id="page-wrapper" >
 			<div class="row">
 				<div class="col-lg-12">
 					<h1 class="page-header">Create Loging Step</h1>
@@ -32,7 +35,7 @@
 						<div class="panel-heading">Basic Form Elements</div>
 						<div class="panel-body">
 							<div class="row">
-								<form:form id="createLoginStepForm" method="post" action="CreateLoginStep" modelAttribute="SetupModel" role="form">
+								<form:form id="createLoginStepForm" method="post" action="CreateLoginStep" modelAttribute="SetupModel" role="form" >
 
 
 									<!-- /.col-lg-6 (nested) -->
@@ -43,9 +46,9 @@
 										<div class="panel panel-default">
 											<div class="panel-heading">Default Panel</div>
 											<div class="panel-body">
-												<div>
-													<div id="operationMessage" class="alert alert-warning">
-														<strong>Warning!</strong> Indicates a warning that might need attention.
+												<div >
+													<div  id="operationMessage" class="alert alert-warning disabled" >
+														<strong>Warning!</strong> Please Fill Data Every Field 
 													</div>
 												</div>
 												<div>
@@ -71,25 +74,25 @@
 												</div>
 
 												<div >
-													<div class="col-md-2 " id="sequenceGroup">
-														<form:input path="sequence" class="form-control " placeholder="Enter text" ng-model="name" />
+													<div class="col-md-2 form-group has-error" id="sequenceGroup ">
+														<form:input path="sequence" class="form-control " placeholder="Enter text"  />
 													</div>
-													<p ng-bind="myName">
-													<div class="col-md-2">
+													
+													<div class="col-md-2 form-group has-error">
 														<form:input path="widgetId" class="form-control" placeholder="Enter text" />
 													</div>
-													<div class="col-md-2">
+													<div class="col-md-2 form-group has-error">
 														<form:input path="widgetName" class="form-control" placeholder="Enter text" />
 													</div>
-													<div class="col-md-2">
+													<div class="col-md-2 form-group has-error">
 														<form:input path="data" class="form-control" placeholder="Enter text" />
 													</div>
-													<div class="col-md-2">
+													<div class="col-md-2 form-group has-error">
 														<form:select path="actionType" items="${actionTypes}" class="form-control">
 														</form:select>
 													</div>
 
-													<div class="col-md-2">
+													<div class="col-md-2 form-group has-error">
 														<form:input path="reference" class="form-control" placeholder="Enter text" />
 													</div>
 
@@ -99,7 +102,7 @@
 												<div class="col-md-12 container">
 													<div class="   btn-group text-right  ">
 
-														<button  type="button" class="btn btn-default " ng-click="myFunction()">Add</button><p>{{ count }}</p>
+														<button id="add" type="button" class="btn btn-default " onclick="">Add</button>
 														<button id="save" type="submit" onclick="saveStep();" class="btn btn-default ">Save</button>
 														<button id="delete" type="submit" onclick="deleteStep();" class="btn btn-danger ">Delete</button>
 														<button type="button" class="btn btn-default " onclick="clearData();">Clear</button>
@@ -254,6 +257,7 @@
 			clearForm();
 			initDataTable();
 			initHandler();
+			//initCss();
 
 		});
 		function initDataTable() {
@@ -267,11 +271,14 @@
 			deleteStep();
 			refreshDataTable();
 		}
+		function initCss(){
+			$('#operationMessage').addClass("disabled");
+		}
 		
 		function clearForm(){
 			$('#direction').val("");
 		}
-
+		
 		function selectReference(reference) {
 			$('#reference').val(reference);
 			$('#direction').val("search");
@@ -287,11 +294,13 @@
 			});
 		}
 		function addStep() {
-
+			
 			$('#add').click(function() {
-				addValidation();
-				$('#direction').val("insert");
-				$('#createLoginStepForm').submit();
+				var isChecked = addValidation();
+				if(isChecked){
+					$('#direction').val("insert");
+					$('#createLoginStepForm').submit();
+				}
 
 			});
 		}
@@ -327,17 +336,24 @@
 		}
 
 		function addValidation() {
-			$('#operationMessage').css("display", "none");
+			
+			//has-warning
+			var widgetId = $('#widgetId').val();
+			var widgetName = $('#widgetName').val();
+			var data = $('#data').val();
+			var actionType = $('#actionType').val();
+			var reference = $('#reference').val();
+			if(widgetId == "" || widgetName=="" || data =="" || actionType =="" || reference =="" ){
+				$('#operationMessage').removeClass("disabled");
+				
+				//addClass
+				return false;
+			}else{
+				return true;
+			}
 		}
-
-		var app = angular.module('createLoginStepApp', []);
-		app.controller('createLoginStepCtrl', function($scope) {
-		    $scope.name = "John Doess";
-		    $scope.count = 0;
-		    $scope.myFunction = function() {
-		        $scope.count++;
-		    }
-		});
+		
+		
 	</script>
 
 </body>
