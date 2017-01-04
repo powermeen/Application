@@ -102,13 +102,13 @@
 												<div class="col-md-12 container">
 													<div class="   btn-group text-right  ">
 
-														<button id="add" type="button" class="btn btn-default " onclick="">Add</button>
-														<button id="save" type="submit" onclick="saveStep();" class="btn btn-default ">Save</button>
-														<button id="delete" type="submit" onclick="deleteStep();" class="btn btn-danger ">Delete</button>
+														<button id="add" type="button" class="btn btn-default " >Add</button>
+														<button id="save" type="button"  class="btn btn-default ">Save</button>
+														<button id="delete" type="button"  class="btn btn-danger " data-toggle="modal" data-target="#deleteConfirm">Delete</button>
 														<button type="button" class="btn btn-default " onclick="clearData();">Clear</button>
 														<button type="button" class="btn btn-info " data-toggle="modal" data-target="#myModal">Find Reference</button>
 														<button id="refresh" type="submit" class="btn btn-default " onclick="refreshDataTable();">Refresh</button>
-														<form:input path="direction" class="form-control" />
+														<form:input path="direction" class="form-control disabled" />
 													</div>
 												</div>
 											</div>
@@ -249,6 +249,27 @@
 
 			</div>
 		</div>
+
+		<!-- Modal -->
+		<div class="modal fade" id="deleteConfirm" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Deleter</h4>
+					</div>
+					<div class="modal-body">
+						<p>Are You Sure to Delete This Step.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
 	</div>
 	<!-- /#wrapper -->
 	<jsp:include page="../JSMain.jsp"></jsp:include>
@@ -305,16 +326,20 @@
 			});
 		}
 		function saveStep() {
-			$('#save').click(function() {
-				$('#direction').val("update");
-				$('#createLoginStepForm').submit();
+			$('#add').click(function() {
+				var isChecked = addValidation();
+				if(isChecked){
+					$('#direction').val("update");
+					$('#createLoginStepForm').submit();
+				}
+
 			});
 		}
 		function deleteStep() {
-			$('#delete').click(function() {
-				$('#direction').val("delete");
-				$('#createLoginStepForm').submit();
-			});
+// 			$('#delete').click(function() {
+// 				$('#direction').val("delete");
+// 				$('#createLoginStepForm').submit();
+// 			});
 		}
 		function editData(id, name, data, action, sequence, reference) {
 			$('#widgetId').val(id);
