@@ -14,6 +14,7 @@ public class SetupRowMapper implements RowMapper<SetupBean>{
 
 		SetupBean setupBean = new SetupBean();
 		
+		String setupId = resultSet.getString("setupId");
 		String widgetId = resultSet.getString("widgetId");
 		String module = resultSet.getString("module");
 		String widgetName = resultSet.getString("widgetName");
@@ -22,6 +23,7 @@ public class SetupRowMapper implements RowMapper<SetupBean>{
 		String sequence = resultSet.getString("sequence");
 		String reference = resultSet.getString("reference");
 		
+		setupBean.setSetupId(setupId);
 		setupBean.setWidgetId(widgetId);
 		setupBean.setModule(module);
 		setupBean.setWidgetName(widgetName);

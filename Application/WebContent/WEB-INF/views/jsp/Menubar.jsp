@@ -247,6 +247,16 @@
                         <li>
                             <a href="javascript:void(0);" onclick="redriectPage('LoginSetup');"><i class="fa fa-users fa-fw"></i> Login</a>
                         </li>
+                         <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Create Group<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="javascript:void(0);" onclick="redriectPage('CreateLoginStep');">Create Login Step</a>
+                                </li>
+                                
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Create Step<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
