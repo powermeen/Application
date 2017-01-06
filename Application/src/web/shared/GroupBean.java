@@ -2,26 +2,28 @@ package web.shared;
 
 public class GroupBean {
 
-	private String Id;
+	private String id;
 	
-	private String Name;
+	private String name;
 	
 	private String status;
+	
+	private String direction;
 
 	public String getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(String id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
 	public String getStatus() {
@@ -31,6 +33,16 @@ public class GroupBean {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+	public String getDirection() {
+		return direction;
+	}
+
+	public void setDirection(String direction) {
+		this.direction = direction;
+	}
+
+	
 
 	
 }

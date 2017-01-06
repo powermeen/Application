@@ -251,7 +251,7 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Create Group<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="javascript:void(0);" onclick="redriectPage('CreateLoginStep');">Create Login Step</a>
+                                    <a href="javascript:void(0);" onclick="redriectPage('CreateGroup');">Create Group</a>
                                 </li>
                                 
                             </ul>

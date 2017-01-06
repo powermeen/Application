@@ -11,6 +11,7 @@ public enum PageRegister {
 	LOGIN_EDIT_SETUP("LoginEditSetup","/setup/LoginEditSetup"),
 	LOGIN_VIEW_SETUP("LoginViewSetup","/setup/LoginViewSetup"),
 	CREATE_LOGIN_STEP("CreateLoginStep","/setup/CreateLoginStep"),
+	CREATE_GROUP("CreateGroup","/setup/CreateGroup"),
 	DATA_TABLE("DataTable","/setup/DataTable");
 
 	private String key;

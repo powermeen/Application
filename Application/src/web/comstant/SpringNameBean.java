@@ -18,6 +18,8 @@ public class SpringNameBean {
 	public static final String LOGIN_SETUP = "loginSetup";
 	
 	public static final String CREATE_LOGIN_SETUP = "createloginSetup";
+
+	public static final String CREATE_GROUP = "createGroup";
 	
 	
 	

@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 
+import web.action.CreateGroupAction;
 import web.action.CreateLoginStepAction;
 import web.action.LoginSetupAction;
 import web.comstant.Action;
@@ -24,6 +25,7 @@ import web.comstant.PageRegister;
 import web.dao.service.LoginService;
 import web.dao.service.SiteSalesReportService;
 import web.dao.service.TotalSalesReportService;
+import web.shared.GroupBean;
 import web.shared.LoginSetupBean;
 import web.shared.SetupBean;
 import web.shared.SiteSalesReportBean;
@@ -205,6 +207,19 @@ public class AllpicationController {
 		
 		
 		modelAndView = loginStepAction.getSetupModelAndView();
+		
+		return modelAndView;
+		
+	}
+	
+	@RequestMapping(value = "/CreateGroup")
+	public ModelAndView CreateGroup(@ModelAttribute("SetupModel") GroupBean groupBean){
+		ModelAndView modelAndView = new ModelAndView();
+		
+		CreateGroupAction createGroupAction = new CreateGroupAction(groupBean);
+		
+		createGroupAction.action();
+		modelAndView = createGroupAction.getSetupModelAndView();
 		
 		return modelAndView;
 		

@@ -131,7 +131,7 @@
 														<button id="refresh" type="submit"
 															class="btn btn-default " onclick="refreshDataTable();">Search
 															By Reference</button>
-														<form:input path="direction" class="form-control " />
+														<form:input path="direction" class="form-control disabled" />
 													</div>
 												</div>
 											</div>
@@ -317,7 +317,7 @@
 
 		});
 		function initDataTable() {
-			$('#dataTables-example').DataTable({
+			$('#dataTables').DataTable({
 				responsive : true
 			});
 		}
