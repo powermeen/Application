@@ -55,5 +55,13 @@ public class CreateGroupJDBCTemplate implements CreateGroupDao{
 		int success = jdbcTemplate.update(query, objects);
 		
 	}
+	@Override
+	public void deleteGroup(GroupBean groupBean) {
+
+		Object[] objects = new Object[1];
+		objects[0] =groupBean.getId();
+		String query = createGroupQuery.deleteGroupById();
+		int success = jdbcTemplate.update(query, objects);
+	}
 
 }

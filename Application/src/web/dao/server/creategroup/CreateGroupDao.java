@@ -16,4 +16,6 @@ public interface CreateGroupDao {
 	public int addGroup(GroupBean groupBean)throws IllegalArgumentException;
 	
 	public void updateGroup(GroupBean groupBean)throws IllegalArgumentException;
+	
+	public void deleteGroup(GroupBean groupBean)throws IllegalArgumentException;
 }

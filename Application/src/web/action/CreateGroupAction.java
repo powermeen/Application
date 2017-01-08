@@ -69,8 +69,8 @@ public class CreateGroupAction implements SetupModelAndView {
 				break;
 
 			case Action.DELETE:
-				// deleteLoginStep();
-				// setupTableData();
+				deleteGroup();
+				 setupTableData();
 				break;
 
 			default:
@@ -79,6 +79,8 @@ public class CreateGroupAction implements SetupModelAndView {
 		}
 
 	}
+
+	
 
 	
 
@@ -102,4 +104,9 @@ public class CreateGroupAction implements SetupModelAndView {
 		
 	}
 
+	private void deleteGroup() {
+
+		createGroupServive.deleteGroup(groupBean);
+		
+	}
 }

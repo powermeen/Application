@@ -17,5 +17,11 @@ public class CreateGroupQuery {
 		String query = "update group_table set s_name = ? where i_group_id =  ? ";
 		return query;
 	}
+
+	public String deleteGroupById() {
+		String query = "delete from group_table  where i_group_id  = ?";
+		return query;
+	}
+	
 	
 }

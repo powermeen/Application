@@ -39,4 +39,10 @@ public class CreateGroupServive {
 		jdbcTemplate.updateGroup(groupBean);	
 		
 	}
+
+	public void deleteGroup(GroupBean groupBean) {
+
+		jdbcTemplate.deleteGroup(groupBean);	
+		
+	}
 }
