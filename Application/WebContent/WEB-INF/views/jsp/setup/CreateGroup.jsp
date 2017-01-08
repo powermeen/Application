@@ -134,7 +134,7 @@
 													<td>${name }</td>
 													<td>${status }</td>
 
-													<td><button type="button" class="btn btn-default btn-xs center " onclick="editData('${Id}','${name}');">Edit</button></td>
+													<td><button type="button" class="btn btn-default btn-xs center " onclick="editData('${id}','${name}');">Edit</button></td>
 
 												</tr>
 
@@ -144,7 +144,7 @@
 													<td>${id}</td>
 													<td>${name }</td>
 													<td>${status }</td>
-													<td><button type="button" class="btn btn-default btn-xs center " onclick="editData('${Id}','${name}');">Edit</button></td>
+													<td><button type="button" class="btn btn-default btn-xs center " onclick="editData('${id}','${name}');">Edit</button></td>
 
 												</tr>
 											</c:otherwise>

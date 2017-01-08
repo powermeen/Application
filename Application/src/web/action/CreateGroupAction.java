@@ -23,6 +23,7 @@ public class CreateGroupAction implements SetupModelAndView {
 
 	public CreateGroupAction(GroupBean groupBean) {
 		this.groupBean = groupBean;
+		setupData();
 		setupPage();
 	}
 
@@ -41,7 +42,8 @@ public class CreateGroupAction implements SetupModelAndView {
 
 	@Override
 	public void setupData() {
-		// TODO Auto-generated method stub
+
+		setupTableData();
 
 	}
 
@@ -62,8 +64,8 @@ public class CreateGroupAction implements SetupModelAndView {
 				break;
 
 			case Action.UPDATE:
-				// updateLoginStep();
-				// setupTableData();
+				 updateGroup();
+				 setupTableData();
 				break;
 
 			case Action.DELETE:
@@ -78,6 +80,8 @@ public class CreateGroupAction implements SetupModelAndView {
 
 	}
 
+	
+
 	private void setupTableData() {
 		List<GroupBean> groupBeans = new ArrayList<>();
 
@@ -85,11 +89,17 @@ public class CreateGroupAction implements SetupModelAndView {
 		modelAndView.addObject("groupBeans", groupBeans);
 
 	}
+	
 
 	private void addGroup() {
 
 		createGroupServive.addGroup(groupBean);
 
+	}
+	private void updateGroup() {
+
+		createGroupServive.updateGroup(groupBean);
+		
 	}
 
 }

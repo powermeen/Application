@@ -12,5 +12,10 @@ public class CreateGroupQuery {
 		String query = "insert into group_table (s_name   ,i_status) values (?,0); ";
 		return query;
 	}
+
+	public String updateGroup() {
+		String query = "update group_table set s_name = ? where i_group_id =  ? ";
+		return query;
+	}
 	
 }

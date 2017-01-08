@@ -5,3 +5,5 @@ create table group_table ( i_group_id integer identity primary key, s_name varch
 insert into group_table (s_name   ,i_status) values ('username_meen',1);
 
 select i_group_id as Id , s_name as name ,i_status as status from group_table 
+
+update group_table set s_name = '12121' where i_group_id = '0'

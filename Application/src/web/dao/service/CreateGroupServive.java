@@ -33,4 +33,10 @@ public class CreateGroupServive {
 		jdbcTemplate.addGroup(groupBean);
 		
 	}
+
+	public void updateGroup(GroupBean groupBean) {
+
+		jdbcTemplate.updateGroup(groupBean);	
+		
+	}
 }
