@@ -23,5 +23,15 @@ public class CreateGroupQuery {
 		return query;
 	}
 	
+	public String getGroupById(){
+		String query = "select i_group_id as Id , s_name as name ,i_status as status from group_table where i_group_id = ? ";
+		return query;
+	}
+
+	public String updateGroupInStep() {
+		String query = "update setup_table set s_reference = ? where s_reference = ? ";
+		return query;
+	}
+	
 	
 }

@@ -48,23 +48,34 @@
 											<div class="panel-heading">Default Panel</div>
 											<div class="panel-body">
 												<div>
-													<div id="operationMessage" class="alert alert-warning disabled">
+													<div id="operationMessageAdd" class="alert alert-warning disabled">
 														<strong>Warning!</strong> Please Fill Data Every Field
+													</div>
+													<div id="operationMessageSave" class="alert alert-warning disabled">
+														<strong>Warning!</strong> Please Select Group You Need To Update
 													</div>
 												</div>
 
 
-												<div>
+												<div class="col-md-12">
+												<div class="col-md-2">
+														<label>ID</label>
+													</div>
 													<div class="col-md-3">
 														<label>Group_Name</label>
 													</div>
 
 												</div>
 
-												<div>
-													<form:input path="id" class="form-control  disabled" />
+												<div class="col-md-12">
+													
+													<div class="col-md-2 form-group " id="idGroup " >
 
-													<div class="col-md-2 form-group has-error" id="sequenceGroup ">
+														<form:input path="id" class="form-control "  readonly="true"/>
+													</div>
+													
+
+													<div class="col-md-3 form-group has-error" id="sequenceGroup ">
 
 														<form:input path="name" class="form-control " placeholder="Enter text" />
 													</div>
@@ -243,7 +254,7 @@
 		}
 		function saveStep() {
 			$('#save').click(function() {
-				var isChecked = addValidation();
+				var isChecked = saveValidation();
 				if (isChecked) {
 					$('#direction').val("update");
 					$('#CreateGroup').submit();
@@ -268,7 +279,8 @@
 			$('#clear').click(function() {
 				$('#name').val('');
 
-				$('#operationMessage').addClass("disabled");
+				$('#operationMessageAdd').addClass("disabled");
+				$('#operationMessageSave').addClass("disabled");
 			});
 
 		}
@@ -279,7 +291,21 @@
 			var name = $('#name').val();
 
 			if (name == "") {
-				$('#operationMessage').removeClass("disabled");
+				$('#operationMessageAdd').removeClass("disabled");
+
+				//addClass
+				return false;
+			} else {
+				return true;
+			}
+		}
+		function saveValidation() {
+
+			var id = $('#id').val();
+			var name = $('#name').val();
+
+			if (name == "" || id == "") {
+				$('#operationMessageSave').removeClass("disabled");
 
 				//addClass
 				return false;

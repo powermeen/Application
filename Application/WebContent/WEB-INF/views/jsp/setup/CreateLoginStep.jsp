@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@include file="../include.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -37,9 +36,7 @@
 						<div class="panel-heading">Basic Form Elements</div>
 						<div class="panel-body">
 							<div class="row">
-								<form:form id="createLoginStepForm" method="post"
-									action="CreateLoginStep" modelAttribute="SetupModel"
-									role="form">
+								<form:form id="createLoginStepForm" method="post" action="CreateLoginStep" modelAttribute="SetupModel" role="form">
 
 
 									<!-- /.col-lg-6 (nested) -->
@@ -51,16 +48,20 @@
 											<div class="panel-heading">Default Panel</div>
 											<div class="panel-body">
 												<div>
-													<div id="operationMessage"
-														class="alert alert-warning disabled">
+													<div id="operationMessage" class="alert alert-warning disabled">
 														<strong>Warning!</strong> Please Fill Data Every Field
 													</div>
+													<div id="operationMessageDelete" class="alert alert-danger  disabled">
+														<strong>Warning!</strong> Please Select ID You Need To Delete
+													</div>
 												</div>
-											
+
 
 												<div>
-
-													<div class="col-md-2">
+													<div class="col-md-1">
+														<label>ID</label>
+													</div>
+													<div class="col-md-1">
 														<label>Sequence</label>
 													</div>
 													<div class="col-md-2">
@@ -82,36 +83,31 @@
 												</div>
 
 												<div>
-											<form:input path="setupId" class="form-control  disabled" />		
-
-													<div class="col-md-2 form-group has-error"
-														id="sequenceGroup ">
-														
-														<form:input path="sequence" class="form-control "
-															placeholder="Enter text" />
+													<div class="col-md-1">
+														<form:input path="setupId" class="form-control" readonly="true" />
 													</div>
 
+													<div class="col-md-1 form-group has-error" id="sequenceGroup ">
+
+														<form:input path="sequence" class="form-control " />
+													</div>
+
 													<div class="col-md-2 form-group has-error">
-														<form:input path="widgetId" class="form-control"
-															placeholder="Enter text" />
+														<form:input path="widgetId" class="form-control" placeholder="Enter text" />
 													</div>
 													<div class="col-md-2 form-group has-error">
-														<form:input path="widgetName" class="form-control"
-															placeholder="Enter text" />
+														<form:input path="widgetName" class="form-control" placeholder="Enter text" />
 													</div>
 													<div class="col-md-2 form-group has-error">
-														<form:input path="data" class="form-control"
-															placeholder="Enter text" />
+														<form:input path="data" class="form-control" placeholder="Enter text" />
 													</div>
 													<div class="col-md-2 form-group has-error">
-														<form:select path="actionType" items="${actionTypes}"
-															class="form-control">
+														<form:select path="actionType" items="${actionTypes}" class="form-control">
 														</form:select>
 													</div>
 
 													<div class="col-md-2 form-group has-error">
-														<form:input id="reference" path="reference"
-															class="form-control" placeholder="Enter text" />
+														<form:input id="reference" path="reference" class="form-control" placeholder="Enter text" />
 													</div>
 
 												</div>
@@ -122,15 +118,10 @@
 
 														<button id="add" type="button" class="btn btn-default ">Add</button>
 														<button id="save" type="button" class="btn btn-default ">Save</button>
-														<button id="delete" type="button" class="btn btn-danger "
-															data-toggle="modal" data-target="#deleteConfirm">Delete</button>
+														<button id="delete" type="button" class="btn btn-danger " data-toggle="modal" data-target="#deleteConfirm">Delete</button>
 														<button id="clear" type="button" class="btn btn-default ">Clear</button>
-														<button type="button" class="btn btn-info "
-															data-toggle="modal" data-target="#findReference">Find
-															Reference</button>
-														<button id="refresh" type="submit"
-															class="btn btn-default " onclick="refreshDataTable();">Search
-															By Reference</button>
+														<button type="button" class="btn btn-info " data-toggle="modal" data-target="#findReference">Find Reference</button>
+														<button id="refresh" type="submit" class="btn btn-default " onclick="refreshDataTable();">Search By Reference</button>
 														<form:input path="direction" class="form-control disabled" />
 													</div>
 												</div>
@@ -158,9 +149,7 @@
 						<div class="panel-heading">DataTables Advanced Tables</div>
 						<!-- /.panel-heading -->
 						<div class="panel-body">
-							<table width="100%"
-								class="table table-striped table-bordered table-hover"
-								id="dataTables">
+							<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables">
 								<thead>
 									<tr>
 										<th>Sequence</th>
@@ -173,8 +162,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach var="setupBean" items="${setupBeans}"
-										varStatus="loop">
+									<c:forEach var="setupBean" items="${setupBeans}" varStatus="loop">
 
 										<c:set var="Id" value="${setupBean.setupId}" />
 										<c:set var="widgetId" value="${setupBean.widgetId}" />
@@ -193,9 +181,7 @@
 													<td>${data }</td>
 													<td>${actionType }</td>
 													<td>${reference }</td>
-													<td><button type="button"
-															class="btn btn-default btn-xs center "
-															onclick="editData('${Id}','${widgetId}','${name}','${data}','${actionType }','${sequence }','${reference }');">Edit</button></td>
+													<td><button type="button" class="btn btn-default btn-xs center " onclick="editData('${Id}','${widgetId}','${name}','${data}','${actionType }','${sequence }','${reference }');">Edit</button></td>
 
 												</tr>
 
@@ -208,9 +194,7 @@
 													<td>${data }</td>
 													<td>${actionType }</td>
 													<td>${reference }</td>
-													<td><button type="button"
-															class="btn btn-default btn-xs center "
-															onclick="editData('${Id}','${widgetId}','${name}','${data}','${actionType }','${sequence }','${reference }');">Edit</button></td>
+													<td><button type="button" class="btn btn-default btn-xs center " onclick="editData('${Id}','${widgetId}','${name}','${data}','${actionType }','${sequence }','${reference }');">Edit</button></td>
 
 												</tr>
 											</c:otherwise>
@@ -253,16 +237,14 @@
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach var="groupBean" items="${groupBeans}"
-											varStatus="loop">
+										<c:forEach var="groupBean" items="${groupBeans}" varStatus="loop">
 
 											<c:set var="name" value="${groupBean.name}" />
 											<tr>
 												<td>${groupBean.id }</td>
 												<td>${groupBean.name }</td>
 
-												<td><button onclick="selectReference('${name}')"
-														type="button" class="btn btn-info" data-dismiss="modal">Selected</button></td>
+												<td><button onclick="selectReference('${name}')" type="button" class="btn btn-info" data-dismiss="modal">Selected</button></td>
 											</tr>
 										</c:forEach>
 
@@ -297,8 +279,7 @@
 						<p>Are You Sure to Delete This Step.</p>
 					</div>
 					<div class="modal-footer">
-						<button id="confirmDeleteStep" type="button"
-							class="btn btn-danger" data-dismiss="modal">Yes</button>
+						<button id="confirmDeleteStep" type="button" class="btn btn-danger" data-dismiss="modal">Yes</button>
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					</div>
 				</div>
@@ -322,9 +303,10 @@
 			});
 		}
 		function initHandler() {
-			addStep();
-			saveStep();
+			addButtonHandler();
+			saveButtonHandler();
 			clearForm();
+			clearButtonHandler();
 			deleteStep();
 			refreshDataTable();
 		}
@@ -349,7 +331,7 @@
 				$('#createLoginStepForm').submit();
 			});
 		}
-		function addStep() {
+		function addButtonHandler() {
 
 			$('#add').click(function() {
 				var isChecked = addValidation();
@@ -360,9 +342,9 @@
 
 			});
 		}
-		function saveStep() {
+		function saveButtonHandler() {
 			$('#save').click(function() {
-				var isChecked = addValidation();
+				var isChecked = saveValidation();
 				if (isChecked) {
 					$('#direction').val("update");
 					$('#createLoginStepForm').submit();
@@ -371,11 +353,18 @@
 			});
 		}
 		function deleteStep() {
+
 			$('#confirmDeleteStep').click(function() {
-				$('#direction').val("delete");
-				$('#createLoginStepForm').submit();
-				
+				var isChecked = deleteValidation();
+
+				if (isChecked) {
+
+					$('#direction').val("delete");
+					$('#createLoginStepForm').submit();
+					
+				}
 			});
+
 		}
 		function editData(id, widgetId, name, data, action, sequence, reference) {
 			$('#setupId').val(id);
@@ -387,9 +376,14 @@
 			$('#reference').val(reference);
 
 		}
+		function clearButtonHandler(){
+			$('#clear').click(function() {
+				clearForm();
+			});
+		}
 
 		function clearForm() {
-			$('#clear').click(function() {
+				$('#setupId').val('');
 				$('#widgetId').val('');
 				$('#widgetName').val('');
 				$('#data').val('');
@@ -399,13 +393,13 @@
 				// 				var table = $('#dataTables').DataTable();
 				// 				table.clear().draw();
 				$('#operationMessage').addClass("disabled");
-			});
+				$('#operationMessageDelete').addClass("disabled");
+			
 
 		}
 
 		function addValidation() {
 
-			//has-warning
 			var widgetId = $('#widgetId').val();
 			var widgetName = $('#widgetName').val();
 			var data = $('#data').val();
@@ -414,6 +408,36 @@
 			if (widgetId == "" || widgetName == "" || data == ""
 					|| actionType == "" || reference == "") {
 				$('#operationMessage').removeClass("disabled");
+
+				return false;
+			} else {
+				return true;
+			}
+		}
+		function saveValidation() {
+
+			var setupId = $('#setupId').val();
+			var widgetId = $('#widgetId').val();
+			var widgetName = $('#widgetName').val();
+			var data = $('#data').val();
+			var actionType = $('#actionType').val();
+			var reference = $('#reference').val();
+			if (setupId == "" || widgetId == "" || widgetName == ""
+					|| data == "" || actionType == "" || reference == "") {
+				$('#operationMessage').removeClass("disabled");
+
+				//addClass
+				return false;
+			} else {
+				return true;
+			}
+		}
+		function deleteValidation() {
+
+			var setupId = $('#setupId').val();
+
+			if (setupId == "") {
+				$('#operationMessageDelete').removeClass("disabled");
 
 				//addClass
 				return false;
