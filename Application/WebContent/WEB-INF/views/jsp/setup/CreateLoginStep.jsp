@@ -294,7 +294,7 @@
 			initForm();
 			initDataTable();
 			initHandler();
-			//initCss();
+			
 
 		});
 		function initDataTable() {
@@ -310,9 +310,7 @@
 			deleteStep();
 			refreshDataTable();
 		}
-		function initCss() {
-			$('#operationMessage').addClass("disabled");
-		}
+		
 
 		function initForm() {
 			$('#direction').val("");
