@@ -38,8 +38,9 @@ public class CreateGroupJDBCTemplate implements CreateGroupDao {
 	@Override
 	public int addGroup(GroupBean groupBean) {
 
-		Object[] objects = new Object[1];
+		Object[] objects = new Object[2];
 		objects[0] = groupBean.getName();
+		objects[1] = groupBean.getModule();
 
 		String query = createGroupQuery.addGroup();
 		int success = jdbcTemplate.update(query, objects);
@@ -90,6 +91,8 @@ public class CreateGroupJDBCTemplate implements CreateGroupDao {
 
 	}
 	
+
+	
 	private int updateGroupInStep(GroupBean groupBean){
 		String id = groupBean.getId();
 		
@@ -104,6 +107,24 @@ public class CreateGroupJDBCTemplate implements CreateGroupDao {
 		int success = jdbcTemplate.update(query, objects);
 		return success;
 		
+	}
+
+	public GroupBean getGroupByName(GroupBean groupBean) {
+		String name = groupBean.getName();
+		
+		Object[] objects = new Object[1];
+		objects[0] = name;
+		
+		String query = createGroupQuery.getGroupByName();
+		
+		List<GroupBean> groupBeans = new ArrayList<>();
+		groupBeans = jdbcTemplate.query(query, objects, new GroupRowMapper());
+		GroupBean bean = null;
+		if(!groupBeans.isEmpty()){
+			bean = groupBeans.get(0);
+		}
+		
+		return bean;
 	}
 
 }

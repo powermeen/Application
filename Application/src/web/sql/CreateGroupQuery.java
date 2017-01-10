@@ -3,13 +3,13 @@ package web.sql;
 public class CreateGroupQuery {
 
 	public String getAllGroup (){
-		String query = "select i_group_id as Id , s_name as name ,i_status as status from group_table ";
+		String query = "select i_group_id as Id , s_name as name ,  s_module as module ,i_status as status from group_table ";
 		return query;
 		
 	}
 
 	public String addGroup() {
-		String query = "insert into group_table (s_name   ,i_status) values (?,0); ";
+		String query = "insert into group_table (s_name , s_module ,i_status) values (?,?,0); ";
 		return query;
 	}
 
@@ -24,12 +24,17 @@ public class CreateGroupQuery {
 	}
 	
 	public String getGroupById(){
-		String query = "select i_group_id as Id , s_name as name ,i_status as status from group_table where i_group_id = ? ";
+		String query = "select i_group_id as Id , s_name as name , s_module as module ,i_status as status from group_table where i_group_id = ? ";
 		return query;
 	}
 
 	public String updateGroupInStep() {
 		String query = "update setup_table set s_reference = ? where s_reference = ? ";
+		return query;
+	}
+
+	public String getGroupByName() {
+		String query = "select i_group_id as Id , s_name as name , s_module as module ,i_status as status from group_table where s_name = ?";
 		return query;
 	}
 	

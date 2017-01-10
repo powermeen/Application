@@ -212,15 +212,15 @@ public class AllpicationController {
 		
 	}
 	
-	@RequestMapping(value = "/CreateGroup")
-	public ModelAndView CreateGroup(@ModelAttribute("SetupModel") GroupBean groupBean){
+	@RequestMapping(value = "/CreateGroup" )
+	public ModelAndView CreateGroup(@ModelAttribute("GroupModel") GroupBean groupBean, ModelMap model){
 		ModelAndView modelAndView = new ModelAndView();
 		
-		CreateGroupAction createGroupAction = new CreateGroupAction(groupBean);
+		CreateGroupAction createGroupAction = new CreateGroupAction(groupBean , model);
 		
 		createGroupAction.action();
 		modelAndView = createGroupAction.getSetupModelAndView();
-		
+		 
 		return modelAndView;
 		
 	}

@@ -29,7 +29,7 @@ public class CreateGroupServive {
 	}
 
 	public void addGroup(GroupBean groupBean) {
-
+		
 		jdbcTemplate.addGroup(groupBean);
 		
 	}
@@ -43,6 +43,18 @@ public class CreateGroupServive {
 	public void deleteGroup(GroupBean groupBean) {
 
 		jdbcTemplate.deleteGroup(groupBean);	
+		
+	}
+
+	public Boolean checkExistingGroupByName(GroupBean groupBean) {
+		
+		GroupBean bean = jdbcTemplate.getGroupByName(groupBean);
+		
+		if(bean == null){
+			return false;
+		}else {
+			return true ;
+		}
 		
 	}
 }

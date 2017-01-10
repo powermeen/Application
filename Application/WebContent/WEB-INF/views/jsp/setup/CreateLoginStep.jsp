@@ -307,7 +307,7 @@
 			saveButtonHandler();
 			clearForm();
 			clearButtonHandler();
-			deleteStep();
+			deleteButtonHandler();
 			refreshDataTable();
 		}
 		
@@ -350,7 +350,7 @@
 
 			});
 		}
-		function deleteStep() {
+		function deleteButtonHandler() {
 
 			$('#confirmDeleteStep').click(function() {
 				var isChecked = deleteValidation();

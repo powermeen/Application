@@ -15,11 +15,13 @@ public class GroupRowMapper implements RowMapper<GroupBean>{
 		
 		String id = resultSet.getString("id");
 		String name = resultSet.getString("name");
+		String module = resultSet.getString("module");
 		String status = resultSet.getString("status");
 		
 		
 		groupBean.setId(id);
 		groupBean.setName(name);
+		groupBean.setModule(module);
 		groupBean.setStatus(status);
 		
 		return groupBean;

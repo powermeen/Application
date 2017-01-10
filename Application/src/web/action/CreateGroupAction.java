@@ -2,10 +2,14 @@ package web.action;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 
 import web.common.interfaces.SetupModelAndView;
+import web.common.list.ListBoxData;
 import web.common.util.StringUtils;
 import web.comstant.Action;
 import web.comstant.PageRegister;
@@ -17,18 +21,22 @@ public class CreateGroupAction implements SetupModelAndView {
 
 	private ModelAndView modelAndView = new ModelAndView();
 
-	private GroupBean groupBean = new GroupBean();
+	private GroupBean groupBean ;
+	
+	private ModelMap  model; 
 
 	private CreateGroupServive createGroupServive = new CreateGroupServive();
 
-	public CreateGroupAction(GroupBean groupBean) {
+	public CreateGroupAction(GroupBean groupBean, ModelMap model) {
 		this.groupBean = groupBean;
+		this.model =model;
 		setupData();
 		setupPage();
 	}
 
 	@Override
 	public ModelAndView getSetupModelAndView() {
+		
 		return modelAndView;
 	}
 
@@ -44,8 +52,17 @@ public class CreateGroupAction implements SetupModelAndView {
 	public void setupData() {
 
 		setupTableData();
+		setupGroupListData();
+		clearForm();
+		
 
 	}
+
+	
+
+	
+
+	
 
 	@Override
 	public void action() {
@@ -56,21 +73,25 @@ public class CreateGroupAction implements SetupModelAndView {
 			switch (direction) {
 			case Action.SEARCH:
 				setupTableData();
+				
 
 				break;
 			case Action.INSERT:
 				addGroup();
 				setupTableData();
+				resetModel();
 				break;
 
 			case Action.UPDATE:
 				 updateGroup();
 				 setupTableData();
+				 resetModel();
 				break;
 
 			case Action.DELETE:
 				deleteGroup();
 				 setupTableData();
+				 resetModel();
 				break;
 
 			default:
@@ -80,7 +101,17 @@ public class CreateGroupAction implements SetupModelAndView {
 
 	}
 
-	
+	private void resetModel() {
+		
+		groupBean.setId("");
+		groupBean.setName("");
+		groupBean.setModule("");
+		
+	}private void clearForm() {
+		
+		modelAndView.addObject("errorMessage", "");
+		
+	}
 
 	
 
@@ -92,10 +123,30 @@ public class CreateGroupAction implements SetupModelAndView {
 
 	}
 	
+	private void setupGroupListData() {
+		ListBoxData data = new ListBoxData();
+		
+		Map<String , String> modules = data.getModule();
+		
+		modelAndView.addObject("modules", modules);
+		
+	}
+	
+	
 
 	private void addGroup() {
+		
+		
+		Boolean isExisting = createGroupServive.checkExistingGroupByName(groupBean);
 
-		createGroupServive.addGroup(groupBean);
+		if(!isExisting){
+			createGroupServive.addGroup(groupBean);
+			String successMessage =  "Add New Group Success! ";
+			//modelAndView.addObject("successMessage", successMessage);
+		}else {
+			String errorMessage = "This Group Name Existing in System Cannot Add more ";
+			modelAndView.addObject("errorMessage", errorMessage);
+		}
 
 	}
 	private void updateGroup() {

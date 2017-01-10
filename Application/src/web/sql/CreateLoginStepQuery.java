@@ -10,7 +10,7 @@ public class CreateLoginStepQuery {
 	}
 	
 	public String getGroupReference(){
-		String query = "select i_group_id as id , s_name as name , i_status as status from group_table ";
+		String query = "select i_group_id as id , s_name as name ,  s_module as module ,i_status as status from group_table ";
 		return query;
 	}
 

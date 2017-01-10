@@ -6,6 +6,8 @@ public class GroupBean {
 	
 	private String name;
 	
+	private String module ;
+	
 	private String status;
 	
 	private String direction;
@@ -26,6 +28,14 @@ public class GroupBean {
 		this.name = name;
 	}
 
+	public String getModule() {
+		return module;
+	}
+
+	public void setModule(String module) {
+		this.module = module;
+	}
+
 	public String getStatus() {
 		return status;
 	}
@@ -41,6 +51,8 @@ public class GroupBean {
 	public void setDirection(String direction) {
 		this.direction = direction;
 	}
+
+	
 
 	
 
