@@ -253,6 +253,9 @@
                                 <li>
                                     <a href="javascript:void(0);" onclick="redriectPage('CreateGroup');">Create Group</a>
                                 </li>
+                                <li>
+                                    <a href="javascript:void(0);" onclick="redriectPage('ActiveGroup');">Active Group</a>
+                                </li>
                                 
                             </ul>
                             <!-- /.nav-second-level -->
@@ -264,7 +267,7 @@
                                     <a href="javascript:void(0);" onclick="redriectPage('CreateLoginStep');">Create Login Step</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">Morris.js Charts</a>
+                                    <a href="javascript:void(0);" onclick="redriectPage('ActiveStep');">Active Step</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

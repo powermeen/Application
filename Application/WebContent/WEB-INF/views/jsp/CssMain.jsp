@@ -19,6 +19,8 @@
 <spring:url value="/resources/core/vendor/morrisjs/morris.css" var="morrisCSS" />
 <spring:url value="/resources/core/vendor/font-awesome/css/font-awesome.min.css" var="awesomeCSS" />
 
+<spring:url value="/resources/core/vendor/bootstrap/css/bootstrap-toggle.min.css" var="bootstrapToggleCSS" />
+
 <link  type="text/css" rel="stylesheet" href="${bootstrapCSS}"  />
 <link  type="text/css" rel="stylesheet" href="${metisMenuCSS}"  />
 
@@ -27,6 +29,7 @@
 <link  type="text/css" rel="stylesheet" href="${adminCSS}"  />
 <link  type="text/css" rel="stylesheet" href="${morrisCSS}"  />
 <link  type="text/css" rel="stylesheet" href="${awesomeCSS}"  />
+<link  type="text/css" rel="stylesheet" href="${bootstrapToggleCSS}"  />
 
 
 </head>

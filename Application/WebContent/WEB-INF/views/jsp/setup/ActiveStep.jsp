@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Create Group</title>
+<title>Active Step</title>
 <jsp:include page="../CssMain.jsp"></jsp:include>
 <style type="text/css">
 .container {
@@ -149,10 +149,14 @@
 			</div>
 
 
+			<c:set var="req" value="${pageContext.request}" />
+			<c:set var="baseURL"
+				value="${req.scheme}://${req.serverName}:${req.serverPort}${req.contextPath}" />
+			<input id="baseURL" type="text" class="disabled" value="${baseURL }" />
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="panel panel-info">
-						<div class="panel-heading">DataTables Advanced Tables</div>
+						<div class="panel-heading">Control To Active Group</div>
 						<!-- /.panel-heading -->
 						<div class="panel-body">
 							<table width="100%"
@@ -164,7 +168,6 @@
 										<th>Group_Name</th>
 										<th>Module</th>
 										<th>Status</th>
-										<th>Edit</th>
 
 									</tr>
 								</thead>
@@ -184,12 +187,18 @@
 													<td>${id}</td>
 													<td>${name }</td>
 													<td>${module }</td>
-													<td>${status }</td>
-
-													<td><button type="button"
-															class="btn btn-default btn-xs center "
-															onclick="editData('${id}','${name}','${module}');">Edit</button></td>
-
+													<c:choose>
+														<c:when test="${status == 1 }">
+															<td><input type="checkbox" checked
+																data-toggle="toggle" data-size="mini"
+																onchange="changeStatus('${id}','${status}');"></td>
+														</c:when>
+														<c:otherwise>
+															<td><input type="checkbox" data-toggle="toggle"
+																data-size="mini"
+																onchange="changeStatus('${id}','${status}');"></td>
+														</c:otherwise>
+													</c:choose>
 												</tr>
 
 											</c:when>
@@ -198,11 +207,19 @@
 													<td>${id}</td>
 													<td>${name }</td>
 													<td>${module }</td>
-													<td>${status }</td>
-													<td><button type="button"
-															class="btn btn-default btn-xs center "
-															onclick="editData('${id}','${name}','${module}');">Edit</button></td>
 
+													<c:choose>
+														<c:when test="${status == 1 }">
+															<td><input type="checkbox" checked
+																data-toggle="toggle" data-size="mini"
+																onchange="changeStatus('${id}','${status}');"></td>
+														</c:when>
+														<c:otherwise>
+															<td><input type="checkbox" data-toggle="toggle"
+																data-size="mini"
+																onchange="changeStatus('${id}','${status}');"></td>
+														</c:otherwise>
+													</c:choose>
 												</tr>
 											</c:otherwise>
 										</c:choose>
@@ -250,148 +267,25 @@
 	<jsp:include page="../JSMain.jsp"></jsp:include>
 	<script>
 		$(document).ready(function() {
-			initForm();
-			initDataTable();
-			initHandler();
-			//initCss();
+			
 
 		});
-		function initDataTable() {
-			$('#dataTables').DataTable({
-				responsive : true
-			});
-		}
-		function initHandler() {
-			addButtonHandler();
-			saveButtonHandler();
-			clearButtonHandler();
-			deleteButtonHandler();
-			refreshDataTable();
-		}
-		function initCss() {
-			$('#operationMessage').addClass("disabled");
-		}
 
-		function initForm() {
-			$('#direction').val("");
+		function changeStatus(id, status) {
 
-		}
-
-		function selectReference(reference) {
-			$('#reference').val(reference);
-
-		}
-
-		function refreshDataTable() {
-
-			$('#refresh').click(function() {
-				$('#direction').val("search");
-				$('#CreateGroup').submit();
-			});
-		}
-		function addButtonHandler() {
-
-			$('#add').click(function() {
-				var isChecked = addValidation();
-				if (isChecked) {
-					$('#direction').val("insert");
-					$('#CreateGroup').submit();
-					
-				}
-
-			});
-		}
-		function saveButtonHandler() {
-			$('#save').click(function() {
-				var isChecked = saveValidation();
-				if (isChecked) {
-					$('#direction').val("update");
-					$('#CreateGroup').submit();
-				}
-
-			});
-		}
-		function deleteButtonHandler() {
-			$('#confirmDeleteStep').click(function() {
-				var isChecked = deleteValidation();
-
-				if (isChecked) {
-
-					$('#direction').val("delete");
-					$('#createLoginStepForm').submit();
-					
-				}
-			});
-		}
-		function editData(id, name, module) {
-			$('#id').val(id);
-			$('#name').val(name);
-			$('#module').val(module);
-
-		}
-
-		function clearButtonHandler() {
-			$('#clear').click(function() {
-				clearForm();
-				
+			var url = window.location;
+			var baseURL = url.protocol + "//" + url.host + "/"
+					+ url.pathname.split('/')[1];
+			var path = baseURL + "/ActiveGroup";
+			$.get(path, {
+				id : id,
+				status : status,
+				direction : "update"
 			});
 
 		}
-		function clearForm(){
-			$('#id').val('');
-			$('#name').val('');
-			$('#module').val('');
 
-			$('#operationMessageAdd').addClass("disabled");
-			$('#operationMessageSave').addClass("disabled");
-			$('#operationMessageDelete').addClass("disabled");
-			$('#successMessage').addClass("disabled");
-			$('#errorMessage').addClass("disabled");
-		}
-
-		function addValidation() {
-
-			//has-warning
-			var name = $('#name').val();
-			var module = $('#module').val();
-
-			if (name == "" || module == "") {
-				$('#operationMessageAdd').removeClass("disabled");
-
-				//addClass
-				return false;
-			} else {
-				return true;
-			}
-		}
-		function saveValidation() {
-
-			var id = $('#id').val();
-			var name = $('#name').val();
-			var module = $('#module').val();
-
-			if (id == "" || name == ""|| module == "" ) {
-				$('#operationMessageSave').removeClass("disabled");
-
-				return false;
-			} else {
-				return true;
-			}
-		}
 		
-		function deleteValidation() {
-
-			var setupId = $('#id').val();
-
-			if (setupId == "") {
-				$('#operationMessageDelete').removeClass("disabled");
-
-				//addClass
-				return false;
-			} else {
-				return true;
-			}
-		}
 	</script>
 
 </body>

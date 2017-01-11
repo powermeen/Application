@@ -4,6 +4,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -17,9 +19,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 
+import web.action.ActiveGroupAction;
+import web.action.ActiveStepAction;
 import web.action.CreateGroupAction;
 import web.action.CreateLoginStepAction;
 import web.action.LoginSetupAction;
+import web.common.util.StringUtils;
 import web.comstant.Action;
 import web.comstant.PageRegister;
 import web.dao.service.LoginService;
@@ -213,10 +218,10 @@ public class AllpicationController {
 	}
 	
 	@RequestMapping(value = "/CreateGroup" )
-	public ModelAndView CreateGroup(@ModelAttribute("GroupModel") GroupBean groupBean, ModelMap model){
+	public ModelAndView CreateGroup(@ModelAttribute("GroupModel") GroupBean groupBean){
 		ModelAndView modelAndView = new ModelAndView();
 		
-		CreateGroupAction createGroupAction = new CreateGroupAction(groupBean , model);
+		CreateGroupAction createGroupAction = new CreateGroupAction(groupBean );
 		
 		createGroupAction.action();
 		modelAndView = createGroupAction.getSetupModelAndView();
@@ -252,6 +257,48 @@ public class AllpicationController {
 		modelAndView.addObject("dataBean", setupBeans);
 		modelAndView.setViewName(viewName);
 		return modelAndView;
+	}
+	
+	@RequestMapping(value = "/ActiveGroup" )
+	public ModelAndView activeGroup(HttpServletRequest request){
+		String id = request.getParameter("id");
+		String status = request.getParameter("status");
+		String direction = request.getParameter("direction");
+		
+		boolean isChecked = StringUtils.isNotNullAndEmpty(id) && StringUtils.isNotNullAndEmpty(status) && StringUtils.isNotNullAndEmpty(direction);
+		
+		GroupBean groupBean; 
+		if(isChecked){
+			 groupBean = new GroupBean(id,status,direction);
+		}else {
+			groupBean = new GroupBean();
+		}
+		
+		
+		
+		
+		ModelAndView modelAndView = new ModelAndView();
+		
+		ActiveGroupAction activeGroupAction = new ActiveGroupAction(groupBean);
+		
+		activeGroupAction.action();
+		modelAndView = activeGroupAction.getSetupModelAndView();
+		 
+		return modelAndView;
+		
+	}
+	
+	@RequestMapping(value = "/ActiveStep" )
+	public ModelAndView activeStep(@ModelAttribute("GroupModel") GroupBean groupBean){
+		ModelAndView modelAndView = new ModelAndView();
+		
+		ActiveStepAction activeStepAction = new ActiveStepAction();
+		
+		activeStepAction.action();
+		modelAndView = activeStepAction.getSetupModelAndView();
+		 
+		return modelAndView;
+		
 	}
 
 	

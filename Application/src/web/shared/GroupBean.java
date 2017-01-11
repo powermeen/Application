@@ -11,6 +11,18 @@ public class GroupBean {
 	private String status;
 	
 	private String direction;
+	
+	public GroupBean() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public GroupBean(String id ,String status, String direction) {
+		this.id = id ;
+		this.status = status;
+		this.direction = direction;
+	}
+
+	
 
 	public String getId() {
 		return id;

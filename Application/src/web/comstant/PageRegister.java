@@ -12,7 +12,9 @@ public enum PageRegister {
 	LOGIN_VIEW_SETUP("LoginViewSetup","/setup/LoginViewSetup"),
 	CREATE_LOGIN_STEP("CreateLoginStep","/setup/CreateLoginStep"),
 	CREATE_GROUP("CreateGroup","/setup/CreateGroup"),
-	DATA_TABLE("DataTable","/setup/DataTable");
+	DATA_TABLE("DataTable","/setup/DataTable"),
+	ACTIVE_GROUP("ActiveGroup","/setup/ActiveGroup"),
+	ACTIVE_STEP("ActiveStep","/setup/ActiveStep");
 
 	private String key;
 	

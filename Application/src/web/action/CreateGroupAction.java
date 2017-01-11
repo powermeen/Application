@@ -23,13 +23,10 @@ public class CreateGroupAction implements SetupModelAndView {
 
 	private GroupBean groupBean ;
 	
-	private ModelMap  model; 
-
 	private CreateGroupServive createGroupServive = new CreateGroupServive();
 
-	public CreateGroupAction(GroupBean groupBean, ModelMap model) {
+	public CreateGroupAction(GroupBean groupBean) {
 		this.groupBean = groupBean;
-		this.model =model;
 		setupData();
 		setupPage();
 	}
@@ -58,11 +55,6 @@ public class CreateGroupAction implements SetupModelAndView {
 
 	}
 
-	
-
-	
-
-	
 
 	@Override
 	public void action() {

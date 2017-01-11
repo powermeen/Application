@@ -20,6 +20,7 @@
 <spring:url value="/resources/core/vendor/datatables-plugins/dataTables.bootstrap.min.js" var="dataTablesBootstrapJS" />
 <spring:url value="/resources/core/vendor/datatables-responsive/dataTables.responsive.js" var="dataTablesResponsiveJS" />
 
+<spring:url value="/resources/core/vendor/bootstrap/js/bootstrap-toggle.min.js" var="bootstraptoggleJS" />
 
 
 <spring:url value="/resources/core/dist/js/sb-admin-2.js" var="sb_adminJS" />
@@ -40,7 +41,9 @@
 
 <script   type="text/javascript" src="${sb_adminJS}"></script>
 <script   type="text/javascript" src="${angularJS}"></script>
+<script   type="text/javascript" src="${bootstraptoggleJS}"></script>
 <script   type="text/javascript" src="${customJS}"></script>
+
 
 </head>
 <body>
