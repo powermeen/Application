@@ -11,4 +11,6 @@ public interface ActiveGroupDao {
 	public void setDataSource(DataSource dataSource) throws IllegalArgumentException;
 
 	public List<GroupBean> getAllGroup() throws IllegalArgumentException;
+	
+	public int changeStatus(GroupBean groupBean)throws IllegalArgumentException;
 }

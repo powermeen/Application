@@ -20,5 +20,7 @@ public class Action {
 	
 	public final static String IN_ACTIVE = "0";
 	
+	public final static String RUN = "run";
+	
 	
 }

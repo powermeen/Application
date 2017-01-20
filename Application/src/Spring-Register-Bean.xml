@@ -37,6 +37,10 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="dataSource" ref="dataSourceHSQL" />
 	</bean>
 	
+	<bean id="runTestCase" class="web.dao.server.run.test.cases.RunTestCaseJDBCTemplate">
+		<property name="dataSource" ref="dataSourceHSQL" />
+	</bean>
+	
 	
 
 </beans>

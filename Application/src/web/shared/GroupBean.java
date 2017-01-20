@@ -24,6 +24,11 @@ public class GroupBean {
 
 	
 
+	public GroupBean(String name, String direction) {
+		this.name = name ;
+		this.direction = direction;
+	}
+
 	public String getId() {
 		return id;
 	}

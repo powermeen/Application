@@ -22,6 +22,8 @@ public class SpringNameBean {
 	public static final String CREATE_GROUP = "createGroup";
 
 	public static final String ACTIVE_GROUP = "activeGroup";
+
+	public static final String RUN_TEST_CASE = "runTestCase";
 	
 	
 	

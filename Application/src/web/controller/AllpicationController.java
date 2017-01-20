@@ -24,6 +24,7 @@ import web.action.ActiveStepAction;
 import web.action.CreateGroupAction;
 import web.action.CreateLoginStepAction;
 import web.action.LoginSetupAction;
+import web.action.RunTestCaseAction;
 import web.common.util.StringUtils;
 import web.comstant.Action;
 import web.comstant.PageRegister;
@@ -300,6 +301,32 @@ public class AllpicationController {
 		return modelAndView;
 		
 	}
+	
+	@RequestMapping(value = "/RunTestCase" )
+	public ModelAndView runTestCase(HttpServletRequest request){
+		String name  = request.getParameter("name");
+		String direction = request.getParameter("direction");
+		
+		boolean isChecked = StringUtils.isNotNullAndEmpty(name) && StringUtils.isNotNullAndEmpty(direction) ;
+		
+		GroupBean groupBean; 
+		if(isChecked){
+			 groupBean = new GroupBean(name,direction);
+		}else {
+			groupBean = new GroupBean();
+		}
+		
+		ModelAndView modelAndView = new ModelAndView();
+		
+		RunTestCaseAction runTestCaseAction = new RunTestCaseAction(groupBean);
+		
+		runTestCaseAction.action();
+		modelAndView = runTestCaseAction.getSetupModelAndView();
+		 
+		return modelAndView;
+		
+	}
+	
 
 	
 

@@ -36,6 +36,7 @@ public class ActiveGroupJDBCTemplate implements ActiveGroupDao{
 		return groupBeans;
 	}
 
+	@Override
 	public int changeStatus(GroupBean groupBean) {
 		
 		Object[] objects = new Object[2];
