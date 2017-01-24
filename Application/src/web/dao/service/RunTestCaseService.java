@@ -9,6 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import web.comstant.SpringNameBean;
 import web.dao.server.login.setup.LoginSetupJDBCTemplate;
 import web.dao.server.run.test.cases.RunTestCaseJDBCTemplate;
+import web.shared.EnvironmentBean;
 import web.shared.GroupBean;
 import web.shared.SetupBean;
 
@@ -38,5 +39,10 @@ public class RunTestCaseService {
 		
 		List<SetupBean> setupBeans = jdbcTemplate.getLoginSetupByReference(name);
 		return setupBeans;
+	}
+
+	public List<EnvironmentBean> genEnvironmentActive() {
+		List<EnvironmentBean> environmentBeans = jdbcTemplate.genEnvironmentActive();
+		return environmentBeans;
 	}
 }

@@ -13,4 +13,9 @@ public class RunTestCaseQuery {
 		String query = "select i_setup_id as setupId , s_module as module , s_widget_id as widgetId , s_widget_name as widgetName , s_data as data , s_action_type as actionType , s_sequence as sequence ,s_reference as reference from setup_table where s_module = 'login'and s_reference = ?  ";
 		return query;
 	}
+
+	public String genEnvironmentActive() {
+		String query = "select  s_code as code , s_name as name,s_url as url  from environment_table where i_status = 1 ";
+		return query;
+	}
 }

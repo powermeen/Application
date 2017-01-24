@@ -72,6 +72,7 @@ public class WebDriverChrome implements WebDriverMain {
 			
 		}
 		
+		close();
 	}
 
 	private void process(SetupBean setupBean) {
@@ -83,11 +84,11 @@ public class WebDriverChrome implements WebDriverMain {
 		
 		
 		
-		if(SeleniumConstant.ACTION_TYPE_INPUT.equalsIgnoreCase(actionType)){
+		if(SeleniumConstant.ACTION_TYPE_TEXT_BOX.equalsIgnoreCase(actionType)){
 			
 			webElement.sendKeys(widgetData);
 			
-		}else if(SeleniumConstant.ACTION_TYPE_CLICK.equalsIgnoreCase(actionType)) {
+		}else if(SeleniumConstant.ACTION_TYPE_BUTTON.equalsIgnoreCase(actionType)) {
 			
 			webElement.click();
 			

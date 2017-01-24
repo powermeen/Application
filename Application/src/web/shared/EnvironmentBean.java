@@ -1,7 +1,5 @@
 package web.shared;
 
-import org.springframework.jdbc.core.RowMapper;
-
 public class EnvironmentBean {
 
 	private String code;
