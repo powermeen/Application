@@ -95,7 +95,9 @@
 													</div>
 
 													<div class="col-md-2 form-group has-error">
-														<form:input path="widgetId" name="query"  type="text" class="form-control" placeholder="Enter text" />
+<%-- 														<form:input path="widgetId"  class="form-control" placeholder="Enter text" /> --%>
+														<form:select path="widgetId" items="${actionTypes}" class="form-control">
+														</form:select>
 													</div>
 													<div class="col-md-2 form-group has-error">
 														<form:input path="widgetName" class="form-control" placeholder="Enter text" />

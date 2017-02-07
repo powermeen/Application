@@ -24,6 +24,8 @@ public class SpringNameBean {
 	public static final String ACTIVE_GROUP = "activeGroup";
 
 	public static final String RUN_TEST_CASE = "runTestCase";
+
+	public static final String LIST_BOX_DATA = "listboxdata";
 	
 	
 	

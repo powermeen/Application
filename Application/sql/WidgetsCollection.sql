@@ -7,3 +7,6 @@ insert into widgets_collection (s_module ,s_widget_id , s_widget_description ,i_
 insert into widgets_collection (s_module ,s_widget_id , s_widget_description ,i_status) values ('login','Login_password' , 'password','1')
 insert into widgets_collection (s_module ,s_widget_id , s_widget_description ,i_status) values ('login','Login_submit' , 'submit login','1')
 
+
+select * from widgets_collection where s_module = 'login' and i_status  > 1  ;
+

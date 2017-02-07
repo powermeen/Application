@@ -6,13 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import web.common.util.SpringUtils;
 import web.comstant.SpringNameBean;
 import web.dao.server.createloginstep.CreateLoginStepJDBCTemplate;
 import web.dao.server.login.LoginJDBCTemplate;
 import web.shared.GroupBean;
 import web.shared.SetupBean;
 
-public class CreateLoginStepService {
+public class CreateLoginStepService extends SpringUtils{
 
 	
 	@Autowired
@@ -20,9 +21,11 @@ public class CreateLoginStepService {
 	
 	
 	public CreateLoginStepService() {
-		ApplicationContext context = new ClassPathXmlApplicationContext(SpringNameBean.SPRING_MODULE_XML);
+		//ApplicationContext context = new ClassPathXmlApplicationContext(SpringNameBean.SPRING_MODULE_XML);
 
-		jdbcTemplate = (CreateLoginStepJDBCTemplate) context.getBean(SpringNameBean.CREATE_LOGIN_SETUP);
+		//jdbcTemplate = (CreateLoginStepJDBCTemplate) context.getBean(SpringNameBean.CREATE_LOGIN_SETUP);
+		
+		jdbcTemplate = (CreateLoginStepJDBCTemplate) super.getBeanFromContext(SpringNameBean.CREATE_LOGIN_SETUP);
 	}
 	
 	public List<SetupBean> getStepByReference(SetupBean setupBean){

@@ -9,6 +9,7 @@ import org.springframework.beans.support.PagedListHolder;
 import org.springframework.web.servlet.ModelAndView;
 
 import web.common.interfaces.SetupModelAndView;
+import web.common.list.ListBoxData;
 import web.common.util.StringUtils;
 import web.comstant.Action;
 import web.comstant.PageRegister;
@@ -22,7 +23,9 @@ public class CreateLoginStepAction implements SetupModelAndView {
 	private ModelAndView modelAndView = new ModelAndView();
 
 	private SetupBean setupBean = new SetupBean();
-
+	
+	private ListBoxData listBoxData = new ListBoxData();
+	
 	private CreateLoginStepService createLoginStepService = new CreateLoginStepService();
 
 	public CreateLoginStepAction(SetupBean setupBean) {
@@ -47,10 +50,12 @@ public class CreateLoginStepAction implements SetupModelAndView {
 	public void setupData() {
 
 		// setupTableData();
+		setupWidgetsIdListData();
 		setupActionListData();
 		setupGroupReference();
 
 	}
+
 
 	@Override
 	public void action() {
@@ -95,9 +100,7 @@ public class CreateLoginStepAction implements SetupModelAndView {
 
 	private void setupActionListData() {
 		Map<String, String> actionTypes = new HashMap<>();
-		actionTypes.put(Action.BUTTON, Action.BUTTON);
-		actionTypes.put(Action.TEXTBOX, Action.TEXTBOX);
-		actionTypes.put(Action.SELECT, Action.SELECT);
+		actionTypes = listBoxData.getActionType();
 
 		modelAndView.addObject("actionTypes", actionTypes);
 
@@ -109,6 +112,16 @@ public class CreateLoginStepAction implements SetupModelAndView {
 
 		modelAndView.addObject("groupBeans", groupBeans);
 
+	}
+	
+	private void setupWidgetsIdListData() {
+
+		Map<String, String> widgetsId = new HashMap<>();
+		
+		widgetsId	= listBoxData.getWidgetsId();
+
+		modelAndView.addObject("widgetsId", widgetsId);
+		
 	}
 
 	private void addLoginStep() {

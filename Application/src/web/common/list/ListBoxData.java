@@ -7,6 +7,8 @@ import web.comstant.Action;
 import web.comstant.Module;
 
 public class ListBoxData {
+	
+	
 
 	public Map<String , String > getActionType(){
 		Map<String, String> actionTypes = new HashMap<>();
@@ -30,4 +32,11 @@ public class ListBoxData {
 		return modules;
 		
 	}
+
+	public Map<String, String> getWidgetsId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
 }
