@@ -6,14 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import web.common.util.SpringUtils;
+import web.common.util.SpringContextUtils;
 import web.comstant.SpringNameBean;
 import web.dao.server.createloginstep.CreateLoginStepJDBCTemplate;
 import web.dao.server.login.LoginJDBCTemplate;
 import web.shared.GroupBean;
 import web.shared.SetupBean;
 
-public class CreateLoginStepService extends SpringUtils{
+public class CreateLoginStepService extends SpringContextUtils{
 
 	
 	@Autowired

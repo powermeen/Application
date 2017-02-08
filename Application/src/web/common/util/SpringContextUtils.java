@@ -5,7 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import web.comstant.SpringNameBean;
 
-public class SpringUtils {
+public class SpringContextUtils {
 
 	private ApplicationContext context = new ClassPathXmlApplicationContext(SpringNameBean.SPRING_MODULE_XML);
 	

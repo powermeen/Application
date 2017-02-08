@@ -1,9 +1,9 @@
 package web.dao.server.listboxdata;
 
-import web.common.util.SpringUtils;
+import web.common.util.SpringContextUtils;
 import web.comstant.SpringNameBean;
 
-public class ListBoxDataJDBCTemplate extends SpringUtils{
+public class ListBoxDataJDBCTemplate extends SpringContextUtils{
 
 	
 	public ListBoxDataJDBCTemplate() {
