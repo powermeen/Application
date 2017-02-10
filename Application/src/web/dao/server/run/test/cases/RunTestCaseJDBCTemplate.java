@@ -12,25 +12,22 @@ import com.google.common.base.Objects;
 import web.dao.mapper.EnvironmentRowmapper;
 import web.dao.mapper.GroupRowMapper;
 import web.dao.mapper.SetupRowMapper;
+import web.dao.service.connection.ConnectionFactory;
 import web.shared.EnvironmentBean;
 import web.shared.GroupBean;
 import web.shared.SetupBean;
 import web.sql.RunTestCaseQuery;
 
-public class RunTestCaseJDBCTemplate implements RunTestCaseDao {
-
-	private DataSource dataSource;
+public class RunTestCaseJDBCTemplate extends ConnectionFactory implements RunTestCaseDao {
 
 	private JdbcTemplate jdbcTemplate;
 
 	private RunTestCaseQuery runTestCaseQuery = new RunTestCaseQuery();
 
-	@Override
-	public void setDataSource(DataSource dataSource) throws IllegalArgumentException {
-		this.dataSource = dataSource;
-		jdbcTemplate = new JdbcTemplate(dataSource);
-	}
 
+	public RunTestCaseJDBCTemplate() {
+		jdbcTemplate = super.getJdbcTemplateFromHSQLConnection();
+	}
 	@Override
 	public List<GroupBean> getAllGroup() throws IllegalArgumentException {
 		String query = runTestCaseQuery.getAllGroup();

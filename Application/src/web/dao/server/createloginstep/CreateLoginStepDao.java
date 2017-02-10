@@ -10,8 +10,6 @@ import web.shared.SetupBean;
 
 public interface CreateLoginStepDao {
 
-	public void setDataSource(DataSource dataSource) throws IllegalArgumentException;
-
 	public List<SetupBean> getStepByReference(SetupBean setupBean) throws IllegalArgumentException;
 	
 	public List<GroupBean> getGroupReference ()  throws IllegalArgumentException;

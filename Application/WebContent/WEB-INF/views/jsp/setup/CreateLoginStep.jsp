@@ -96,7 +96,7 @@
 
 													<div class="col-md-2 form-group has-error">
 <%-- 														<form:input path="widgetId"  class="form-control" placeholder="Enter text" /> --%>
-														<form:select path="widgetId" items="${actionTypes}" class="form-control">
+														<form:select path="widgetId" items="${widgetsId}" class="form-control">
 														</form:select>
 													</div>
 													<div class="col-md-2 form-group has-error">

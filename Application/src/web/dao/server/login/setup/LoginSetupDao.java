@@ -8,8 +8,6 @@ import web.shared.LoginSetupBean;
 
 public interface LoginSetupDao {
 
-	public void setDataSource(DataSource dataSource) throws IllegalArgumentException;
-	
 	public Map<String,String> getOfficeList() throws IllegalArgumentException;
 	
 	public Map<String,String> getEnvironmentList() throws IllegalArgumentException;

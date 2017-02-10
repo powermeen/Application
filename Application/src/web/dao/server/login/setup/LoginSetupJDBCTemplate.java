@@ -13,57 +13,51 @@ import net.sourceforge.htmlunit.corejs.javascript.UniqueTag;
 import web.dao.mapper.EnvironmentRowmapper;
 import web.dao.mapper.LoginSetupRowMapper;
 import web.dao.mapper.OfficeRowmapper;
+import web.dao.service.connection.ConnectionFactory;
 import web.shared.EnvironmentBean;
 import web.shared.LoginSetupBean;
 import web.shared.OfficeBean;
 import web.sql.LoginSetupQuery;
 
-public class LoginSetupJDBCTemplate implements LoginSetupDao{
-
-	private DataSource dataSource;
+public class LoginSetupJDBCTemplate extends ConnectionFactory implements LoginSetupDao {
 
 	private JdbcTemplate jdbcTemplate;
-	
-	private LoginSetupQuery loginSetupQuery  = new LoginSetupQuery();
 
-	@Override
-	public void setDataSource(DataSource dataSource) throws IllegalArgumentException {
-		
-		this.dataSource = dataSource;
-		
-		jdbcTemplate = new JdbcTemplate(dataSource);
-		
+	private LoginSetupQuery loginSetupQuery = new LoginSetupQuery();
+
+	public LoginSetupJDBCTemplate() {
+		jdbcTemplate = super.getJdbcTemplateFromHSQLConnection();
 	}
 
 	@Override
-	public Map<String,String> getOfficeList() throws IllegalArgumentException {
+	public Map<String, String> getOfficeList() throws IllegalArgumentException {
 
 		String query = loginSetupQuery.getOfficeListQuery();
-		
-		Map<String,String> officeMap = new LinkedHashMap<String,String>();
+
+		Map<String, String> officeMap = new LinkedHashMap<String, String>();
 		List<OfficeBean> officeBeans = jdbcTemplate.query(query, new OfficeRowmapper());
-		
+
 		for (OfficeBean officeBean : officeBeans) {
 			String value = officeBean.getCode();
 			String displayText = officeBean.getName();
-			String code = "["+value+"] ";
-			officeMap.put(value, code+displayText);
+			String code = "[" + value + "] ";
+			officeMap.put(value, code + displayText);
 		}
-		
+
 		return officeMap;
-		
+
 	}
 
 	@Override
-	public Map<String,String> getEnvironmentList() {
+	public Map<String, String> getEnvironmentList() {
 		String query = loginSetupQuery.getEnvironmentListQuery();
-		Map<String,String> environmentMap = new LinkedHashMap<String,String>();
+		Map<String, String> environmentMap = new LinkedHashMap<String, String>();
 		List<EnvironmentBean> environmentBeans = jdbcTemplate.query(query, new EnvironmentRowmapper());
-		
+
 		for (EnvironmentBean environmentBean : environmentBeans) {
 			String value = environmentBean.getUrl();
 			String displayText = environmentBean.getName();
-			
+
 			environmentMap.put(value, displayText);
 		}
 		return environmentMap;
@@ -72,19 +66,19 @@ public class LoginSetupJDBCTemplate implements LoginSetupDao{
 	@Override
 	public LoginSetupBean saveLoginSetupForm(LoginSetupBean loginSetupBean) throws IllegalArgumentException {
 		String action = getAction(loginSetupBean);
-		
+
 		return loginSetupBean;
 	}
-	
-	private String getAction(LoginSetupBean loginSetupBean){
+
+	private String getAction(LoginSetupBean loginSetupBean) {
 		String query = loginSetupQuery.getReferenceQuery();
 		Object[] objects = new Object[1];
-		objects[0] =  loginSetupBean.getReference();
+		objects[0] = loginSetupBean.getReference();
 		List<LoginSetupBean> loginSetupBeans = jdbcTemplate.query(query, objects, new LoginSetupRowMapper());
-		
+
 		System.out.println(loginSetupBeans.size());
-		
+
 		return null;
-		
+
 	}
 }

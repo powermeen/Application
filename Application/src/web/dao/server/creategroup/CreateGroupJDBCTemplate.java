@@ -8,25 +8,20 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import web.dao.mapper.GroupRowMapper;
+import web.dao.service.connection.ConnectionFactory;
 import web.shared.GroupBean;
 import web.sql.CreateGroupQuery;
 
-public class CreateGroupJDBCTemplate implements CreateGroupDao {
-
-	private DataSource dataSource;
+public class CreateGroupJDBCTemplate extends ConnectionFactory implements CreateGroupDao {
 
 	private JdbcTemplate jdbcTemplate;
 
 	private CreateGroupQuery createGroupQuery = new CreateGroupQuery();
 
-	@Override
-	public void setDataSource(DataSource dataSource) throws IllegalArgumentException {
-
-		this.dataSource = dataSource;
-		jdbcTemplate = new JdbcTemplate(dataSource);
-
+	public CreateGroupJDBCTemplate() {
+		jdbcTemplate = super.getJdbcTemplateFromHSQLConnection();
 	}
-
+	
 	@Override
 	public List<GroupBean> getAllGroup() {
 		String query = createGroupQuery.getAllGroup();

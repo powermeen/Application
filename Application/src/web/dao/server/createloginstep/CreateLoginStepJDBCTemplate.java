@@ -9,23 +9,19 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import web.dao.mapper.GroupRowMapper;
 import web.dao.mapper.SetupRowMapper;
+import web.dao.service.connection.ConnectionFactory;
 import web.shared.GroupBean;
 import web.shared.SetupBean;
 import web.sql.CreateLoginStepQuery;
 
-public class CreateLoginStepJDBCTemplate implements CreateLoginStepDao {
-
-	private DataSource dataSource;
+public class CreateLoginStepJDBCTemplate extends ConnectionFactory implements CreateLoginStepDao {
 
 	private JdbcTemplate jdbcTemplate;
 
 	private CreateLoginStepQuery createLoginStepQuery = new CreateLoginStepQuery();
 
-	@Override
-	public void setDataSource(DataSource dataSource) throws IllegalArgumentException {
-		this.dataSource = dataSource;
-		jdbcTemplate = new JdbcTemplate(dataSource);
-
+	public CreateLoginStepJDBCTemplate() {
+		jdbcTemplate = super.getJdbcTemplateFromHSQLConnection();
 	}
 
 	@Override

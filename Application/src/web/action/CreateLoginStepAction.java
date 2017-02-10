@@ -123,7 +123,7 @@ public class CreateLoginStepAction implements SetupModelAndView {
 		Map<String, String> widgetsId = new HashMap<>();
 		
 		widgetsId	= listBoxData.getWidgetsIdByModule(Module.LOGIN);
-
+		
 		modelAndView.addObject("widgetsId", widgetsId);
 		
 	}
