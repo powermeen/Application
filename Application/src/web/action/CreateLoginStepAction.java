@@ -12,8 +12,10 @@ import web.common.interfaces.SetupModelAndView;
 import web.common.list.ListBoxData;
 import web.common.util.StringUtils;
 import web.comstant.Action;
+import web.comstant.Module;
 import web.comstant.PageRegister;
 import web.dao.service.CreateLoginStepService;
+import web.dao.service.ListBoxDataService;
 import web.shared.CreateLoginStepBean;
 import web.shared.GroupBean;
 import web.shared.SetupBean;
@@ -27,6 +29,8 @@ public class CreateLoginStepAction implements SetupModelAndView {
 	private ListBoxData listBoxData = new ListBoxData();
 	
 	private CreateLoginStepService createLoginStepService = new CreateLoginStepService();
+	
+	
 
 	public CreateLoginStepAction(SetupBean setupBean) {
 		this.setupBean = setupBean;
@@ -118,7 +122,7 @@ public class CreateLoginStepAction implements SetupModelAndView {
 
 		Map<String, String> widgetsId = new HashMap<>();
 		
-		widgetsId	= listBoxData.getWidgetsId();
+		widgetsId	= listBoxData.getWidgetsIdByModule(Module.LOGIN);
 
 		modelAndView.addObject("widgetsId", widgetsId);
 		

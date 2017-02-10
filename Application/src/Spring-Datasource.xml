@@ -6,7 +6,8 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="dataSourceMSSQL"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-		<property name="url" value="jdbc:sqlserver://localhost:1433;databaseName=new_db" />
+		<property name="url"
+			value="jdbc:sqlserver://localhost:1433;databaseName=new_db" />
 		<property name="username" value="sa" />
 		<property name="password" value="saa" />
 	</bean>
@@ -19,14 +20,16 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="username" value="SA" />
 		<property name="password" value="" />
 	</bean>
-	
-	
-
-
-
-
-
 
 	
+
+
+
+
+
+
+
+
+
 
 </beans>

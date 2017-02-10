@@ -5,9 +5,11 @@ import java.util.Map;
 
 import web.comstant.Action;
 import web.comstant.Module;
+import web.dao.service.ListBoxDataService;
 
 public class ListBoxData {
 	
+	private ListBoxDataService service = new ListBoxDataService();
 	
 
 	public Map<String , String > getActionType(){
@@ -33,9 +35,10 @@ public class ListBoxData {
 		
 	}
 
-	public Map<String, String> getWidgetsId() {
-		// TODO Auto-generated method stub
-		return null;
+	public Map<String, String> getWidgetsIdByModule(String module) {
+		
+		Map<String, String> widgetMap =service.getWidgetsIdByModule(module);
+		return widgetMap;
 	}
 	
 	
