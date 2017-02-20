@@ -26,7 +26,7 @@ public class LoginSetupJDBCTemplate extends ConnectionFactory implements LoginSe
 	private LoginSetupQuery loginSetupQuery = new LoginSetupQuery();
 
 	public LoginSetupJDBCTemplate() {
-		jdbcTemplate = super.getJdbcTemplateFromHSQLConnection();
+		jdbcTemplate = super.getJdbcTemplateFromMySQLConnection();
 	}
 
 	@Override

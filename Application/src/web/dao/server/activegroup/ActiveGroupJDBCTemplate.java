@@ -19,7 +19,7 @@ public class ActiveGroupJDBCTemplate extends ConnectionFactory implements Active
 	private ActiveGroupQuery activeGroupQuery = new ActiveGroupQuery();
 
 	public ActiveGroupJDBCTemplate() {
-		jdbcTemplate = super.getJdbcTemplateFromHSQLConnection();
+		jdbcTemplate = super.getJdbcTemplateFromMySQLConnection();
 	}
 
 	@Override

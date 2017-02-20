@@ -22,7 +22,7 @@ public class ListBoxDataJDBCTemplate extends ConnectionFactory implements ListBo
 
 	public ListBoxDataJDBCTemplate() {
 
-		this.jdbcTemplate = super.getJdbcTemplateFromHSQLConnection();
+		jdbcTemplate = super.getJdbcTemplateFromMySQLConnection();
 	}
 
 	@Override

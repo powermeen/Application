@@ -21,7 +21,7 @@ public class CreateLoginStepJDBCTemplate extends ConnectionFactory implements Cr
 	private CreateLoginStepQuery createLoginStepQuery = new CreateLoginStepQuery();
 
 	public CreateLoginStepJDBCTemplate() {
-		jdbcTemplate = super.getJdbcTemplateFromHSQLConnection();
+		jdbcTemplate = super.getJdbcTemplateFromMySQLConnection();
 	}
 
 	@Override

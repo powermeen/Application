@@ -26,7 +26,7 @@ public class RunTestCaseJDBCTemplate extends ConnectionFactory implements RunTes
 
 
 	public RunTestCaseJDBCTemplate() {
-		jdbcTemplate = super.getJdbcTemplateFromHSQLConnection();
+		jdbcTemplate = super.getJdbcTemplateFromMySQLConnection();
 	}
 	@Override
 	public List<GroupBean> getAllGroup() throws IllegalArgumentException {

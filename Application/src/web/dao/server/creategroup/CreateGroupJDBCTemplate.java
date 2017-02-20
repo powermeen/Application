@@ -19,7 +19,7 @@ public class CreateGroupJDBCTemplate extends ConnectionFactory implements Create
 	private CreateGroupQuery createGroupQuery = new CreateGroupQuery();
 
 	public CreateGroupJDBCTemplate() {
-		jdbcTemplate = super.getJdbcTemplateFromHSQLConnection();
+		jdbcTemplate = super.getJdbcTemplateFromMySQLConnection();
 	}
 	
 	@Override

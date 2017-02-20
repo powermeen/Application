@@ -19,7 +19,7 @@ public class LoginJDBCTemplate extends ConnectionFactory implements LoginDao {
 	private LoginQuery loginQuery = new LoginQuery();
 
 	public LoginJDBCTemplate() {
-		jdbcTemplate = super.getJdbcTemplateFromHSQLConnection();
+		jdbcTemplate = super.getJdbcTemplateFromMySQLConnection();
 	}
 
 	@Override
