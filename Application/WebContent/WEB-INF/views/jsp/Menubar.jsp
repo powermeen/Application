@@ -248,7 +248,7 @@
                             <a href="javascript:void(0);" onclick="redriectPage('LoginSetup');"><i class="fa fa-users fa-fw"></i> Login</a>
                         </li>
                          <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Create Group<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Group Maintenance<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="javascript:void(0);" onclick="redriectPage('CreateGroup');">Create Group</a>
@@ -261,7 +261,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Create Step<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Step Maintenance<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="javascript:void(0);" onclick="redriectPage('CreateLoginStep');">Create Login Step</a>
@@ -279,13 +279,13 @@
                             <a onclick="redriectPage('RunTestCase');"><i class="fa fa-edit fa-fw"></i> Run Test Case</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Widgets Collection Maintain<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Widgets Collection<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="panels-wells.html">Add Widgets Collection</a>
+                                    <a href="panels-wells.html">Create Widgets Collection</a>
                                 </li>
                                 <li>
-                                    <a href="buttons.html">Widgets Collection Control</a>
+                                    <a href="buttons.html">Active Widgets Collection</a>
                                 </li>
                           
                             </ul>
