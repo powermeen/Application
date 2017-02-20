@@ -10,10 +10,10 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import net.sourceforge.htmlunit.corejs.javascript.UniqueTag;
+import web.common.connection.ConnectionFactory;
 import web.dao.mapper.EnvironmentRowmapper;
 import web.dao.mapper.LoginSetupRowMapper;
 import web.dao.mapper.OfficeRowmapper;
-import web.dao.service.connection.ConnectionFactory;
 import web.shared.EnvironmentBean;
 import web.shared.LoginSetupBean;
 import web.shared.OfficeBean;

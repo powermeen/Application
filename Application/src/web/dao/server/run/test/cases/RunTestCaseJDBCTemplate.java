@@ -9,10 +9,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.google.common.base.Objects;
 
+import web.common.connection.ConnectionFactory;
 import web.dao.mapper.EnvironmentRowmapper;
 import web.dao.mapper.GroupRowMapper;
 import web.dao.mapper.SetupRowMapper;
-import web.dao.service.connection.ConnectionFactory;
 import web.shared.EnvironmentBean;
 import web.shared.GroupBean;
 import web.shared.SetupBean;

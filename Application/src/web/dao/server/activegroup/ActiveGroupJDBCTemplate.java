@@ -7,8 +7,8 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import web.common.connection.ConnectionFactory;
 import web.dao.mapper.GroupRowMapper;
-import web.dao.service.connection.ConnectionFactory;
 import web.shared.GroupBean;
 import web.sql.ActiveGroupQuery;
 

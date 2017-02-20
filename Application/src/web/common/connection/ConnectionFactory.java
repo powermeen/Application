@@ -1,4 +1,4 @@
-package web.dao.service.connection;
+package web.common.connection;
 
 import javax.sql.DataSource;
 

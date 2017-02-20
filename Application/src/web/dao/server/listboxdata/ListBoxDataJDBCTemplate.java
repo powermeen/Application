@@ -9,8 +9,8 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import web.common.connection.ConnectionFactory;
 import web.dao.mapper.WidgetsCollectionRowmapper;
-import web.dao.service.connection.ConnectionFactory;
 import web.shared.WidgetsCollectionBean;
 import web.sql.ListBoxDataQuery;
 

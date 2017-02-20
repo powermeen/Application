@@ -9,11 +9,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import web.common.connection.ConnectionFactory;
 import web.common.util.SpringContextUtils;
 import web.comstant.SpringNameBean;
 import web.dao.server.listboxdata.ListBoxDataJDBCTemplate;
 import web.dao.server.login.LoginJDBCTemplate;
-import web.dao.service.connection.ConnectionFactory;
 
 public class ListBoxDataService {
 
