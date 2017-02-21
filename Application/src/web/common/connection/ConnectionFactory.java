@@ -17,8 +17,8 @@ public class ConnectionFactory {
 		BasicDataSource basicDataSource = new BasicDataSource();
 		basicDataSource.setDriverClassName("org.hsqldb.jdbcDriver");
 		basicDataSource.setUrl("jdbc:hsqldb:hsql://localhost/");
-		basicDataSource.setUsername("SA");
-		basicDataSource.setPassword("");
+		basicDataSource.setUsername("sa");
+		basicDataSource.setPassword("sa");
 		jdbcTemplate = new JdbcTemplate(basicDataSource);
 		return jdbcTemplate;
 	}
