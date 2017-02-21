@@ -1,6 +1,5 @@
 package web.controller;
 
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,12 +27,9 @@ import web.common.util.StringUtils;
 import web.comstant.Action;
 import web.comstant.PageRegister;
 import web.dao.service.LoginService;
-import web.dao.service.SiteSalesReportService;
-import web.dao.service.TotalSalesReportService;
 import web.shared.GroupBean;
 import web.shared.LoginSetupBean;
 import web.shared.SetupBean;
-import web.shared.SiteSalesReportBean;
 import web.shared.TotalSalesReportBean;
 
 @Controller
@@ -75,73 +70,6 @@ public class AllpicationController {
 		return modelAndView;
 	}
 	
-	
-	@RequestMapping(value = "/TotalSalesReport"  )
-	public ModelAndView executeTotalSalesReport(){
-		ModelAndView modelAndView = new ModelAndView();
-		TotalSalesReportService reportService =new TotalSalesReportService();
-		List<TotalSalesReportBean> reportBeans = reportService.getDataByBranch("�÷Ծ");
-		String 	viewName = PageRegister.TOTAL_SALES_REPORT.getPath();
-		
-		modelAndView.setViewName(viewName);
-		modelAndView.addObject("reportBeans", reportBeans);	
-		 
-		return  modelAndView;
-	}
-	
-	@ResponseBody
-	@RequestMapping(value = "/TotalSalesReportReset" ,produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public String  executeTotalSalesReportReset(){
-		
-		TotalSalesReportBean  bean = new TotalSalesReportBean();
-		bean.setSite("1");
-		bean.setLiter("500");
-		bean.setMoney("10000.000");
-		bean.setQuality("50");
-		List<TotalSalesReportBean>beans = new ArrayList<TotalSalesReportBean>();
-		beans.add(bean);
-		TotalSalesReportService reportService =new TotalSalesReportService();
-		List<TotalSalesReportBean> reportBeans = reportService.getDataByBranch("�÷Ծ");
-		
-
-		String data = new Gson().toJson(reportBeans);
-		return  data;
-	}
-	
-	@RequestMapping(value = "/SiteSalesReport" ,produces = "text/plain;charset=TIS-620")
-	public ModelAndView executeSiteSalesReport(@RequestParam("site") String site ) throws UnsupportedEncodingException{
-//		String newBranch = new String(branch.getBytes("ISO-8859-1"), "UTF-8");
-		ModelAndView modelAndView = new ModelAndView();
-		String 	viewName = PageRegister.SITE_SALES_REPORT.getPath();
-		
-		SiteSalesReportService reportByOfficeService = new SiteSalesReportService();
-		
-		List<SiteSalesReportBean> reportBeans = reportByOfficeService.getDataBySite("�÷Ծ", site );
-		
-		modelAndView.setViewName(viewName);
-		modelAndView.addObject("reportBeans", reportBeans);	
-		
-		return  modelAndView;
-	}
-	
-	@RequestMapping(value = "/SiteSalesReportxxxxx" ,produces = "text/plain;charset=TIS-620")
-	public ModelAndView executeSiteSalesReportxxxx(
-			@RequestParam("site") String site ,
-			@RequestParam("branch") String branch ,
-			@RequestParam("pastTime") String pastTime ) throws UnsupportedEncodingException{
-		String newBranch = new String(branch.getBytes("ISO-8859-1"), "UTF-8");
-		ModelAndView modelAndView = new ModelAndView();
-		String 	viewName = PageRegister.SITE_SALES_REPORT.getPath();
-		
-		SiteSalesReportService reportByOfficeService = new SiteSalesReportService();
-		
-		List<SiteSalesReportBean> reportBeans = reportByOfficeService.getDataBySite(newBranch, site );
-		
-		modelAndView.setViewName(viewName);
-		modelAndView.addObject("reportBeans", reportBeans);	
-		
-		return  modelAndView;
-	}
 	
 	@RequestMapping(value = "/DemoColumn", method = RequestMethod.GET)
 	public String demoColumn(){

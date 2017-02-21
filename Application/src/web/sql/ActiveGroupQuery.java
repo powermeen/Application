@@ -3,7 +3,7 @@ package web.sql;
 public class ActiveGroupQuery {
 
 	public String getAllGroup (){
-		String query = "select i_group_id as Id , s_name as name ,  s_module as module ,i_status as status from group_table ";
+		String query = "select i_group_id as Id , c_name as name ,  c_module as module ,i_status as status from group_table ";
 		return query;
 		
 	}
