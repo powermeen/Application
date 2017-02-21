@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2017 at 05:14 PM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 5.6.24
+-- Generation Time: Feb 21, 2017 at 12:03 PM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -27,18 +27,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `environment_table` (
-  `i_id` int(50) NOT NULL,
-  `s_code` varchar(100) NOT NULL,
-  `s_name` varchar(100) NOT NULL,
-  `s_url` varchar(200) NOT NULL,
-  `i_status` int(50) NOT NULL
+  `i_environment_id` int(50) NOT NULL,
+  `c_code` varchar(100) NOT NULL,
+  `c_name` varchar(100) NOT NULL,
+  `c_url` varchar(200) NOT NULL,
+  `i_status` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `environment_table`
 --
 
-INSERT INTO `environment_table` (`i_id`, `s_code`, `s_name`, `s_url`, `i_status`) VALUES
+INSERT INTO `environment_table` (`i_environment_id`, `c_code`, `c_name`, `c_url`, `i_status`) VALUES
 (1, 'loacl', 'Local Environment', 'http://localhost:8080/phoenix/', 0),
 (2, 'Beta Shipco', 'Beta Shipco Environment', 'http://phoenix.scan-it.com.sg/phoenix/Application.html', 0),
 (3, 'Staging Shipco', 'Staging Shipco Environment', 'http://staging.phoenix.shipco.com/phoenix/Application.html', 1);
@@ -51,16 +51,16 @@ INSERT INTO `environment_table` (`i_id`, `s_code`, `s_name`, `s_url`, `i_status`
 
 CREATE TABLE `group_table` (
   `i_group_id` int(50) NOT NULL,
-  `s_name` varchar(100) NOT NULL,
-  `s_module` varchar(100) NOT NULL,
-  `i_status` int(50) NOT NULL
+  `c_name` varchar(100) NOT NULL,
+  `c_module` varchar(100) NOT NULL,
+  `i_status` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `group_table`
 --
 
-INSERT INTO `group_table` (`i_group_id`, `s_name`, `s_module`, `i_status`) VALUES
+INSERT INTO `group_table` (`i_group_id`, `c_name`, `c_module`, `i_status`) VALUES
 (1, 'Login_Meen', 'Login', 1);
 
 -- --------------------------------------------------------
@@ -70,17 +70,17 @@ INSERT INTO `group_table` (`i_group_id`, `s_name`, `s_module`, `i_status`) VALUE
 --
 
 CREATE TABLE `office_table` (
-  `i_id` int(50) NOT NULL,
-  `s_code` varchar(100) NOT NULL,
-  `s_name` varchar(100) NOT NULL,
-  `i_status` int(50) NOT NULL
+  `i_office_id` int(50) NOT NULL,
+  `c_code` varchar(100) NOT NULL,
+  `c_name` varchar(100) NOT NULL,
+  `i_status` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `office_table`
 --
 
-INSERT INTO `office_table` (`i_id`, `s_code`, `s_name`, `i_status`) VALUES
+INSERT INTO `office_table` (`i_office_id`, `c_code`, `c_name`, `i_status`) VALUES
 (1, 'KOP', 'Shipco Transport Koper', 0),
 (2, 'SJKT', 'Shipco Transport Indonesia', 0),
 (3, 'CMB', 'Shipco Transport Lanka Pvt Ltd', 0),
@@ -186,21 +186,21 @@ INSERT INTO `office_table` (`i_id`, `s_code`, `s_name`, `i_status`) VALUES
 
 CREATE TABLE `setup_table` (
   `i_setup_id` int(50) NOT NULL,
-  `s_module` varchar(100) NOT NULL,
-  `s_widget_id` varchar(100) NOT NULL,
-  `s_widget_name` varchar(200) NOT NULL,
-  `s_data` varchar(200) NOT NULL,
-  `s_action_type` varchar(100) NOT NULL,
-  `s_sequence` varchar(100) NOT NULL,
-  `s_reference` varchar(100) NOT NULL,
-  `i_status` int(11) NOT NULL
+  `c_module` varchar(100) NOT NULL,
+  `c_widget_id` varchar(100) NOT NULL,
+  `c_widget_name` varchar(200) NOT NULL,
+  `c_data` varchar(200) NOT NULL,
+  `c_action_type` varchar(100) NOT NULL,
+  `c_sequence` varchar(100) NOT NULL,
+  `c_reference` varchar(100) NOT NULL,
+  `i_status` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `setup_table`
 --
 
-INSERT INTO `setup_table` (`i_setup_id`, `s_module`, `s_widget_id`, `s_widget_name`, `s_data`, `s_action_type`, `s_sequence`, `s_reference`, `i_status`) VALUES
+INSERT INTO `setup_table` (`i_setup_id`, `c_module`, `c_widget_id`, `c_widget_name`, `c_data`, `c_action_type`, `c_sequence`, `c_reference`, `i_status`) VALUES
 (1, 'login', 'Login_username', 'username', 'papisit', 'TextBox', '1', 'Login_Meen', 1),
 (2, 'login', 'Login_password', 'password', 'Isnsit_12', 'TextBox', '2', 'Login_Meen', 1),
 (3, 'login', 'Login_submit', 'submit', '', 'Button', '3', 'Login_Meen', 1);
@@ -212,18 +212,18 @@ INSERT INTO `setup_table` (`i_setup_id`, `s_module`, `s_widget_id`, `s_widget_na
 --
 
 CREATE TABLE `widgets_collection` (
-  `i_id` int(50) NOT NULL,
-  `s_module` varchar(100) NOT NULL,
-  `s_widget_id` varchar(100) NOT NULL,
-  `s_widget_description` varchar(200) NOT NULL,
-  `i_status` int(50) NOT NULL
+  `i_collection_id` int(50) NOT NULL,
+  `c_module` varchar(100) NOT NULL,
+  `c_widget_id` varchar(100) NOT NULL,
+  `c_description` varchar(200) NOT NULL,
+  `i_status` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `widgets_collection`
 --
 
-INSERT INTO `widgets_collection` (`i_id`, `s_module`, `s_widget_id`, `s_widget_description`, `i_status`) VALUES
+INSERT INTO `widgets_collection` (`i_collection_id`, `c_module`, `c_widget_id`, `c_description`, `i_status`) VALUES
 (1, 'Login', 'Login_username', 'username', 1),
 (2, 'Login', 'Login_password', 'password', 1),
 (3, 'Login', 'Login_submit', 'submit login', 1);
@@ -236,7 +236,7 @@ INSERT INTO `widgets_collection` (`i_id`, `s_module`, `s_widget_id`, `s_widget_d
 -- Indexes for table `environment_table`
 --
 ALTER TABLE `environment_table`
-  ADD PRIMARY KEY (`i_id`);
+  ADD PRIMARY KEY (`i_environment_id`);
 
 --
 -- Indexes for table `group_table`
@@ -248,7 +248,7 @@ ALTER TABLE `group_table`
 -- Indexes for table `office_table`
 --
 ALTER TABLE `office_table`
-  ADD PRIMARY KEY (`i_id`);
+  ADD PRIMARY KEY (`i_office_id`);
 
 --
 -- Indexes for table `setup_table`
@@ -260,7 +260,7 @@ ALTER TABLE `setup_table`
 -- Indexes for table `widgets_collection`
 --
 ALTER TABLE `widgets_collection`
-  ADD PRIMARY KEY (`i_id`);
+  ADD PRIMARY KEY (`i_collection_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -270,7 +270,7 @@ ALTER TABLE `widgets_collection`
 -- AUTO_INCREMENT for table `environment_table`
 --
 ALTER TABLE `environment_table`
-  MODIFY `i_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `i_environment_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `group_table`
 --
@@ -280,7 +280,7 @@ ALTER TABLE `group_table`
 -- AUTO_INCREMENT for table `office_table`
 --
 ALTER TABLE `office_table`
-  MODIFY `i_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `i_office_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 --
 -- AUTO_INCREMENT for table `setup_table`
 --
@@ -290,7 +290,7 @@ ALTER TABLE `setup_table`
 -- AUTO_INCREMENT for table `widgets_collection`
 --
 ALTER TABLE `widgets_collection`
-  MODIFY `i_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `i_collection_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

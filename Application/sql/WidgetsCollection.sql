@@ -1,12 +1,12 @@
-drop table if exists widgets_collection;
+drop table if exists widgetc_collection;
 
-create table widgets_collection ( i_id integer identity primary key, s_module varchar (100),  s_widget_id varchar (100) , s_widget_description varchar (200) ,i_status varchar (10) );
-
-
-insert into widgets_collection (s_module ,s_widget_id , s_widget_description ,i_status) values ('Login','Login_username' , 'username','1');
-insert into widgets_collection (s_module ,s_widget_id , s_widget_description ,i_status) values ('Login','Login_password' , 'password','1');
-insert into widgets_collection (s_module ,s_widget_id , s_widget_description ,i_status) values ('Login','Login_submit' , 'submit login','1');
+create table widgetc_collection ( i_collection_id integer identity primary key, c_module varchar (100),  c_widget_id varchar (100) , c_description varchar (200) ,i_status varchar (10) );
 
 
-select * from widgets_collection where s_module = 'login' and i_status  > 1  ;
+insert into widgetc_collection (c_module ,c_widget_id , c_widget_description ,i_status) values ('Login','Login_username' , 'username','1');
+insert into widgetc_collection (c_module ,c_widget_id , c_widget_description ,i_status) values ('Login','Login_password' , 'password','1');
+insert into widgetc_collection (c_module ,c_widget_id , c_widget_description ,i_status) values ('Login','Login_submit' , 'submit login','1');
+
+
+select * from widgetc_collection where c_module = 'login' and i_status  > 1  ;
 
