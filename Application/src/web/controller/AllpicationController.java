@@ -19,6 +19,7 @@ import web.action.ActiveGroupAction;
 import web.action.ActiveStepAction;
 import web.action.CreateGroupAction;
 import web.action.CreateLoginStepAction;
+import web.action.CreateWidgetsCollectionAction;
 import web.action.LoginSetupAction;
 import web.action.RunTestCaseAction;
 import web.common.util.StringUtils;
@@ -28,6 +29,7 @@ import web.dao.service.LoginService;
 import web.shared.GroupBean;
 import web.shared.LoginSetupBean;
 import web.shared.SetupBean;
+import web.shared.WidgetsCollectionBean;
 
 @Controller
 public class AllpicationController {
@@ -50,24 +52,6 @@ public class AllpicationController {
 		return model;
 
 	}
-	
-	@RequestMapping(value = "/loginForm")
-	public ModelAndView executeLogin(@ModelAttribute("loginModel") LoginSetupBean loginSetupBean ){
-		
-		LoginService loginService = new LoginService();
-		boolean isAuthentication = loginService.authentication(loginSetupBean);
-		String path = null;
-		ModelAndView modelAndView = new ModelAndView();
-		if(isAuthentication){
-			path = "redirect:"+ PageRegister.TOTAL_SALES_REPORT.getPath();
-		}else {
-			path = PageRegister.LOGIN.getPath();
-		}
-		modelAndView.setViewName(path);
-		return modelAndView;
-	}
-	
-	
 
 	
 	
@@ -226,9 +210,12 @@ public class AllpicationController {
 	}
 	
 	@RequestMapping(value = "/CreateWidgetsCollection" )
-	public ModelAndView createWidgetsCollection(HttpServletRequest request){
+	public ModelAndView createWidgetsCollection(@ModelAttribute("WidgetsCollectionModel") WidgetsCollectionBean collectionBean  ){
 		
 		ModelAndView modelAndView = new ModelAndView();
+		CreateWidgetsCollectionAction collectionAction = new CreateWidgetsCollectionAction(collectionBean);
+		
+		modelAndView = collectionAction.getSetupModelAndView();
 		
 		return modelAndView;
 	}

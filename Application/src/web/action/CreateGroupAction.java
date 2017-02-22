@@ -10,10 +10,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import web.common.interfaces.SetupModelAndView;
 import web.common.list.ListBoxData;
+import web.common.util.NotificationUtil;
 import web.common.util.StringUtils;
 import web.comstant.Action;
 import web.comstant.PageRegister;
 import web.dao.service.CreateGroupServive;
+import web.shared.DisplayResponseBean;
 import web.shared.GroupBean;
 import web.shared.SetupBean;
 
@@ -21,8 +23,8 @@ public class CreateGroupAction implements SetupModelAndView {
 
 	private ModelAndView modelAndView = new ModelAndView();
 
-	private GroupBean groupBean ;
-	
+	private GroupBean groupBean;
+
 	private CreateGroupServive createGroupServive = new CreateGroupServive();
 
 	public CreateGroupAction(GroupBean groupBean) {
@@ -33,7 +35,7 @@ public class CreateGroupAction implements SetupModelAndView {
 
 	@Override
 	public ModelAndView getSetupModelAndView() {
-		
+
 		return modelAndView;
 	}
 
@@ -51,10 +53,8 @@ public class CreateGroupAction implements SetupModelAndView {
 		setupTableData();
 		setupGroupListData();
 		clearForm();
-		
 
 	}
-
 
 	@Override
 	public void action() {
@@ -65,7 +65,6 @@ public class CreateGroupAction implements SetupModelAndView {
 			switch (direction) {
 			case Action.SEARCH:
 				setupTableData();
-				
 
 				break;
 			case Action.INSERT:
@@ -75,15 +74,15 @@ public class CreateGroupAction implements SetupModelAndView {
 				break;
 
 			case Action.UPDATE:
-				 updateGroup();
-				 setupTableData();
-				 resetModel();
+				updateGroup();
+				setupTableData();
+				resetModel();
 				break;
 
 			case Action.DELETE:
 				deleteGroup();
-				 setupTableData();
-				 resetModel();
+				setupTableData();
+				resetModel();
 				break;
 
 			default:
@@ -94,18 +93,18 @@ public class CreateGroupAction implements SetupModelAndView {
 	}
 
 	private void resetModel() {
-		
+
 		groupBean.setId("");
 		groupBean.setName("");
 		groupBean.setModule("");
-		
-	}private void clearForm() {
-		
-		modelAndView.addObject("errorMessage", "");
-		
+
 	}
 
-	
+	private void clearForm() {
+
+		modelAndView.addObject("errorMessage", "");
+
+	}
 
 	private void setupTableData() {
 		List<GroupBean> groupBeans = new ArrayList<>();
@@ -114,42 +113,45 @@ public class CreateGroupAction implements SetupModelAndView {
 		modelAndView.addObject("groupBeans", groupBeans);
 
 	}
-	
+
 	private void setupGroupListData() {
 		ListBoxData data = new ListBoxData();
-		
-		Map<String , String> modules = data.getModule();
-		
+
+		Map<String, String> modules = data.getModule();
+
 		modelAndView.addObject("modules", modules);
-		
+
 	}
-	
-	
 
 	private void addGroup() {
-		
-		
+
 		Boolean isExisting = createGroupServive.checkExistingGroupByName(groupBean);
 
-		if(!isExisting){
+		DisplayResponseBean displayResponseBean;
+		if (!isExisting) {
 			createGroupServive.addGroup(groupBean);
-			String successMessage =  "Add New Group Success! ";
-			//modelAndView.addObject("successMessage", successMessage);
-		}else {
+			String successMessage = "Add New Group Success! ";
+
+			displayResponseBean = NotificationUtil.displaySuccess(successMessage);
+		} else {
 			String errorMessage = "This Group Name Existing in System Cannot Add more ";
-			modelAndView.addObject("errorMessage", errorMessage);
+
+			displayResponseBean = NotificationUtil.displayError(errorMessage);
+			
 		}
+		modelAndView.addObject("displayResponseBean", displayResponseBean);
 
 	}
+
 	private void updateGroup() {
 
 		createGroupServive.updateGroup(groupBean);
-		
+
 	}
 
 	private void deleteGroup() {
 
 		createGroupServive.deleteGroup(groupBean);
-		
+
 	}
 }

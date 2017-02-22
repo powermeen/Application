@@ -49,31 +49,32 @@
 										<div class="panel panel-default">
 											<div class="panel-heading">Default Panel</div>
 											<div class="panel-body">
-												<div>
-													<div id="operationMessageAdd"
-														class="alert alert-warning disabled">
-														<strong>Warning!</strong> Please Fill Data Every Field
-													</div>
-													<div id="operationMessageSave"
-														class="alert alert-warning disabled">
-														<strong>Warning!</strong> Please Select Group You Need To
-														Update
-													</div>
-													<div id="operationMessageDelete" class="alert alert-danger  disabled">
-														<strong>Warning!</strong> Please Select ID You Need To Delete
-													</div>
-													<c:if test="${ not empty errorMessage  }">
-														<div id="errorMessage" class="alert alert-danger ">
-															<strong>Error!</strong> ${errorMessage }
-														</div>
-													</c:if>
-													<c:if test="${ not empty successMessage  }">
-														<div id="successMessage" class="alert alert-success ">
-															<strong>Error!</strong> ${successMessage }
-														</div>
-													</c:if>
+												<!-- 												<div> -->
+												<!-- 													<div id="operationMessageAdd" -->
+												<!-- 														class="alert alert-warning disabled"> -->
+												<!-- 														<strong>Warning!</strong> Please Fill Data Every Field -->
+												<!-- 													</div> -->
+												<!-- 													<div id="operationMessageSave" -->
+												<!-- 														class="alert alert-warning disabled"> -->
+												<!-- 														<strong>Warning!</strong> Please Select Group You Need To -->
+												<!-- 														Update -->
+												<!-- 													</div> -->
+												<!-- 													<div id="operationMessageDelete" class="alert alert-danger  disabled"> -->
+												<!-- 														<strong>Warning!</strong> Please Select ID You Need To Delete -->
+												<!-- 													</div> -->
+												<%-- 													<c:if test="${ not empty errorMessage  }"> --%>
+												<!-- 														<div id="errorMessage" class="alert alert-danger "> -->
+												<%-- 															<strong>Error!</strong> ${errorMessage } --%>
+												<!-- 														</div> -->
+												<%-- 													</c:if> --%>
+												<%-- 													<c:if test="${ not empty successMessage  }"> --%>
+												<!-- 														<div id="successMessage" class="alert alert-success "> -->
+												<%-- 															<strong>Error!</strong> ${successMessage } --%>
+												<!-- 														</div> -->
+												<%-- 													</c:if> --%>
 
-												</div>
+												<!-- 												</div> -->
+												<jsp:include page="../Notification.jsp"></jsp:include>
 
 
 												<div class="col-md-12">
@@ -296,7 +297,7 @@
 				if (isChecked) {
 					$('#direction').val("insert");
 					$('#CreateGroup').submit();
-					
+
 				}
 
 			});
@@ -319,7 +320,7 @@
 
 					$('#direction').val("delete");
 					$('#createLoginStepForm').submit();
-					
+
 				}
 			});
 		}
@@ -333,33 +334,32 @@
 		function clearButtonHandler() {
 			$('#clear').click(function() {
 				clearForm();
-				
+
 			});
 
 		}
-		function clearForm(){
+		function clearForm() {
 			$('#id').val('');
 			$('#name').val('');
 			$('#module').val('');
 
-			$('#operationMessageAdd').addClass("disabled");
-			$('#operationMessageSave').addClass("disabled");
-			$('#operationMessageDelete').addClass("disabled");
-			$('#successMessage').addClass("disabled");
-			$('#errorMessage').addClass("disabled");
+			
 		}
 
 		function addValidation() {
 
 			//has-warning
-			var name = $('#name').val();
-			var module = $('#module').val();
+			clearForm();
 
 			if (name == "" || module == "") {
-				$('#operationMessageAdd').removeClass("disabled");
+				$('#message').removeClass("disabled");
+
+				setTimeout(function() {
+					$("#operationMessageAdd").addClass("disabled");
+				}, 1200);
 
 				//addClass
-				return false;
+				return true;
 			} else {
 				return true;
 			}
@@ -370,21 +370,29 @@
 			var name = $('#name').val();
 			var module = $('#module').val();
 
-			if (id == "" || name == ""|| module == "" ) {
+			if (id == "" || name == "" || module == "") {
 				$('#operationMessageSave').removeClass("disabled");
+
+				setTimeout(function() {
+					$("#operationMessageSave").addClass("disabled");
+				}, 1200);
 
 				return false;
 			} else {
 				return true;
 			}
 		}
-		
+
 		function deleteValidation() {
 
 			var setupId = $('#id').val();
 
 			if (setupId == "") {
 				$('#operationMessageDelete').removeClass("disabled");
+
+				setTimeout(function() {
+					$("#operationMessageDelete").addClass("disabled");
+				}, 1200);
 
 				//addClass
 				return false;

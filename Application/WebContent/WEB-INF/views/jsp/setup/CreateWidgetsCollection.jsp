@@ -37,8 +37,8 @@
 						<div class="panel-heading">Basic Form Elements</div>
 						<div class="panel-body">
 							<div class="row">
-								<form:form id="CreateGroup" method="post" action="CreateGroup"
-									modelAttribute="GroupModel" role="form">
+								<form:form id="CreateWidgetsCollection" method="post" action="CreateWidgetsCollection"
+									modelAttribute="WidgetsCollectionModel" role="form">
 
 
 									<!-- /.col-lg-6 (nested) -->
