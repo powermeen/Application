@@ -5,14 +5,12 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
@@ -30,7 +28,6 @@ import web.dao.service.LoginService;
 import web.shared.GroupBean;
 import web.shared.LoginSetupBean;
 import web.shared.SetupBean;
-import web.shared.TotalSalesReportBean;
 
 @Controller
 public class AllpicationController {
@@ -71,35 +68,8 @@ public class AllpicationController {
 	}
 	
 	
-	@RequestMapping(value = "/DemoColumn", method = RequestMethod.GET)
-	public String demoColumn(){
-		
-		String 	viewName = PageRegister.DEMO_COLUMN.getPath();
-		return  viewName;
-	}
-	@RequestMapping(value = "/TestMappingData" )
-	public String testMappingData(){
-		
-		String 	viewName = PageRegister.TEST_MAPPING_DATA.getPath();
-		
-		return  viewName;
-	}
-	
-	@ResponseBody
-	@RequestMapping(value = "/TestMappingDataReset" ,produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public String  testMappingDataReset(){
-		
-		TotalSalesReportBean  bean = new TotalSalesReportBean();
-		bean.setSite("1");
-		bean.setLiter("500");
-		bean.setMoney("10000.000");
-		bean.setQuality("50");
-		List<TotalSalesReportBean>beans = new ArrayList<TotalSalesReportBean>();
-		beans.add(bean);
 
-		String data = new Gson().toJson(beans);
-		return  data;
-	}
+	
 	
 	@RequestMapping(value = "/LoginSetup")
 	public ModelAndView loginSetup(@ModelAttribute("loginModel") LoginSetupBean loginSetupBean ){
@@ -255,6 +225,13 @@ public class AllpicationController {
 		
 	}
 	
+	@RequestMapping(value = "/CreateWidgetsCollection" )
+	public ModelAndView createWidgetsCollection(HttpServletRequest request){
+		
+		ModelAndView modelAndView = new ModelAndView();
+		
+		return modelAndView;
+	}
 
 	
 

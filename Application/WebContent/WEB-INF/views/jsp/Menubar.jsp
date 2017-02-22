@@ -282,7 +282,7 @@
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Widgets Collection<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="panels-wells.html">Create Widgets Collection</a>
+                                    <a onclick="redriectPage('CreateWidgetsCollection');">Create Widgets Collection</a>
                                 </li>
                                 <li>
                                     <a href="buttons.html">Active Widgets Collection</a>
