@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * @author papisit
- *
- */
-package com;

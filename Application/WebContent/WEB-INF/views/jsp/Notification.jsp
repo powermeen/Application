@@ -6,16 +6,16 @@
 <title>Notification</title>
 <script type="text/javascript">
 	setTimeout(function() {
-		$("#message").addClass("disabled");
+		$("#messageBox").addClass("disabled");
 	}, 1200);
 </script>
 </head>
 <body>
 
 	<div>
-		<div id="message" class="${displayResponseBean.css }">
+		<div id="messageBox" class="${displayResponseBean.css }">
 			<strong>${displayResponseBean.status }</strong>
-			${displayResponseBean.message }
+			<div id="message">${displayResponseBean.message }xxxxs</div>
 		</div>
 	</div>
 
