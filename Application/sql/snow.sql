@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2017 at 12:03 PM
+-- Generation Time: Mar 02, 2017 at 11:59 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -42,6 +42,27 @@ INSERT INTO `environment_table` (`i_environment_id`, `c_code`, `c_name`, `c_url`
 (1, 'loacl', 'Local Environment', 'http://localhost:8080/phoenix/', 0),
 (2, 'Beta Shipco', 'Beta Shipco Environment', 'http://phoenix.scan-it.com.sg/phoenix/Application.html', 0),
 (3, 'Staging Shipco', 'Staging Shipco Environment', 'http://staging.phoenix.shipco.com/phoenix/Application.html', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `file_number_generate`
+--
+
+CREATE TABLE `file_number_generate` (
+  `i_file_id` int(20) NOT NULL,
+  `c_file_number` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `file_number_generate`
+--
+
+INSERT INTO `file_number_generate` (`i_file_id`, `c_file_number`) VALUES
+(1, '412'),
+(2, '000413'),
+(3, '000414'),
+(4, '000415');
 
 -- --------------------------------------------------------
 
@@ -239,6 +260,12 @@ ALTER TABLE `environment_table`
   ADD PRIMARY KEY (`i_environment_id`);
 
 --
+-- Indexes for table `file_number_generate`
+--
+ALTER TABLE `file_number_generate`
+  ADD PRIMARY KEY (`i_file_id`);
+
+--
 -- Indexes for table `group_table`
 --
 ALTER TABLE `group_table`
@@ -271,6 +298,11 @@ ALTER TABLE `widgets_collection`
 --
 ALTER TABLE `environment_table`
   MODIFY `i_environment_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `file_number_generate`
+--
+ALTER TABLE `file_number_generate`
+  MODIFY `i_file_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `group_table`
 --
