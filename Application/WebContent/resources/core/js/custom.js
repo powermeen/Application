@@ -8,12 +8,14 @@ function redriectPage(page) {
 
 
 
-function clientValidationMessae(){
+function clientValidationMessae(messages , status){
 	
 	var success = "alert alert-success";
 	var warning = "alert alert-warning";
 	var error = "alert alert-danger";
 	var cssStyle = "";
+	
+	$('#message').text(messages);
 	
 	if(1 == status){
 		
@@ -28,13 +30,16 @@ function clientValidationMessae(){
 		cssStyle = error;
 		
 	}
-	$("#messageBox").addClass("alert alert-success");
+	$('#message').text(messages);
+	$("#messageBox").addClass(cssStyle);
 	$('#messageBox').removeClass("disabled");
-	$('#message').val(message);
+	
 	
 
 	setTimeout(function() {
 		$("#messageBox").addClass("disabled");
-	}, 1200);
+	}, 2500);
+	
+
 	
 }

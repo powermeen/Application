@@ -37,7 +37,8 @@
 						<div class="panel-heading">Basic Form Elements</div>
 						<div class="panel-body">
 							<div class="row">
-								<form:form id="CreateWidgetsCollection" method="post" action="CreateWidgetsCollection"
+								<form:form id="CreateWidgetsCollection" method="post"
+									action="CreateWidgetsCollection"
 									modelAttribute="WidgetsCollectionModel" role="form">
 
 
@@ -49,68 +50,51 @@
 										<div class="panel panel-default">
 											<div class="panel-heading">Default Panel</div>
 											<div class="panel-body">
-												<div>
-													<div id="operationMessageAdd"
-														class="alert alert-warning disabled">
-														<strong>Warning!</strong> Please Fill Data Every Field
-													</div>
-													<div id="operationMessageSave"
-														class="alert alert-warning disabled">
-														<strong>Warning!</strong> Please Select Group You Need To
-														Update
-													</div>
-													<div id="operationMessageDelete" class="alert alert-danger  disabled">
-														<strong>Warning!</strong> Please Select ID You Need To Delete
-													</div>
-													<c:if test="${ not empty errorMessage  }">
-														<div id="errorMessage" class="alert alert-danger ">
-															<strong>Error!</strong> ${errorMessage }
-														</div>
-													</c:if>
-													<c:if test="${ not empty successMessage  }">
-														<div id="successMessage" class="alert alert-success ">
-															<strong>Error!</strong> ${successMessage }
-														</div>
-													</c:if>
 
-												</div>
-
+												<jsp:include page="../Notification.jsp"></jsp:include>
 
 												<div class="col-md-12">
 													<div class="col-md-2">
 														<label>ID</label>
 													</div>
 													<div class="col-md-3">
-														<label>Group_Name</label>
+														<label>Module</label>
 													</div>
 													<div class="col-md-3">
-														<label>Module</label>
+														<label>widget_id</label>
+													</div>
+													<div class="col-md-3">
+														<label>description</label>
 													</div>
 
 												</div>
 
 												<div class="col-md-12">
 
-													<div class="col-md-2 form-group " id="idGroup ">
+													<div class="col-md-2 form-group ">
 
 														<form:input path="id" class="form-control "
 															readonly="true" />
 													</div>
 
 
-													<div class="col-md-3 form-group has-error"
-														id="sequenceGroup ">
-
-														<form:input path="name" class="form-control "
-															placeholder="Enter text" />
-													</div>
-
-													<div class="col-md-3 form-group has-error"
-														id="moduleGroup ">
+													<div class="col-md-3 form-group has-error">
 
 														<form:select path="module" items="${modules}"
 															class="form-control">
 														</form:select>
+													</div>
+
+													<div class="col-md-3 form-group has-error">
+
+														<form:input path="widgetId" class="form-control "
+															placeholder="Enter text" />
+													</div>
+
+													<div class="col-md-3 form-group has-error">
+
+														<form:input path="description" class="form-control "
+															placeholder="Enter text" />
 													</div>
 
 
@@ -160,31 +144,34 @@
 								id="dataTables">
 								<thead>
 									<tr>
-										<th>Group_ID</th>
-										<th>Group_Name</th>
+										<th>ID</th>
 										<th>Module</th>
-										<th>Status</th>
+										<th>Widget_id</th>
+										<th>Description</th>
 										<th>Edit</th>
 
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach var="groupBean" items="${groupBeans}"
-										varStatus="loop">
+									<c:forEach var="widgetsCollectionBean"
+										items="${widgetsCollectionBeans}" varStatus="loop">
 
-										<c:set var="id" value="${groupBean.id}" />
-										<c:set var="name" value="${groupBean.name}" />
-										<c:set var="module" value="${groupBean.module}" />
-										<c:set var="status" value="${groupBean.status}" />
+										<c:set var="id" value="${widgetsCollectionBean.id}" />
+										<c:set var="module" value="${widgetsCollectionBean.module}" />
+										<c:set var="widgetId"
+											value="${widgetsCollectionBean.widgetId}" />
+										<c:set var="description"
+											value="${widgetsCollectionBean.description}" />
 
 
 										<c:choose>
 											<c:when test="${loop.index % 2 !=0 }">
 												<tr class="info">
 													<td>${id}</td>
-													<td>${name }</td>
 													<td>${module }</td>
-													<td>${status }</td>
+													<td>${widgetId }</td>
+													<td>${description }</td>
+
 
 													<td><button type="button"
 															class="btn btn-default btn-xs center "
@@ -196,9 +183,10 @@
 											<c:otherwise>
 												<tr>
 													<td>${id}</td>
-													<td>${name }</td>
 													<td>${module }</td>
-													<td>${status }</td>
+													<td>${widgetId }</td>
+													<td>${description }</td>
+
 													<td><button type="button"
 															class="btn btn-default btn-xs center "
 															onclick="editData('${id}','${name}','${module}');">Edit</button></td>
@@ -286,7 +274,7 @@
 
 			$('#refresh').click(function() {
 				$('#direction').val("search");
-				$('#CreateGroup').submit();
+				$('#CreateWidgetsCollection').submit();
 			});
 		}
 		function addButtonHandler() {
@@ -295,8 +283,8 @@
 				var isChecked = addValidation();
 				if (isChecked) {
 					$('#direction').val("insert");
-					$('#CreateGroup').submit();
-					
+					$('#CreateWidgetsCollection').submit();
+
 				}
 
 			});
@@ -306,7 +294,7 @@
 				var isChecked = saveValidation();
 				if (isChecked) {
 					$('#direction').val("update");
-					$('#CreateGroup').submit();
+					$('#CreateWidgetsCollection').submit();
 				}
 
 			});
@@ -318,8 +306,8 @@
 				if (isChecked) {
 
 					$('#direction').val("delete");
-					$('#createLoginStepForm').submit();
-					
+					$('#CreateWidgetsCollection').submit();
+
 				}
 			});
 		}
@@ -333,32 +321,29 @@
 		function clearButtonHandler() {
 			$('#clear').click(function() {
 				clearForm();
-				
+
 			});
 
 		}
-		function clearForm(){
+		function clearForm() {
 			$('#id').val('');
 			$('#name').val('');
 			$('#module').val('');
 
-			$('#operationMessageAdd').addClass("disabled");
-			$('#operationMessageSave').addClass("disabled");
-			$('#operationMessageDelete').addClass("disabled");
-			$('#successMessage').addClass("disabled");
-			$('#errorMessage').addClass("disabled");
+			
 		}
 
 		function addValidation() {
 
-			//has-warning
-			var name = $('#name').val();
+			
 			var module = $('#module').val();
+			var name = $('#widgetId').val();
+			var description = $('#description').val();
 
-			if (name == "" || module == "") {
-				$('#operationMessageAdd').removeClass("disabled");
+			if (name == "" || module == "" || description =="") {
+				
 
-				//addClass
+				//addClas
 				return false;
 			} else {
 				return true;
@@ -370,7 +355,7 @@
 			var name = $('#name').val();
 			var module = $('#module').val();
 
-			if (id == "" || name == ""|| module == "" ) {
+			if (id == "" || name == "" || module == "") {
 				$('#operationMessageSave').removeClass("disabled");
 
 				return false;
@@ -378,7 +363,7 @@
 				return true;
 			}
 		}
-		
+
 		function deleteValidation() {
 
 			var setupId = $('#id').val();

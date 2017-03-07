@@ -28,7 +28,7 @@
 <link  type="text/css" rel="stylesheet" href="${dataTablesBootstrapCSS}"  />
 <link  type="text/css" rel="stylesheet" href="${dataTablesResponsiveCSS}"  />
 <link  type="text/css" rel="stylesheet" href="${adminCSS}"  />
-<link  type="text/css" rel="stylesheet" href="${morrisCSS}"  />
+
 <link  type="text/css" rel="stylesheet" href="${awesomeCSS}"  />
 <link  type="text/css" rel="stylesheet" href="${bootstrapToggleCSS}"  />
 <link  type="text/css" rel="stylesheet" href="${customCSS}"  />

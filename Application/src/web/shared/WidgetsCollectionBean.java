@@ -11,6 +11,8 @@ public class WidgetsCollectionBean {
 	private String description;
 	
 	private String status;
+	
+	private String direction;
 
 	public String getId() {
 		return id;
@@ -50,6 +52,14 @@ public class WidgetsCollectionBean {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public String getDirection() {
+		return direction;
+	}
+
+	public void setDirection(String direction) {
+		this.direction = direction;
 	}
 
 	

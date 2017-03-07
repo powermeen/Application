@@ -7,7 +7,7 @@
 <script type="text/javascript">
 	setTimeout(function() {
 		$("#messageBox").addClass("disabled");
-	}, 1200);
+	}, 2500);
 </script>
 </head>
 <body>
@@ -15,7 +15,7 @@
 	<div>
 		<div id="messageBox" class="${displayResponseBean.css }">
 			<strong>${displayResponseBean.status }</strong>
-			<div id="message">${displayResponseBean.message }xxxxs</div>
+			<div id="message">${displayResponseBean.message }</div>
 		</div>
 	</div>
 

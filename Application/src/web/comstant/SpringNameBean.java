@@ -26,6 +26,8 @@ public class SpringNameBean {
 	public static final String RUN_TEST_CASE = "runTestCase";
 
 	public static final String LIST_BOX_DATA = "listboxdata";
+
+	public static final String WIDGETS_COLLECTION = "widgetsCollection";
 	
 	
 	

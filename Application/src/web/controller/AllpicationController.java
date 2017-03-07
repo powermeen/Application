@@ -215,6 +215,7 @@ public class AllpicationController {
 		ModelAndView modelAndView = new ModelAndView();
 		CreateWidgetsCollectionAction collectionAction = new CreateWidgetsCollectionAction(collectionBean);
 		
+		collectionAction.action();
 		modelAndView = collectionAction.getSetupModelAndView();
 		
 		return modelAndView;

@@ -3,6 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>Application</groupId>
 	<artifactId>Application</artifactId>
+	<name>Application</name>
 	<version>01</version>
 	<packaging>war</packaging>
 

@@ -34,8 +34,7 @@
 <script   type="text/javascript" src="${bootstrapJS}"></script>
 <script   type="text/javascript" src="${metisMenuJS}"></script>
 <script   type="text/javascript" src="${raphaelJS}"></script>
-<script   type="text/javascript" src="${morrisJS}"></script>
-<script   type="text/javascript" src="${morris_dataJS}"></script>
+
 
 <script   type="text/javascript" src="${dataTablesJS}"></script>
 <script   type="text/javascript" src="${dataTablesBootstrapJS}"></script>

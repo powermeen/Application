@@ -348,16 +348,12 @@
 
 		function addValidation() {
 
-			//has-warning
+			
 			clearForm();
 
 			if (name == "" || module == "") {
-// 				$('#messageBox').removeClass("disabled");
 
-// 				setTimeout(function() {
-// 					$("#messageBox").addClass("disabled");
-// 				}, 1200);
-				clientValidationMessae("aaaaaaaaa",1);
+				clientValidationMessae('Please Fill All Mandatory ',3);
 
 				//addClass
 				return false;
@@ -402,36 +398,7 @@
 			}
 		}
 		
-		function clientValidationMessae(message , status){
-			
-			var success = "alert alert-success";
-			var warning = "alert alert-warning";
-			var error = "alert alert-danger";
-			var cssStyle = "";
-			
-			if(1 == status){
-				
-				cssStyle = success;
-				
-			}else if (2 == status) {
-				
-				cssStyle = warning;
-				
-			}else if (3 == status) {
-				
-				cssStyle = error;
-				
-			}
-			$("#messageBox").addClass("alert alert-success");
-			$('#messageBox').removeClass("disabled");
-			$('#message').val(message);
-			
-
-			setTimeout(function() {
-				$("#messageBox").addClass("disabled");
-			}, 1200);
-			
-		}
+		
 	</script>
 
 </body>

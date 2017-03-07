@@ -2,8 +2,12 @@ package web.sql;
 
 public class CreateGroupQuery {
 
+	
+	private String selectGroupTable = "select i_group_id as Id , c_name as name ,  c_module as module ,i_status as status from group_table";
+	
+	
 	public String getAllGroup (){
-		String query = "select i_group_id as Id , c_name as name ,  c_module as module ,i_status as status from group_table ";
+		String query = selectGroupTable;
 		return query;
 		
 	}
@@ -24,7 +28,7 @@ public class CreateGroupQuery {
 	}
 	
 	public String getGroupById(){
-		String query = "select i_group_id as Id , c_name as name , c_module as module ,i_status as status from group_table where i_group_id = ? ";
+		String query = selectGroupTable+ "where i_group_id = ? ";
 		return query;
 	}
 
@@ -34,7 +38,7 @@ public class CreateGroupQuery {
 	}
 
 	public String getGroupByName() {
-		String query = "select i_group_id as Id , c_name as name , c_module as module ,i_status as status from group_table where c_name = ?";
+		String query = selectGroupTable +" where c_name = ?";
 		return query;
 	}
 	

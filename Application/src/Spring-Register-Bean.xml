@@ -38,6 +38,9 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean id="listboxdata" class="web.dao.server.listboxdata.ListBoxDataJDBCTemplate">
 	</bean>
+	
+	<bean id="widgetsCollection" class="web.dao.server.widgets.collection.WidgetsCollectionJDBCTemplate">
+	</bean>
 
 
 
