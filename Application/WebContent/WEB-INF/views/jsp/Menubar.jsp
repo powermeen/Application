@@ -256,9 +256,7 @@
                                 <li>
                                     <a href="javascript:void(0);" onclick="redriectPage('CreateLoginStep');">Create Login Step</a>
                                 </li>
-                                <li>
-                                    <a href="javascript:void(0);" onclick="redriectPage('ActiveStep');">Active Step</a>
-                                </li>
+                                
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
@@ -274,9 +272,7 @@
                                 <li>
                                     <a onclick="redriectPage('CreateWidgetsCollection');">Create Widgets Collection</a>
                                 </li>
-                                <li>
-                                    <a href="buttons.html">Active Widgets Collection</a>
-                                </li>
+                               
                           
                             </ul>
                             <!-- /.nav-second-level -->

@@ -145,6 +145,7 @@ public class CreateGroupAction implements SetupModelAndView {
 
 	private void updateGroup() {
 
+		
 		createGroupServive.updateGroup(groupBean);
 
 	}

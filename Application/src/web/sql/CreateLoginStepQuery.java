@@ -4,7 +4,7 @@ public class CreateLoginStepQuery {
 
 	private String selectSetupTable = "select i_setup_id as setupId , c_module as module , c_widget_id as widgetId , c_widget_name as widgetName , c_data as data , c_action_type as actionType , c_sequence as sequence ,c_reference as reference from setup_table ";
 	
-	private String selectGroupTable = "select i_group_id as id , c_name as name ,  c_module as module ,i_status as status from group_table";
+	private String selectGroupTable = "select i_group_id as id , c_name as name ,  c_module as module ,i_status as status from group_table ";
 	
 	public String getStepByReference(){
 		

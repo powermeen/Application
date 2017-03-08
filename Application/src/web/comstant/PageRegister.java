@@ -9,7 +9,6 @@ public enum PageRegister {
 	CREATE_GROUP("CreateGroup","/setup/CreateGroup"),
 	DATA_TABLE("DataTable","/setup/DataTable"),
 	ACTIVE_GROUP("ActiveGroup","/setup/ActiveGroup"),
-	ACTIVE_STEP("ActiveStep","/setup/ActiveStep"),
 	RUN_TEST_CASE("RunTestCase","/process/RunTestCase"),
 	CREATE_WIDGETS_COLLECTION("CreateWidgetsCollection","/setup/CreateWidgetsCollection");
 

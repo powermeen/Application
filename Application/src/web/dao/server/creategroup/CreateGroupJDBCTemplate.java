@@ -3,11 +3,10 @@ package web.dao.server.creategroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.sql.DataSource;
-
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import web.common.connection.ConnectionFactory;
+import web.common.util.TransactionStatus;
 import web.dao.mapper.GroupRowMapper;
 import web.shared.GroupBean;
 import web.sql.CreateGroupQuery;
@@ -31,23 +30,24 @@ public class CreateGroupJDBCTemplate extends ConnectionFactory implements Create
 	}
 
 	@Override
-	public int addGroup(GroupBean groupBean) {
+	public boolean addGroup(GroupBean groupBean) {
 
 		Object[] objects = new Object[2];
 		objects[0] = groupBean.getName();
 		objects[1] = groupBean.getModule();
 
 		String query = createGroupQuery.addGroup();
-		int success = jdbcTemplate.update(query, objects);
-		return 0;
+		int status = jdbcTemplate.update(query, objects);
+		
+		return TransactionStatus.isCheckTransectionsStatus(status);
 	}
 
 	@Override
-	public void updateGroup(GroupBean groupBean) {
+	public boolean updateGroup(GroupBean groupBean) {
 
+		int status = 0 ; 
 		
-		
-		int succress = updateGroupInStep(groupBean);
+		 boolean  success = updateGroupInStep(groupBean);
 		
 		Object[] objects = new Object[2];
 		objects[0] = groupBean.getName();
@@ -55,17 +55,22 @@ public class CreateGroupJDBCTemplate extends ConnectionFactory implements Create
 		
 		String query = createGroupQuery.updateGroup();
 
-		int success = jdbcTemplate.update(query, objects);
+		status = jdbcTemplate.update(query, objects);
+		
+		return TransactionStatus.isCheckTransectionsStatus(status);
+		
 
 	}
 
 	@Override
-	public void deleteGroup(GroupBean groupBean) {
+	public boolean deleteGroup(GroupBean groupBean) {
 		
 		Object[] objects = new Object[1];
 		objects[0] = groupBean.getId();
 		String query = createGroupQuery.deleteGroupById();
-		int success = jdbcTemplate.update(query, objects);
+		int status = jdbcTemplate.update(query, objects);
+		
+		return TransactionStatus.isCheckTransectionsStatus(status);
 	}
 
 	private String getGroupById(String id) {
@@ -88,7 +93,7 @@ public class CreateGroupJDBCTemplate extends ConnectionFactory implements Create
 	
 
 	
-	private int updateGroupInStep(GroupBean groupBean){
+	private boolean updateGroupInStep(GroupBean groupBean){
 		String id = groupBean.getId();
 		
 		String oldGroup = getGroupById(id);
@@ -99,8 +104,8 @@ public class CreateGroupJDBCTemplate extends ConnectionFactory implements Create
 		objects[1] = oldGroup;
 		String query = createGroupQuery.updateGroupInStep();
 		
-		int success = jdbcTemplate.update(query, objects);
-		return success;
+		int status = jdbcTemplate.update(query, objects);
+		return TransactionStatus.isCheckTransectionsStatus(status);
 		
 	}
 

@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 
 import web.action.ActiveGroupAction;
-import web.action.ActiveStepAction;
 import web.action.CreateGroupAction;
 import web.action.CreateLoginStepAction;
 import web.action.CreateWidgetsCollectionAction;
@@ -25,7 +25,6 @@ import web.action.RunTestCaseAction;
 import web.common.util.StringUtils;
 import web.comstant.Action;
 import web.comstant.PageRegister;
-import web.dao.service.LoginService;
 import web.shared.GroupBean;
 import web.shared.LoginSetupBean;
 import web.shared.SetupBean;
@@ -64,20 +63,7 @@ public class AllpicationController {
 //			loginSetupAction.saveLoginSetupForm();
 			modelAndView = loginSetupAction.getSetupModelAndView();
 		}
-		
-		
-		
-		
-	
-		
-		
-//		{
-//			loginSetupBean = loginSetupService.saveLoginSetupForm(loginSetupBean);
-//			modelAndView.addObject("loginSetupBean",loginSetupBean );	
-//		}
-		
-		
-		
+			
 		
 		
 		return  modelAndView;
@@ -171,18 +157,6 @@ public class AllpicationController {
 		
 	}
 	
-	@RequestMapping(value = "/ActiveStep" )
-	public ModelAndView activeStep(@ModelAttribute("GroupModel") GroupBean groupBean){
-		ModelAndView modelAndView = new ModelAndView();
-		
-		ActiveStepAction activeStepAction = new ActiveStepAction();
-		
-		activeStepAction.action();
-		modelAndView = activeStepAction.getSetupModelAndView();
-		 
-		return modelAndView;
-		
-	}
 	
 	@RequestMapping(value = "/RunTestCase" )
 	public ModelAndView runTestCase(HttpServletRequest request){
@@ -221,6 +195,17 @@ public class AllpicationController {
 		return modelAndView;
 	}
 
+	@RequestMapping(value = "/FileGenerator"  ,method = RequestMethod.GET )
+	public @ResponseBody String fileGenerator(HttpServletRequest request){
+		
+		List<String> list  = new ArrayList<>();
+		list.add("MEEN7777847");
+		Gson gson = new Gson();
+		String json = gson.toJson(list);
+		
+		return json;
+		
+	}
 	
 
 }
