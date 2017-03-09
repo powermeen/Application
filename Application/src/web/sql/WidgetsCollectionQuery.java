@@ -9,4 +9,14 @@ public class WidgetsCollectionQuery {
 		return sql;
 		
 	}
+
+	public String addWidgetId() {
+		String sql = "INSERT INTO widgets_collection (c_module ,c_widget_id ,c_description, i_status ) VALUES (?,?,?,1) ";
+		return sql;
+	}
+
+	public String getWidgetsCollectionByWidgetId() {
+		String sql = " selectWidgetsCollection " + "where c_widget_id = ?  " ;
+		return null;
+	}
 }

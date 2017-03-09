@@ -10,4 +10,6 @@ public interface WidgetsCollectionDao {
 	
 	
 	public List<WidgetsCollectionBean> getWidgetsCollectionByModule(String module)throws IllegalArgumentException;
+	
+	public boolean addWidgetId (WidgetsCollectionBean collectionBean )throws IllegalArgumentException;
 }

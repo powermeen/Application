@@ -330,18 +330,17 @@
 			$('#name').val('');
 			$('#module').val('');
 
-			
 		}
 
 		function addValidation() {
 
-			
 			var module = $('#module').val();
 			var name = $('#widgetId').val();
 			var description = $('#description').val();
 
-			if (name == "" || module == "" || description =="") {
-				
+			if (name == "" || module == "" || description == "") {
+
+				clientValidationMessae('Please Fill All Mandatory ', 3);
 
 				//addClas
 				return false;

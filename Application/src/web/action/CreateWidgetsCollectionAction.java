@@ -8,10 +8,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import web.common.interfaces.SetupModelAndView;
 import web.common.list.ListBoxData;
+import web.common.util.NotificationUtil;
 import web.common.util.StringUtils;
 import web.comstant.Action;
 import web.comstant.PageRegister;
 import web.dao.service.WidgetsCollectionService;
+import web.shared.DisplayResponseBean;
 import web.shared.GroupBean;
 import web.shared.WidgetsCollectionBean;
 
@@ -92,7 +94,16 @@ public class CreateWidgetsCollectionAction implements SetupModelAndView {
 	}
 	
 	private void addWidgetId() {
-		// TODO Auto-generated method stub
+		DisplayResponseBean displayResponseBean ; 
+		boolean isExsiting = collectionService.isCheckExistingWidgetsCollectionByWidgetId(collectionBean);
+		if(isExsiting){
+			displayResponseBean = NotificationUtil.displayError("This widget id already have ");
+		}else {
+			collectionService.addWidgetId(collectionBean);
+			displayResponseBean = NotificationUtil.displaySuccess("Add new widget Success  ");
+		}
+		
+		
 		
 	}
 
@@ -119,5 +130,7 @@ public class CreateWidgetsCollectionAction implements SetupModelAndView {
 		modelAndView.addObject("widgetsCollectionBeans", widgetsCollectionBeans);
 		
 	}
+	
+
 
 }

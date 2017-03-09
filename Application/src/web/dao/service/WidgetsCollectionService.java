@@ -29,4 +29,25 @@ public class WidgetsCollectionService {
 		 
 		return widgetsCollectionBeans ;
 	}
+
+	public boolean addWidgetId(WidgetsCollectionBean collectionBean) {
+
+		boolean status = jdbcTemplate.addWidgetId(collectionBean); 
+		return status; 
+				
+		
+	}
+
+	public boolean isCheckExistingWidgetsCollectionByWidgetId(WidgetsCollectionBean collectionBean) {
+		String widgetId = collectionBean.getWidgetId();
+		
+		
+		WidgetsCollectionBean bean = jdbcTemplate.getWidgetsCollectionByWidgetId(widgetId);
+		
+		if(bean == null  ){
+			return false;
+		}else {
+			return true;
+		}
+	}
 }

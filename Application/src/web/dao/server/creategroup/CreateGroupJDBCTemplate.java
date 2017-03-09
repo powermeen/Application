@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import web.common.connection.ConnectionFactory;
-import web.common.util.TransactionStatus;
+import web.common.util.DaoStatus;
 import web.dao.mapper.GroupRowMapper;
 import web.shared.GroupBean;
 import web.sql.CreateGroupQuery;
@@ -39,7 +39,7 @@ public class CreateGroupJDBCTemplate extends ConnectionFactory implements Create
 		String query = createGroupQuery.addGroup();
 		int status = jdbcTemplate.update(query, objects);
 		
-		return TransactionStatus.isCheckTransectionsStatus(status);
+		return DaoStatus.isCheckTransectionsStatus(status);
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class CreateGroupJDBCTemplate extends ConnectionFactory implements Create
 
 		status = jdbcTemplate.update(query, objects);
 		
-		return TransactionStatus.isCheckTransectionsStatus(status);
+		return DaoStatus.isCheckTransectionsStatus(status);
 		
 
 	}
@@ -70,7 +70,7 @@ public class CreateGroupJDBCTemplate extends ConnectionFactory implements Create
 		String query = createGroupQuery.deleteGroupById();
 		int status = jdbcTemplate.update(query, objects);
 		
-		return TransactionStatus.isCheckTransectionsStatus(status);
+		return DaoStatus.isCheckTransectionsStatus(status);
 	}
 
 	private String getGroupById(String id) {
@@ -105,7 +105,7 @@ public class CreateGroupJDBCTemplate extends ConnectionFactory implements Create
 		String query = createGroupQuery.updateGroupInStep();
 		
 		int status = jdbcTemplate.update(query, objects);
-		return TransactionStatus.isCheckTransectionsStatus(status);
+		return DaoStatus.isCheckTransectionsStatus(status);
 		
 	}
 

@@ -1,6 +1,6 @@
 package web.common.util;
 
-public class TransactionStatus {
+public class DaoStatus {
 
 	
 	public static boolean isCheckTransectionsStatus(int status){
