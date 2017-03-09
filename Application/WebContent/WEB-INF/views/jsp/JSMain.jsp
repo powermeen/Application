@@ -23,8 +23,6 @@
 <spring:url value="/resources/core/vendor/bootstrap/js/bootstrap-toggle.min.js" var="bootstraptoggleJS" />
 
 
-
-
 <spring:url value="/resources/core/dist/js/sb-admin-2.js" var="sb_adminJS" />
 <spring:url value="/resources/core/js/angular.min.js" var="angularJS" />
 
@@ -45,7 +43,6 @@
 <script   type="text/javascript" src="${sb_adminJS}"></script>
 <script   type="text/javascript" src="${angularJS}"></script>
 <script   type="text/javascript" src="${bootstraptoggleJS}"></script>
-<%-- <script   type="text/javascript" src="${clipboardJS}"></script> --%>
 
 <script   type="text/javascript" src="${customJS}"></script>
 

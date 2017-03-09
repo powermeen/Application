@@ -41,6 +41,9 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	
 	<bean id="widgetsCollection" class="web.dao.server.widgets.collection.WidgetsCollectionJDBCTemplate">
 	</bean>
+	
+	<bean id="assistTool" class="web.dao.server.assist.tool.AssistToolJDBCTemplate">
+	</bean>
 
 
 

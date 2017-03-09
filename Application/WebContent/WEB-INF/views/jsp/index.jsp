@@ -11,10 +11,8 @@
 
 <style type="text/css">
 </style>
-<script src="https://cdn.jsdelivr.net/clipboard.js/1.6.0/clipboard.min.js">
-</script><script type="text/javascript">
-	
-</script>
+
+
 </head>
 <body>
 
@@ -44,27 +42,25 @@
 
 
 								<div class="col-md-3 form-group ">
-									<dt >File Generator</dt>
-									<input id="fileNumber" class="form-control " readonly="true"  value="https://github.com/zenor"/>
-									<input id="foo" value="https://github.com/zenorocha/clipboard.js.git">
-									
+									<dt>File Generator</dt>
+									<input id="fileNumber" class="form-control fileNumber"
+										readonly="ture" />
+
 								</div>
 
 							</div>
 							<div class="col-md-12">
 
 								<div class="col-md-3 form-group ">
-									<button type="button" class="btn btn-primary" onclick="fileGenerate();"  >Generate</button>
-									<button type="button" class="btn btn-default "  data-clipboard-target="#fileNumber" >Copy</button>
-									<button class="btn" data-clipboard-target="#foo"></button>
+									<button type="button" class="btn btn-primary"
+										onclick="fileGenerate();">Generate</button>
+									<button type="button" class="btn btn-default "
+										onclick="copyToClipboard('.fileNumber')">Copy</button>
 								</div>
 
 							</div>
 
 						</div>
-
-<input  class="form-control " />
-
 
 
 					</div>
@@ -77,27 +73,44 @@
 
 	<jsp:include page="JSMain.jsp"></jsp:include>
 	<script type="text/javascript">
-	
-	
-	function fileGenerate( ) {
+		function fileGenerate() {
 
-		var url = window.location;
-		var baseURL = url.protocol + "//" + url.host + "/"
-				+ url.pathname.split('/')[1];
-		var path = baseURL + "/FileGenerator";
-		$.getJSON(path, function( data ) {
-			var items = [];
-			  $.each( data, function( key, value ) {
-				  $('#fileNumber').val(value);
-				  $('#fileNumber').select();
-				  document.execCommand("copy")
-			  });
-		});
+			var url = window.location;
+			var baseURL = url.protocol + "//" + url.host + "/"
+					+ url.pathname.split('/')[1];
+			var path = baseURL + "/FileGenerator";
+			$.getJSON(path, function(data) {
+				var items = [];
+				$.each(data, function(key, value) {
+					$('#fileNumber').val(value);
+					
+					
+				});
+			});
+
+		}
+
+		function copyToClipboard(name) {
+			var copyTextarea = document.querySelector(name);
+			copyTextarea.select();
+
+			try {
+				var successful = document.execCommand('copy');
+				var msg = successful ? 'successful' : 'unsuccessful';
+				console.log('Copying text command was ' + msg);
+			} catch (err) {
+				console.log('Oops, unable to copy');
+			}
+
+		}
 		
-	}
-	
-	
-	
+		function wait(ms){
+			   var start = new Date().getTime();
+			   var end = start;
+			   while(end < start + ms) {
+			     end = new Date().getTime();
+			  }
+			}
 	</script>
 </body>
 </html>

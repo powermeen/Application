@@ -20,6 +20,7 @@ import web.action.ActiveGroupAction;
 import web.action.CreateGroupAction;
 import web.action.CreateLoginStepAction;
 import web.action.CreateWidgetsCollectionAction;
+import web.action.AssistToolAction;
 import web.action.LoginSetupAction;
 import web.action.RunTestCaseAction;
 import web.common.util.StringUtils;
@@ -196,10 +197,11 @@ public class AllpicationController {
 	}
 
 	@RequestMapping(value = "/FileGenerator"  ,method = RequestMethod.GET )
-	public @ResponseBody String fileGenerator(HttpServletRequest request){
+	public @ResponseBody String assistTool(HttpServletRequest request){
 		
-		List<String> list  = new ArrayList<>();
-		list.add("MEEN7777847");
+		AssistToolAction assistToolAction = new AssistToolAction();
+		List<String> list = assistToolAction.generateFileNumber();
+		
 		Gson gson = new Gson();
 		String json = gson.toJson(list);
 		

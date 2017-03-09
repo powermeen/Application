@@ -7,7 +7,10 @@ function redriectPage(page) {
 }
 
 
-
+/*
+ * show message 
+ * on notifaction message
+ * */
 function clientValidationMessae(messages , status){
 	
 	var success = "alert alert-success";
@@ -40,6 +43,6 @@ function clientValidationMessae(messages , status){
 		$("#messageBox").addClass("disabled");
 	}, 2500);
 	
-
-	
 }
+
+

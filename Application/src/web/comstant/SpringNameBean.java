@@ -28,6 +28,8 @@ public class SpringNameBean {
 	public static final String LIST_BOX_DATA = "listboxdata";
 
 	public static final String WIDGETS_COLLECTION = "widgetsCollection";
+
+	public static final String ASSIST_TOOL = "assistTool";
 	
 	
 	
