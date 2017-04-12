@@ -16,7 +16,7 @@ public class WidgetsCollectionQuery {
 	}
 
 	public String getWidgetsCollectionByWidgetId() {
-		String sql = " selectWidgetsCollection " + "where c_widget_id = ?  " ;
-		return null;
+		String sql =  selectWidgetsCollection  + "  c_widget_id = ?  " ;
+		return sql;
 	}
 }

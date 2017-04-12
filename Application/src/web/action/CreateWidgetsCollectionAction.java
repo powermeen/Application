@@ -102,7 +102,7 @@ public class CreateWidgetsCollectionAction implements SetupModelAndView {
 			collectionService.addWidgetId(collectionBean);
 			displayResponseBean = NotificationUtil.displaySuccess("Add new widget Success  ");
 		}
-		
+		modelAndView.addObject("displayResponseBean", displayResponseBean);
 		
 		
 	}

@@ -54,10 +54,14 @@ public class WidgetsCollectionJDBCTemplate extends ConnectionFactory implements 
 
 	public WidgetsCollectionBean getWidgetsCollectionByWidgetId(String widgetId) {
 	
+		
+		Object[] objects = new Object[1];
+		objects[0] = widgetId;
+		
 		WidgetsCollectionBean bean = null; 
 		String sql = query.getWidgetsCollectionByWidgetId();
 		List<WidgetsCollectionBean> beans = new ArrayList<>();
-		beans = jdbcTemplate.query(sql, new WidgetsCollectionRowmapper());
+		beans = jdbcTemplate.query(sql, objects ,new WidgetsCollectionRowmapper());
 		
 		if(!beans.isEmpty()){
 			bean = beans.get(0);
