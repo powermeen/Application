@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.webbitserver.HttpRequest;
 
 import com.google.gson.Gson;
 
@@ -20,19 +22,22 @@ import web.action.ActiveGroupAction;
 import web.action.CreateGroupAction;
 import web.action.CreateLoginStepAction;
 import web.action.CreateWidgetsCollectionAction;
+import web.action.LoginAction;
 import web.action.AssistToolAction;
 import web.action.LoginSetupAction;
 import web.action.RunTestCaseAction;
+import web.common.util.SessionUtil;
 import web.common.util.StringUtils;
 import web.comstant.Action;
 import web.comstant.PageRegister;
 import web.shared.GroupBean;
+import web.shared.LoginBean;
 import web.shared.LoginSetupBean;
 import web.shared.SetupBean;
 import web.shared.WidgetsCollectionBean;
 
 @Controller
-public class AllpicationController {
+public class ApplicationControl {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET )
 	public String welcomeDemo(ModelMap model) {
@@ -52,11 +57,27 @@ public class AllpicationController {
 		return model;
 
 	}
+	@RequestMapping(value = "/login")
+	public ModelAndView login(@ModelAttribute("loginModel") LoginBean loginBean , HttpServletRequest request  ){
+		ModelAndView modelAndView = new ModelAndView();
+		
+
+		LoginAction loginAction = new LoginAction(loginBean);
+		
+		if(loginAction !=null){
+			
+			modelAndView = loginAction.getSetupModelAndView();
+		}
+		
+
+		return  modelAndView;
+	}
+	
 
 	
 	
 	@RequestMapping(value = "/LoginSetup")
-	public ModelAndView loginSetup(@ModelAttribute("loginModel") LoginSetupBean loginSetupBean ){
+	public ModelAndView loginSetup(@ModelAttribute("loginModel") LoginSetupBean loginSetupBean  ){
 		ModelAndView modelAndView = new ModelAndView();
 		
 		if(loginSetupBean !=null){
@@ -123,6 +144,7 @@ public class AllpicationController {
 			setupBeans.add(bean);
 		}
 		String data = new Gson().toJson(setupBeans);
+		
 		modelAndView.addObject("data", data);
 		modelAndView.addObject("dataBean", setupBeans);
 		modelAndView.setViewName(viewName);

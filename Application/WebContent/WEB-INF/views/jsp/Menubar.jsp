@@ -235,7 +235,7 @@
                     <ul class="nav" id="side-menu">
 
                         <li>
-                            <a href="javascript:void(0);" onclick="redriectPage('LoginSetup');"><i class="fa fa-users fa-fw"></i> Login</a>
+                            <a href="javascript:void(0);" onclick="redriectPage('login');"><i class="fa fa-users fa-fw"></i> Login</a>
                         </li>
                          <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Group Maintenance<span class="fa arrow"></span></a>
